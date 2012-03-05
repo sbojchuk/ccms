@@ -1,5 +1,5 @@
 %%% initial
-\documentclass[ukrainian,8pt,utf8,pointsection,nocolumnsxix,nocolumnxxxi,nocolumnxxxii]{eskdtext}
+\documentclass[ukrainian,12pt,utf8,pointsection,nocolumnsxix,nocolumnxxxi,nocolumnxxxii]{eskdtext}
 %%% for working with math
 \usepackage{amsmath}
 \usepackage{amssymb}
