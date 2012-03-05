@@ -1,0 +1,11 @@
+\select@language {ukrainian}
+\select@language {ukrainian}
+\contentsline {section}{Вступ}{3}
+\contentsline {section}{\numberline {1}Заголовок}{4}
+\contentsline {section}{\numberline {2}Вступ}{5}
+\contentsline {subsection}{\numberline {{2.1}}Постановка задачі}{5}
+\contentsline {section}{\numberline {3}Технічний огляд програмного продукту}{6}
+\contentsline {subsection}{\numberline {{3.1}}Веб інтерфейс користувача}{6}
+\contentsline {subsection}{\numberline {{3.2}}Програмна оболонка}{7}
+\contentsline {subsubsection}{\numberline {{3.2}.1}index.php}{7}
+\contentsline {section}{Висновок}{8}
