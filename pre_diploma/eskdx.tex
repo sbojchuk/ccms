@@ -1,5 +1,5 @@
-\ESKDtitle{ Аналіз розробки корпоративного порталу }
-\ESKDdocName{ Звіт з виробничої практики }
+\ESKDtitle{ Аналіз розробки програмного алгоритмічного забезпечення багатофункціональної корпоративної системи для сумісної роботи, управління документами і проектами }
+\ESKDdocName{\uppercase{Звіт з виробничої практики}}
 \ESKDgroup{ІНФТУНГ ПЗ-07-1}
 
 \ESKDauthor{ Бойчук Я.В. }
@@ -18,9 +18,27 @@
 \renewcommand{\ESKDcolumnXVIIname}{Підпис}
 \renewcommand{\ESKDcolumnXVname}{Арк.}
 
+%%fix ESKDTitle font
+%%FIXME change for row, now for font
+\renewcommand{\ESKDfontVsize}{%
+\ESKDfontSetBaseLineStretch
+\fontsize{10pt}{8pt}\selectfont\ESKDfontShape}
+
+%%space after text
+\setlength{\ESKDsectionSkipBefore}{-7mm \@plus -3mm \@minus -2mm}
+\setlength{\ESKDsectionSkipAfter}{7mm \@plus 1mm \@minus 2mm}
+\setlength{\ESKDsubsectionSkipBefore}{-7mm \@plus -3mm \@minus -2mm}
+\setlength{\ESKDsubsectionSkipAfter}{7mm \@plus 1mm \@minus 2mm}
+\setlength{\ESKDsubsubsectionSkipBefore}{-7mm \@plus -3mm \@minus -2mm}
+\setlength{\ESKDsubsubsectionSkipAfter}{7mm \@plus 1mm \@minus 2mm}
+
+%%font size for section (&&sub)
+\renewcommand{\ESKDsectionStyle}{\centering\normalfont\bfseries\MakeUppercase}
+\renewcommand{\ESKDsubsectionStyle}{\centering\normalfont\bfseries}
+\renewcommand{\ESKDsubsubsectionStyle}{\centering\normalfont\bfseries}
 
 
 
 
 
-
+        
