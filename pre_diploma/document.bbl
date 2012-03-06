@@ -23,3 +23,6 @@
   year         = "2011",
   language     = "russian"
 }
+
+%http://www.jcp.org/en/jsr/detail?id=286 - стандрат портлетів Java Portlet 2.0 Standard 
+%http://www.jcp.org/en/jsr/detail?id=168 - стандрат портлетів Java Portlet 1.0 Standard 
