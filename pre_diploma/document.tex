@@ -114,53 +114,65 @@
 \section{АНАЛІЗ РИНКУ І ПОТОЧНИХ РІШЕНЬ}
 На даний момент існує досить багато готових рішень корпоративних порталів. 
 Вони можуть забезпечувати підприємства всіма необхідними функціями і додатами, починаючи від системи обліку працівників, і завершуючи системою аналітики і збору данх, все це залежить від потреб ринку і певної компанії.
+%TODO описати що робити на основі відкритої ліцензії і брати бабло за пітримку
 Було проведено загальний огляд продуктів і виділено основні переваги і недоліки, також виділено поточну використовувану ліценцію розповсюдження ПЗ.
+Список ПЗ приводиться у таблиці \ref{t:portals}
 
 \begin{center}\footnotesize
-\captionof{table}{Список поточних продуктів}
-	\begin{longtable}{|l|l|l|}
-                \hline
-\endfirsthead
-		\rowcolor[gray]{.9} \textbf{Назва продукту} & \textbf{Технологія} & \textbf{Ліцензія} \\ \hline
- Jetspeed & Java EE & Apache License v2.0\\ \newline 
- ATG Portal & Java EE & Proprietary\\ \newline 
- Backbase Portal Software & Java EE, .NET & Proprietary \\ \newline 
- Broadvision Portal & Java EE & Proprietary \\ \newline 
- Bluenog ICE & Java EE & Proprietary \\ \newline 
- enPortal  & Java EE & Proprietary\\ \newline 
- CommunityManager.NET  & .NET & Proprietary \\ \newline 
- eXo Portal & Java EE & Affero General Public License \\ \newline 
- eXo Platform & Java EE & Proprietary \\ \newline 
- GateIn Portal & Java EE & LGPL \\ \newline 
- Hippo CMS & Java EE & Open Source and Proprietary Licenses \\ \newline 
- WebSphere Portal & Java EE & Proprietary \\ \newline 
- TeamPortal & Java EE & Proprietary \\ \newline 
- JBoss Enterprise Portal  & Java EE & LGPL \\ \newline 
- IntraNet & ASP.NET & Proprietary \\ \newline 
- Liferay Portal & Java EE & Proprietary Licenses \\ \newline 
- TeamWox Groupware & C++ & Proprietary \\ \newline 
- SharePoint Server & ASP.NET & Proprietary \\ \newline 
- Vignette Portal 8.0 & Java EE & Proprietary \\ \newline 
- Oracle WebCenter Suite 11g & Java EE & Proprietary \\ \newline 
- Oracle WebLogic Portal 10g & Java EE & Proprietary \\ \newline 
- Oracle WebCenter Interaction 10g & ASP.NET & Proprietary \\ \newline 
- Oracle IAS Portal 10g & Java EE & Proprietary \\ \newline 
- Regroup & Ruby & Proprietary \\ \newline 
- ACUBE Portal 5.0 & Java EE & Proprietary \\ \newline 
- SAP NetWeaver 7.0 & Java EE & Proprietary \\ \newline 
- SORCE V9 & ASP.NET & Proprietary \\ \newline 
- Sun Java System Portal Server & Java EE & Open Source, licensing \& support plans \\ \newline 
- Sun GlassFish Web Space Server  & Java EE & Open Source, licensing \& support plans \\ \newline 
- tmsEKP 1.52 & Java EE & Proprietary \\ \newline 
- PortalBuilder 5.2 & Java EE & Proprietary \\ \newline 
- ProPortal 4.0 & Java EE & Proprietary \\ \newline 
- Intrexx & Java EE & Proprietary \\ \newline 
- uPortal & Java EE & Apache License v2.0 \\
+\begin{longtable}{|
+p{.40\textwidth-2\tabcolsep-1.5\arrayrulewidth}|
+p{.20\textwidth-2\tabcolsep-1.5\arrayrulewidth}|
+p{.40\textwidth-2\tabcolsep-1.5\arrayrulewidth}|}
+\caption{Список корпоративних порталів і використовувана ліцензія}\label{t:portals}\\
+\hline
+\multicolumn{1}{|c|}{\textbf{Назва продукту}}&
+\multicolumn{1}{c|}{\textbf{Технологія}}&
+\multicolumn{1}{c|}{\textbf{Ліцензія}}\\\hline
 
-                \hline
-	\end{longtable}
-	
-	\label{tab:}
+\endfirsthead
+\caption*{Продовження таблиці \ref{t:portals}}\\\hline
+
+\multicolumn{1}{|c|}{\textbf{Назва продукту}}&
+\multicolumn{1}{c|}{\textbf{Технологія}}&
+\multicolumn{1}{c|}{\textbf{Ліцензія}}\\\hline
+\endhead
+
+Jetspeed & Java EE & Apache License v2.0\\ \hline
+ ATG Portal & Java EE & Proprietary\\ \hline
+ Backbase Portal Software & Java EE, .NET & Proprietary \\ \hline 
+ Broadvision Portal & Java EE & Proprietary \\ \hline 
+ Bluenog ICE & Java EE & Proprietary \\ \hline
+ enPortal  & Java EE & Proprietary\\ \hline 
+ CommunityManager.NET  & .NET & Proprietary \\ \hline
+ eXo Portal & Java EE & Affero General Public License \\ \hline
+ eXo Platform & Java EE & Proprietary \\ \hline
+ GateIn Portal & Java EE & LGPL \\ \hline
+ Hippo CMS & Java EE & Open Source and Proprietary Licenses \\ \hline
+ WebSphere Portal & Java EE & Proprietary \\ \hline
+ TeamPortal & Java EE & Proprietary \\ \hline
+ JBoss Enterprise Portal  & Java EE & LGPL \\ \hline
+ IntraNet & ASP.NET & Proprietary \\ \hline
+ Liferay Portal & Java EE & Proprietary Licenses \\ \hline
+ TeamWox Groupware & C++ & Proprietary \\ \hline
+ SharePoint Server & ASP.NET & Proprietary \\ \hline
+ Vignette Portal 8.0 & Java EE & Proprietary \\ \hline
+ Oracle WebCenter Suite 11g & Java EE & Proprietary \\ \hline
+ Oracle WebLogic Portal 10g & Java EE & Proprietary \\ \hline
+ Oracle WebCenter Interaction 10g & ASP.NET & Proprietary \\ \hline
+ Oracle IAS Portal 10g & Java EE & Proprietary \\ \hline
+ Regroup & Ruby & Proprietary \\ \hline
+ ACUBE Portal 5.0 & Java EE & Proprietary \\ \hline
+ SAP NetWeaver 7.0 & Java EE & Proprietary \\ \hline
+ SORCE V9 & ASP.NET & Proprietary \\ \hline
+ Sun Java System Portal Server & Java EE & Open Source, licensing \& support plans \\ \hline
+ Sun GlassFish Web Space Server  & Java EE & Open Source, licensing \& support plans \\ \hline
+ tmsEKP 1.52 & Java EE & Proprietary \\ \hline
+ PortalBuilder 5.2 & Java EE & Proprietary \\ \hline
+ ProPortal 4.0 & Java EE & Proprietary \\ \hline
+ Intrexx & Java EE & Proprietary \\ \hline
+ uPortal & Java EE & Apache License v2.0 \\ \hline
+
+\end{longtable}
 \end{center}
 
 \section{ТЕХНІЧНИЙ ОГЛЯД ПРОДУКТУ}
