@@ -1,2 +1,7 @@
-*.*~
-pre_diploma/
+#exclude genered dropbox sync file with extensin *~
+*~
+
+#exclude latex generated log and other files
+pre_diploma/document.aux
+pre_diploma/document.log
+pre_diploma/document.toc
