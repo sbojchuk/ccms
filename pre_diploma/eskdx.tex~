@@ -1,5 +1,7 @@
 \ESKDtitle{ Аналіз розробки програмного алгоритмічного забезпечення багатофункціональної корпоративної системи для сумісної роботи, управління документами і проектами }
-\ESKDdocName{\uppercase{Звіт з виробничої практики}}
+\ESKDdocName{\uppercase{Звіт з переддипломної\begin{description}
+	\item[]
+\end{description} практики}}
 \ESKDgroup{ІНФТУНГ ПЗ-07-1}
 
 \ESKDauthor{ Бойчук Я.В. }
@@ -37,7 +39,6 @@
 \renewcommand{\ESKDsubsectionStyle}{\centering\normalfont\bfseries}
 \renewcommand{\ESKDsubsubsectionStyle}{\centering\normalfont\bfseries}
 
-\renewcommand{\refname}{FUCK}
 
 
 

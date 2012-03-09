@@ -1,31 +1,33 @@
 \select@language {ukrainian}
 \select@language {ukrainian}
 \contentsline {section}{ВСТУП}{3}
-\contentsline {section}{\numberline {1}ОГЛЯД ПРОГРАМНОГО ПРОДУКТУ}{5}
-\contentsline {subsection}{\numberline {1.1}Історичний огляд коропоративної сфери}{5}
-\contentsline {subsection}{\numberline {1.2}Портлети}{6}
-\contentsline {subsubsection}{\numberline {1.2.1}Apache Pluto}{7}
-\contentsline {section}{\numberline {2}ОСНОВНІ КОМПОНЕНТИ АПЛІКАЦІЇ}{9}
-\contentsline {subsection}{\numberline {2.1}Система керування вміcтом}{9}
-\contentsline {subsubsection}{\numberline {2.1.1}Головні функції CMS}{9}
-\contentsline {subsubsection}{\numberline {2.1.2}Типи даних та їх використанням}{9}
-\contentsline {subsubsection}{\numberline {2.1.3}Управління корпоративною інформацією}{10}
-\contentsline {subsection}{\numberline {2.2}Система управління документами}{10}
-\contentsline {subsubsection}{\numberline {2.2.1}Метадані}{11}
-\contentsline {subsubsection}{\numberline {2.2.2}Інтеграція }{11}
-\contentsline {subsubsection}{\numberline {2.2.3}Захоплення тексту}{12}
-\contentsline {subsubsection}{\numberline {2.2.4}Індексування}{12}
-\contentsline {subsubsection}{\numberline {2.2.5}Сховище}{12}
-\contentsline {subsection}{\numberline {2.3}Програмне забезпечення спільної роботи}{12}
-\contentsline {subsubsection}{\numberline {2.3.1}Огляд}{13}
-\contentsline {subsubsection}{\numberline {2.3.2}Види взаємодії}{13}
-\contentsline {subsubsection}{\numberline {2.3.3}Рівні взаємодії}{14}
-\contentsline {subsection}{\numberline {2.4}Інтранет}{15}
-\contentsline {subsubsection}{\numberline {2.4.1}Особливості, переваги та недоліки Інтранет}{16}
-\contentsline {subsection}{\numberline {2.5}Корпоративна Wiki}{18}
-\contentsline {subsection}{\numberline {2.6}Онлайн офіс}{19}
-\contentsline {subsection}{\numberline {2.7}Корпоратиний блог}{19}
-\contentsline {subsubsection}{\numberline {2.7.1}Внутрішньокорпоративний блог}{19}
-\contentsline {subsubsection}{\numberline {2.7.2}Публічний блог}{20}
-\contentsline {section}{ВИСНОВОК}{21}
-\contentsline {section}{ВИКОРИСТАНІ ДЖЕРЕЛА}{22}
+\contentsline {section}{\numberline {1}ІНФОРМАЦІЯ ПРО ПІДПРИЄМСТВО}{5}
+\contentsline {section}{\numberline {2}АНАЛІЗ РИНКУ І ПОТОЧНИХ РІШЕНЬ}{8}
+\contentsline {section}{\numberline {3}ТЕХНІЧНИЙ ОГЛЯД ПРОДУКТУ}{10}
+\contentsline {subsection}{\numberline {3.1}Історичний огляд корпоративної сфери}{10}
+\contentsline {subsection}{\numberline {3.2}Портлети}{11}
+\contentsline {subsubsection}{\numberline {3.2.1}Apache Pluto}{12}
+\contentsline {section}{\numberline {4}ОСНОВНІ КОМПОНЕНТИ АПЛІКАЦІЇ}{14}
+\contentsline {subsection}{\numberline {4.1}Система керування вмістом}{14}
+\contentsline {subsubsection}{\numberline {4.1.1}Головні функції CMS}{14}
+\contentsline {subsubsection}{\numberline {4.1.2}Типи даних та їх використанням}{14}
+\contentsline {subsubsection}{\numberline {4.1.3}Управління корпоративною інформацією}{15}
+\contentsline {subsection}{\numberline {4.2}Система управління документами}{15}
+\contentsline {subsubsection}{\numberline {4.2.1}Метадані}{16}
+\contentsline {subsubsection}{\numberline {4.2.2}Інтеграція }{16}
+\contentsline {subsubsection}{\numberline {4.2.3}Захоплення тексту}{17}
+\contentsline {subsubsection}{\numberline {4.2.4}Індексування}{17}
+\contentsline {subsubsection}{\numberline {4.2.5}Сховище}{17}
+\contentsline {subsection}{\numberline {4.3}Програмне забезпечення для спільної роботи}{17}
+\contentsline {subsubsection}{\numberline {4.3.1}Огляд}{18}
+\contentsline {subsubsection}{\numberline {4.3.2}Види взаємодії}{18}
+\contentsline {subsubsection}{\numberline {4.3.3}Рівні взаємодії}{19}
+\contentsline {subsection}{\numberline {4.4}Інтранет}{20}
+\contentsline {subsubsection}{\numberline {4.4.1}Особливості, переваги та недоліки Інтранет}{21}
+\contentsline {subsection}{\numberline {4.5}Корпоративна Wiki}{23}
+\contentsline {subsection}{\numberline {4.6}Онлайн офіс}{24}
+\contentsline {subsection}{\numberline {4.7}Корпоративний блог}{24}
+\contentsline {subsubsection}{\numberline {4.7.1}Внутрішньокорпоративний блог}{24}
+\contentsline {subsubsection}{\numberline {4.7.2}Публічний блог}{25}
+\contentsline {section}{ВИСНОВОК}{26}
+\contentsline {section}{ВИКОРИСТАНІ ДЖЕРЕЛА}{27}

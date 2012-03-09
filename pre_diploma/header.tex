@@ -4,6 +4,7 @@
 nocolumnsxix,
 nocolumnxxxi,
 nocolumnxxxii,
+floatsection, %підпис плаваючих об'єктів згдіно номера розліду (таблиці, рисунки)
 hpadding=5mm, %відстань до рамки зліва, справа
 vpadding=5mm %відстань до рамки зліва, справа
 ]{eskdtext}
@@ -75,6 +76,9 @@ breaklines=true
 \let\stdsection\section
 \renewcommand\section{\newpage\stdsection}
 
+%%% плаваючі обєкти підпис
+%\renewcommand\section{\newpage\stdsection}
+
 %%% Numering subtopics begin with B (B.1)
 %\makeatletter
 %\renewcommand\thesubsection{\ifnum\c@section=0{В.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi}
@@ -82,5 +86,12 @@ breaklines=true
 
 %%% for coloring rows
 \usepackage[table]{xcolor}
+
+%%% для розриву таблиць 
+\usepackage{longtable}
+
+
+
+
 
 

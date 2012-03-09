@@ -5,7 +5,7 @@
 %chnage - for --- where needed
 %check for goog wrapping
 %check for borders and font size and 1.5 space (print document there and in office)
-%chek printing exuality as is in PDF
+%chek printing exuality as is in PDF http://forum.ixbt.com/topic.cgi?id=23:27770
 
 \input{header.tex}
 \input{eskdx.tex}
@@ -111,6 +111,57 @@
 
 Науково-дослідна діяльність, що провадиться викладачами кафедри, дозволяє орієнтувати майбутніх випускників на самостійну дослідницьку і творчу діяльність, що є запорукою успішного вирішення професійних завдань. В процесі співпраці з викладачами студенти отримують навики практичної роботи і утворюють підґрунтя для майбутньої самостійної діяльності. Кафедра всіляко сприяє самостійному творчому пошуку і весь час розширює взаємодію в рамках студентсько-викладацького колективу.
 
+\section{АНАЛІЗ РИНКУ І ПОТОЧНИХ РІШЕНЬ}
+На даний момент існує досить багато готових рішень корпоративних порталів. 
+Вони можуть забезпечувати підприємства всіма необхідними функціями і додатами, починаючи від системи обліку працівників, і завершуючи системою аналітики і збору данх, все це залежить від потреб ринку і певної компанії.
+Було проведено загальний огляд продуктів і виділено основні переваги і недоліки, також виділено поточну використовувану ліценцію розповсюдження ПЗ.
+
+\begin{center}
+	\begin{longtable}{|l|l|l|l|}
+                \hline
+		\rowcolor[gray]{.9} Назва продукту & Технологія & Ліцензія & Портлет API \\ \hline
+ Jetspeed & Java EE & Apache License v2.0 & JSR-286\\ \newline 
+ ATG Portal & Java EE & Proprietary & JSR-168\\ \newline 
+ Backbase Portal Software & Java EE, .NET & Proprietary & Widgets\\ \newline 
+ Broadvision Portal & Java EE & Proprietary & JSR-168\\ \newline 
+ Bluenog ICE & Java EE & Proprietary & JSR-168\\ \newline 
+ enPortal  & Java EE & Proprietary & Proprietary and Java API\\ \newline 
+ CommunityManager.NET  & .NET & Proprietary & unknown\\ \newline 
+ eXo Portal & Java EE & Affero General Public License & JSR-286\\ \newline 
+ eXo Platform & Java EE & Proprietary & JSR-286\\ \newline 
+ GateIn Portal & Java EE & LGPL & JSR-286\\ \newline 
+ Hippo CMS & Java EE & Open Source and Proprietary Licenses & JSR-286\\ \newline 
+ WebSphere Portal & Java EE & Proprietary & JSR-286, WSRP\\ \newline 
+ TeamPortal & Java EE & Proprietary & JSR-168\\ \newline 
+ JBoss Enterprise Portal  & Java EE & LGPL & JSR-286, WSRP\\ \newline 
+ IntraNet & ASP.NET & Proprietary & unknown\\ \newline 
+ Liferay Portal & Java EE & Proprietary Licenses & JSR-168, JSR-286\\ \newline 
+ TeamWox Groupware & C++ & Proprietary & GOOOOOOOOOOO\\ \newline 
+ SharePoint Server & ASP.NET & Proprietary & WSRP\\ \newline 
+ Vignette Portal 8.0 & Java EE & Proprietary & JSR-286\\ \newline 
+ Oracle WebCenter Suite 11g & Java EE & Proprietary & JSR-168, JSR-286, WSRP\\ \newline 
+ Oracle WebLogic Portal 10g & Java EE & Proprietary & JSR-168, JSR-286\\ \newline 
+ Oracle WebCenter Interaction 10g & Java EE/ASP.NET & Proprietary & JSR-168\\ \newline 
+ Oracle IAS Portal 10g & Java EE & Proprietary & JSR-168\\ \newline 
+ Regroup & Ruby & Proprietary & GOOOOOOOOOOO \\ \newline 
+ ACUBE Portal 5.0 & Java EE & Proprietary & JSR-168\\ \newline 
+ SAP NetWeaver 7.0 & Java EE & Proprietary & JSR-168\\ \newline 
+ SORCE V9 & ASP.NET & Proprietary & unknown\\ \newline 
+ Sun Java System Portal Server & Java EE & Open Source, licensing \& support plans & JSR-286\\ \newline 
+ Sun GlassFish Web Space Server  & Java EE & Open Source, licensing \& support plans & JSR-286\\ \newline 
+ tmsEKP 1.52 & Java EE & Proprietary & unknown\\ \newline 
+ PortalBuilder 5.2 & Java EE & Proprietary & JSR-168\\ \newline 
+ ProPortal 4.0 & Java EE & Proprietary & JSR-168\\ \newline 
+ Intrexx & Java EE & Proprietary & unknown\\ \newline 
+ uPortal & Java EE & Apache License v2.0 & JSR-168, JSR-286 \\
+
+                \hline
+	\end{longtable}
+	\captionof{table}{Список поточних продуктів}
+	\label{tab:}
+\end{center}
+
+
 \section{ТЕХНІЧНИЙ ОГЛЯД ПРОДУКТУ}
 Розглянемо більш детально пункт про наявність сучасних засобів ведення бізнесу. 
 Кожна компанія, завжди стикається із проблемою ведення обліку працівників, ведення обліку фінансів, спільної роботи над документами та іншим.
@@ -163,9 +214,6 @@
 Потім через перехресний запит (через веб-додатки) відбувається відправлення запиту для відображення вмісту портлету, який як правило знаходяться в різних додатках на порталі і в контейнерах. 
 
 \section{ОСНОВНІ КОМПОНЕНТИ АПЛІКАЦІЇ}
-%TODO список для більшості сторінок =)
-
-
 
 \subsection{Система керування вмістом}
 Система управління контентом (content management system - CMS) дозволяє публікувати, редагувати і змінювати вміст веб-сторінок, а також обслуговувати портал з центральної сторінки. 
@@ -429,11 +477,12 @@ Intranet допускає використання публічних канал
 %%% Bibliography
 \renewcommand{\refname}{ВИКОРИСТАНІ ДЖЕРЕЛА}
 \begin{thebibliography}{99}
-\bibitem{1} http://www.jcp.org/en/jsr/detail?id=286 - стандарт портлетів Java Portlet 2.0 Standard 
-\bibitem{2} http://www.jcp.org/en/jsr/detail?id=168 - стандарт портлетів Java Portlet 1.0 Standard 
-\bibitem{3} http://google.com
-\bibitem{4} http://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/Servlet.html - специфікація серлетів
-\bibitem{5} http://pz.nung.edu.ua/ - сайт кафедри ПЗАС
+\bibitem{portlet_2} http://www.jcp.org/en/jsr/detail?id=286 - стандарт портлетів Java Portlet 2.0 Standard 
+\bibitem{portlet_1} http://www.jcp.org/en/jsr/detail?id=168 - стандарт портлетів Java Portlet 1.0 Standard 
+\bibitem{google} http://google.com - пошук доступної в інтернеті інформації
+\bibitem{servlet_api} http://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/Servlet.html - специфікація серлетів
+\bibitem{pz_nung_edu_ua} http://pz.nung.edu.ua/ - сайт кафедри ПЗАС
+\bibitem{intranetno} http://www.intranetno.ru/ - бізнес рішення на базі SaaS, PaaS
 \end{thebibliography}
 
 
