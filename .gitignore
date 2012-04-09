@@ -2,6 +2,9 @@
 *~
 
 #exclude latex generated log and other files
-pre_diploma/document.aux
-pre_diploma/document.log
-pre_diploma/document.toc
+diploma_text/document.aux
+diploma_text/document.log
+diploma_text/document.toc
+
+#exclude before normal commit
+project
