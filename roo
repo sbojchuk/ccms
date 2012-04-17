@@ -1,0 +1,34 @@
+project --topLevelPackage com.diploma.ccms
+persistence setup --provider HIBERNATE --database MYSQL --userName root --password sbojchuk --databaseName ccms
+
+entity jpa --class ~.domain.Teams
+field string --fieldName teamName --notNull
+
+entity jpa --class ~.domain.Users
+field string --fieldName login --notNull
+field string --fieldName password --notNull
+field string --fieldName name --notNull
+field string --fieldName surname --notNull
+field string --fieldName phone
+field string --fieldName street
+field string --fieldName country
+field file --fieldName photo --contentType JPG
+field date --fieldName birthday --type java.util.Date --notNull
+//field set --fieldName team --class ~.domain.Users --type ~.domain.Teams --mappedBy teamName --notNull --cardinality ONE_TO_MANY 
+
+field reference --fieldName teamName --type ~.domain.Teams  --class ~.domain.Users --notNull
+
+//entity jpa --class ~.domain.Messages
+//field string --fieldName title --notNull
+//field string --fieldName text --notNull
+//field date --fieldName datetime --type java.util.Date --notNull
+//field set --fieldName fromUser --class ~.domain.Messages --type ~.domain.Users --mappedBy login --notNull --cardinality ONE_TO_MANY
+//field set --fieldName toUser --class ~.domain.Messages --type ~.domain.Users --mappedBy login --notNull --cardinality ONE_TO_MANY
+//field boolean --fieldName checked --notNull --value false
+
+
+web mvc setup
+web mvc all --package ~
+
+logging setup --level ERROR
+perform eclipse
