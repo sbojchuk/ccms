@@ -6,13 +6,5 @@ diploma_text/document.aux
 diploma_text/document.log
 diploma_text/document.toc
 
-#exclude eclipse project files
-.classpath
-.project
-.settings
-.metadata
-
-builddef.lst #don't know what is that file
-
 #exclude before normal commit
-#project
+project
