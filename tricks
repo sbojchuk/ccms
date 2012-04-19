@@ -1,0 +1,106 @@
+//controller	
+	//we need a special property-editor that knows how to bind the data
+    //from the request to a byte[]
+    @InitBinder
+    public void initBinder(WebDataBinder binder)
+    {
+        binder.registerCustomEditor(byte[].class, new ByteArrayMultipartFileEditor());
+    }
+
+
+
+//create.*.jspx
+    <input type="file" name="file"  id="c_com_diploma_ccms_domain_RoomsCalendar_file" z="dSTbskDoQA0roKxdyZExpur0t50=" />
+
+
+//pom.xml
+	<dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>1.4</version>
+    </dependency>
+
+
+//database.properties
+    database.url=jdbc\:mysql\://localhost\:3306/ccms?autoReconnect\=true&useUnicode\=true&characterEncoding\=UTF-8&connectionCollation\=utf8_general_ci&characterSetResults\=utf8
+
+//mysql create database
+CREATE DATABASE ccms CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+drop database ccms;
+
+
+
+//respone JSON; add in controller
+@RequestMapping(headers = "Accept=application/json")
+	@ResponseBody
+	public String listJson() {
+		return PrivateCalendar.toJsonArray(PrivateCalendar
+				.findAllPrivateCalendars());
+	}
+
+	//there is tutorial http://static.springsource.org/spring-roo/reference/html/base-json.html
+
+
+//application.properties
+label_com_diploma_ccms_domain_blog_worker = Worker
+label_com_diploma_ccms_domain_document_worker = Worker
+label_com_diploma_ccms_domain_document_documentcategory = Category
+label_com_diploma_ccms_domain_worker_region = Region
+label_com_diploma_ccms_domain_worker_team = Team
+label_com_diploma_ccms_domain_worker_workerjobtype = Job Position
+label_com_diploma_ccms_domain_todo_worker = Worker
+label_com_diploma_ccms_domain_todo_todocategory = Category
+label_com_diploma_ccms_domain_wiki_worker = Worker
+label_com_diploma_ccms_domain_wiki_wikicategory = Category
+label_com_diploma_ccms_domain_blogcomment_worker = Worker
+label_com_diploma_ccms_domain_message_worker = Worker
+
+
+
+<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref="UserServiceBean">
+			<password-encoder hash="sha-256"/>
+		</authentication-provider>
+	</authentication-manager>
+<beans:bean id="UserServiceBean" class="com.diploma.ccms.service.UserService" />
+
+
+
+
+<security:authorize ifAnyGranted="ROLE_ADMIN">
+
+
+
+Set<GrantedAuthority> roles = new HashSet<GrantedAuthority>();
+		roles.add(roleName);
+		return roles;
+
+
+
+
+
+package com.diploma.ccms.service;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import com.diploma.ccms.domain.Worker;
+
+public class UserService implements UserDetailsService{
+
+	@Override
+	public UserDetails loadUserByUsername(String username)
+			throws UsernameNotFoundException {
+		return Worker.findWorkersByLoginEquals(username).getSingleResult();
+	}
+
+}
+
+
+
+<sec:authorize access="isAuthenticated()">	 
+		<spring:url value="/resources/j_spring_security_logout" var="logout"/>
+		Logged in: <b><sec:authentication property="principal.username" /></b>&#160;|&#160; 
+		<a href="${logout}" >Logout</a>	
+</sec:authorize>
