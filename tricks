@@ -104,3 +104,8 @@ public class UserService implements UserDetailsService{
 		Logged in: <b><sec:authentication property="principal.username" /></b>&#160;|&#160; 
 		<a href="${logout}" >Logout</a>	
 </sec:authorize>
+
+
+
+//in persistance.xml
+    <property name="hibernate.hbm2ddl.auto" value="validate"/>
