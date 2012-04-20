@@ -1,2 +1,19 @@
+[[PROJECT]]
+
+Project created using Java Spring MCV framework, MySQL as database (Hibernate provider), Maven, jQuery and other great features available now
+
+[Installation]
+Checkout project
+
+-- Create new database
+CREATE DATABASE ccms CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+-- Build with maven eclipse project (if need) and start tomcat
+mvn eclipse:eclipse //create eclipse project
+mvn tomcat:run //start tomcat
+
+-- Explore http://localhost:8080/ccms
+
+[[DIPLOMA TEXT]]
 Latex document use Xelatex for compiling, there is better working with fonts
 Used also ESKDX as framework:) so great and useful. But some rewrite rules for our specs
