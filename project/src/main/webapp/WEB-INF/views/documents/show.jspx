@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_diploma_ccms_domain_Document" object="${document}" path="/documents" z="A/kjfp2gIS0C75hqVcCK8P2id2k=">
+        <field:display field="title" id="s_com_diploma_ccms_domain_Document_title" object="${document}" z="dWqhQYR59EoYSlu0AVJqVt+ehTk="/>
+        <field:display field="description" id="s_com_diploma_ccms_domain_Document_description" object="${document}" z="JJ58wM6aaY3rDx+LMEqE6oOje1A="/>
+        <field:display field="shared" id="s_com_diploma_ccms_domain_Document_shared" object="${document}" z="OHiJyCh/RSpWKOc5SJpqvSPGgDU="/>
+        <field:display field="workerName" id="s_com_diploma_ccms_domain_Document_WorkerName" object="${document}" z="KNpbYOs0K4ddFs0biT9v8dka53A="/>
+        <field:display field="category" id="s_com_diploma_ccms_domain_Document_category" object="${document}" z="ceTvJj8se15pF15HBDKMb1hMFOo="/>
+        <field:display field="file" id="s_com_diploma_ccms_domain_Document_file" object="${document}" z="6i49woiIWKzb6GfPVYTen3WiB7g="/>
+    </page:show>
+</div>

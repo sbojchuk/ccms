@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_diploma_ccms_domain_Message" items="${messages}" z="bag9+3zmQRoO4m+92HdY1ks+TAo=">
+        <table:table data="${messages}" id="l_com_diploma_ccms_domain_Message" path="/messages" z="MC/5h0dncbVCLhdN2YcR9/qNSpc=">
+            <table:column id="c_com_diploma_ccms_domain_Message_title" property="title" z="aBIZZeA1zhLbsQsrNNI3Vblg+Og="/>
+            <table:column id="c_com_diploma_ccms_domain_Message_text" property="text" z="1FKgdXcuXY11cbKmzVslT4OYAxM="/>
+            <table:column date="true" dateTimePattern="${message_datetime_date_format}" id="c_com_diploma_ccms_domain_Message_datetime" property="datetime" z="M6+TTssiRh9VsAPErlqR3p7Yj7E="/>
+            <table:column id="c_com_diploma_ccms_domain_Message_viewed" property="viewed" z="HFbIgPc/VIQNIxcp+XQVKSL4fd0="/>
+            <table:column id="c_com_diploma_ccms_domain_Message_fromWorker" property="fromWorker" z="x94sKSCvN4PbXgV0MmUvZO0jYnc="/>
+            <table:column id="c_com_diploma_ccms_domain_Message_toWorker" property="toWorker" z="AK8miJk6ykht7rdmGmFjzGnBQuw="/>
+        </table:table>
+    </page:list>
+</div>

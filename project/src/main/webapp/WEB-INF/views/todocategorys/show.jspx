@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_diploma_ccms_domain_TodoCategory" object="${todocategory}" path="/todocategorys" z="gnCTLUhwSCl8HVCNTDwEsqoyr1Q=">
+        <field:display field="title" id="s_com_diploma_ccms_domain_TodoCategory_title" object="${todocategory}" z="6vVpBQ+VigZjmk7ma4SF1DVA6U8="/>
+        <field:display field="description" id="s_com_diploma_ccms_domain_TodoCategory_description" object="${todocategory}" z="Kr6gWK00C5LzE5CTg9AUCs/t3cw="/>
+    </page:show>
+</div>

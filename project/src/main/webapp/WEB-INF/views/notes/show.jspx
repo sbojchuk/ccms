@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_diploma_ccms_domain_Note" object="${note}" path="/notes" z="4P58K0+RetUPSoqOlRY4bDYFVqY=">
+        <field:display field="title" id="s_com_diploma_ccms_domain_Note_title" object="${note}" z="VA3pV1N52gH6L8zSKbL/NgUNsTA="/>
+        <field:display field="text" id="s_com_diploma_ccms_domain_Note_text" object="${note}" z="QIzwvAsUl9619hB0xdvZMb0+Y1o="/>
+        <field:display date="true" dateTimePattern="${note_datetime_date_format}" field="datetime" id="s_com_diploma_ccms_domain_Note_datetime" object="${note}" z="AbqQGZqFG5wFxZAIKp8Sh1qkV9o="/>
+        <field:display field="author" id="s_com_diploma_ccms_domain_Note_author" object="${note}" z="uz5A18RR+7pbUm+9qTeKKm/5Vog="/>
+    </page:show>
+</div>

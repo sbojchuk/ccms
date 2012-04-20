@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_diploma_ccms_domain_Contact" modelAttribute="contact" path="/contacts" render="${empty dependencies}" z="2YwYXbfkIFMiFfRxTq6L+1YVbPA=">
+        <field:select field="owner" id="c_com_diploma_ccms_domain_Contact_owner" itemValue="id" items="${workers}" path="/workers" required="true" z="NDfQ2OEWDPwBqFBbwrBzorHfkOs="/>
+        <field:select field="asignee" id="c_com_diploma_ccms_domain_Contact_asignee" itemValue="id" items="${workers}" path="/workers" required="true" z="FlZXRDDmwk/JR6aqzFEf+cuhpJc="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_diploma_ccms_domain_Contact" render="${not empty dependencies}" z="3Q8pxXI9ifky/Uvofa/nXPlTiJs="/>
+</div>

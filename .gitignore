@@ -1,5 +1,13 @@
-#exclude genered dropbox sync file with extensin *~
+#exclude genered dropbox sync file with extension *~
 *~
+
+#exclude classes
+*.class
+
+#exclude eclipse generetad files
+.classpath
+.project
+.settings
 
 #exclude latex generated log and other files
 diploma_text/document.aux
@@ -7,4 +15,8 @@ diploma_text/document.log
 diploma_text/document.toc
 
 #exclude before normal commit
-project
+#project
+project/target
+
+diploma_text/structure
+html

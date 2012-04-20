@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_diploma_ccms_domain_BlogComment" object="${blogcomment}" path="/blogcomments" z="MziMfdUIeHPLdR/yEXMRUR1xtpo=">
+        <field:display field="title" id="s_com_diploma_ccms_domain_BlogComment_title" object="${blogcomment}" z="X3E3P/Ph/nYgTvOzAJVvNUeeChY="/>
+        <field:display field="body" id="s_com_diploma_ccms_domain_BlogComment_body" object="${blogcomment}" z="HtaLaDJ2YkIfiYZHK4190ncADkM="/>
+        <field:display date="true" dateTimePattern="${blogComment_enterdate_date_format}" field="enterDate" id="s_com_diploma_ccms_domain_BlogComment_enterDate" object="${blogcomment}" z="svs58MvCVPkEPWdIwcQ4YOMWb14="/>
+        <field:display field="workerName" id="s_com_diploma_ccms_domain_BlogComment_WorkerName" object="${blogcomment}" z="2cFlhDOx0LfkbwQXFsRsyA2iaFo="/>
+        <field:display field="blogReference" id="s_com_diploma_ccms_domain_BlogComment_blogReference" object="${blogcomment}" z="FIoSAxwYu4TcibM/oZx5DUnD/0E="/>
+    </page:show>
+</div>

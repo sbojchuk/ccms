@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_diploma_ccms_domain_Wiki" modelAttribute="wiki" path="/wikis" versionField="Version" z="GQBVYQlqUdeO8N+Gb53FzzuS6+Q=">
+        <field:input field="title" id="c_com_diploma_ccms_domain_Wiki_title" required="true" z="9LCHDk9Yiw/Big7Ahc3NlHxTYWo="/>
+        <field:datetime dateTimePattern="${wiki_enterdate_date_format}" field="enterDate" id="c_com_diploma_ccms_domain_Wiki_enterDate" required="true" z="NxomInWEAS+GuqE2RnW+Q0jg8pA="/>
+        <field:select field="WorkerName" id="c_com_diploma_ccms_domain_Wiki_WorkerName" itemValue="id" items="${workers}" path="/workers" required="true" z="o5l6SgR03FEaVx2KG++R6MLAeeg="/>
+        <field:select field="category" id="c_com_diploma_ccms_domain_Wiki_category" itemValue="id" items="${wikicategorys}" path="/wikicategorys" required="true" z="3W5s2b+oRlfgjSJvP/dx43NeqEk="/>
+    </form:update>
+</div>

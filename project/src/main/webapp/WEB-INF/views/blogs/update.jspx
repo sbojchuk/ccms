@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_diploma_ccms_domain_Blog" modelAttribute="blog" path="/blogs" versionField="Version" z="kyKoBSowRGu2qpO9i7qPfbNXfKQ=">
+        <field:input field="title" id="c_com_diploma_ccms_domain_Blog_title" required="true" z="4RCjJtZP+KC0E+jk2OaxA4h5/5c="/>
+        <field:textarea field="body" id="c_com_diploma_ccms_domain_Blog_body" required="true" z="z3FvIdQfEUIhV9wccoghL/AOgk0="/>
+        <field:datetime dateTimePattern="${blog_enterdate_date_format}" field="enterDate" id="c_com_diploma_ccms_domain_Blog_enterDate" required="true" z="ICArvGvWKlYT48Q4CVsa68blMYQ="/>
+        <field:select field="WorkerName" id="c_com_diploma_ccms_domain_Blog_WorkerName" itemValue="id" items="${workers}" path="/workers" required="true" z="mzhI7X43eGmWNmT5+zjPQUYuHc4="/>
+    </form:update>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_diploma_ccms_domain_Document" items="${documents}" z="beQMIJlXq0IWHRTvnTHERM9qcVY=">
+        <table:table data="${documents}" id="l_com_diploma_ccms_domain_Document" path="/documents" z="lcQ2aCOMZOMN9uG9A+d2eKUB5eU=">
+            <table:column id="c_com_diploma_ccms_domain_Document_title" property="title" z="+7PI062hRlr3tw8YDIe53lBeXgI="/>
+            <table:column id="c_com_diploma_ccms_domain_Document_description" property="description" z="0X6NMknoPJ0bnRMryosyMV6mhoY="/>
+            <table:column id="c_com_diploma_ccms_domain_Document_shared" property="shared" z="kbT4Ph5fPJHf5HpIyoV5l1tqiRI="/>
+            <table:column id="c_com_diploma_ccms_domain_Document_WorkerName" property="workerName" z="dr2v3wh5eAUkaJVntrESjiC8IWc="/>
+            <table:column id="c_com_diploma_ccms_domain_Document_category" property="category" z="qyspMQwSh1rtNr5ldsshWUtI3oo="/>
+            <table:column id="c_com_diploma_ccms_domain_Document_file" property="file" z="C5ydEq7xRHuhueip5NaUXJ0MAhQ="/>
+        </table:table>
+    </page:list>
+</div>

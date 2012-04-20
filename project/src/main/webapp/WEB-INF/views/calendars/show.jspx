@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_diploma_ccms_domain_Calendar" object="${calendar}" path="/calendars" z="K4lskTtXHHkhJTbAiOkw//w0tCE=">
+        <field:display field="title" id="s_com_diploma_ccms_domain_Calendar_title" object="${calendar}" z="Jv0q4aCfyrutmVLheGwdi37Zjkw="/>
+        <field:display field="readOnly" id="s_com_diploma_ccms_domain_Calendar_readOnly" object="${calendar}" z="6AQPerxbe7dQDM22qIVE74DJp9s="/>
+        <field:display field="allDay" id="s_com_diploma_ccms_domain_Calendar_allDay" object="${calendar}" z="EJNPfzXd4q6W9XQxbJZG2InGCOY="/>
+        <field:display field="workerName" id="s_com_diploma_ccms_domain_Calendar_WorkerName" object="${calendar}" z="qRtbebKNH3S30pPE4Lb28wMoamE="/>
+    </page:show>
+</div>

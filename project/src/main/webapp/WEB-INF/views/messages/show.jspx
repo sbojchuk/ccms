@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_diploma_ccms_domain_Message" object="${message}" path="/messages" z="LMgvg9/HbXNpQonlomMrUkBlBjk=">
+        <field:display field="title" id="s_com_diploma_ccms_domain_Message_title" object="${message}" z="DCA7ODehtDzPtYEHS6Nr25ZjzmQ="/>
+        <field:display field="text" id="s_com_diploma_ccms_domain_Message_text" object="${message}" z="wpH4mrJW1WW7uvOAuUY8YgpQTv4="/>
+        <field:display date="true" dateTimePattern="${message_datetime_date_format}" field="datetime" id="s_com_diploma_ccms_domain_Message_datetime" object="${message}" z="OV35671itAY3APCboLqIrQEdsD4="/>
+        <field:display field="viewed" id="s_com_diploma_ccms_domain_Message_viewed" object="${message}" z="ZFetGBiu9p3X0edEjCr1XmYwHls="/>
+        <field:display field="fromWorker" id="s_com_diploma_ccms_domain_Message_fromWorker" object="${message}" z="X9VbP4AYYSNW7TMlDjK2DBcDh9c="/>
+        <field:display field="toWorker" id="s_com_diploma_ccms_domain_Message_toWorker" object="${message}" z="uOWKZjCLXuynBR2myDVE0AlT+n8="/>
+    </page:show>
+</div>

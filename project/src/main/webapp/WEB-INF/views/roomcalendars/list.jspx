@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_diploma_ccms_domain_RoomCalendar" items="${roomcalendars}" z="mXDE25ep8pnRfbQnso7rgLJk7BE=">
+        <table:table data="${roomcalendars}" id="l_com_diploma_ccms_domain_RoomCalendar" path="/roomcalendars" z="Y9OKhBPI8YaGKSLs9LTMhRd6nUY=">
+            <table:column id="c_com_diploma_ccms_domain_RoomCalendar_title" property="title" z="mOFYjb115jLklBXJMK7fwiMBbrc="/>
+            <table:column id="c_com_diploma_ccms_domain_RoomCalendar_body" property="body" z="yTkx3PZI08yHJLHurH+Zbu0LypQ="/>
+            <table:column id="c_com_diploma_ccms_domain_RoomCalendar_readOnly" property="readOnly" z="nj61DQALtnXvo9E4cQlTgj4xTvQ="/>
+            <table:column id="c_com_diploma_ccms_domain_RoomCalendar_allDay" property="allDay" z="XwsXi2MDLGrtp3lRXqEkFR9z6bs="/>
+            <table:column id="c_com_diploma_ccms_domain_RoomCalendar_roomName" property="roomName" z="ebgbCiozCI1+C6u4AZ1v9rWT0S4="/>
+            <table:column id="c_com_diploma_ccms_domain_RoomCalendar_WorkerName" property="workerName" z="wG1/ZlpbXkX26U+3dO4pNxL2Yb4="/>
+        </table:table>
+    </page:list>
+</div>

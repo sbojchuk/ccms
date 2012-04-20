@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_diploma_ccms_domain_Blog" items="${blogs}" z="xW+DYFKlHzGMfGor5ia3D95XeRA=">
+        <table:table data="${blogs}" id="l_com_diploma_ccms_domain_Blog" path="/blogs" z="BkpgWo7zRJmneWe0bSRAcgWHdMM=">
+            <table:column id="c_com_diploma_ccms_domain_Blog_title" property="title" z="/idATMY/jO2jv6qjMnYUQw33wvI="/>
+            <table:column id="c_com_diploma_ccms_domain_Blog_body" property="body" z="2Acg0dGylymM0PZAOHyv8zfjWw8="/>
+            <table:column date="true" dateTimePattern="${blog_enterdate_date_format}" id="c_com_diploma_ccms_domain_Blog_enterDate" property="enterDate" z="xV2ViEq7CdJrDGlKp4kmhmhchr8="/>
+            <table:column id="c_com_diploma_ccms_domain_Blog_WorkerName" property="workerName" z="dpe4U1oJShLtUWE2Updqil3BqBg="/>
+        </table:table>
+    </page:list>
+</div>

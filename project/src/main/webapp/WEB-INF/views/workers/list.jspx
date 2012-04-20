@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_diploma_ccms_domain_Worker" items="${workers}" z="jN8HAktiYFVp5UVXMojToAIe2VU=">
+        <table:table data="${workers}" id="l_com_diploma_ccms_domain_Worker" path="/workers" z="67zYbpRsp2uzQMQ4YKAj2wNgR/w=">
+            <table:column id="c_com_diploma_ccms_domain_Worker_login" property="login" z="AseZrEGIB6Cl5JaWRXjqiPzfmTA="/>
+            <table:column id="c_com_diploma_ccms_domain_Worker_pass" property="pass" z="EGBkHQaiM03mQ7xin2VHJDKn7iA="/>
+            <table:column id="c_com_diploma_ccms_domain_Worker_name" property="name" z="oMqwI88BX4eJlemZ9WY6kh3R9jQ="/>
+            <table:column id="c_com_diploma_ccms_domain_Worker_surname" property="surname" z="i/2a45nT0FJszN0jcKYt9qTKq98="/>
+            <table:column id="c_com_diploma_ccms_domain_Worker_phone" property="phone" z="j51Rijd4if1ds2M/5eaU32hkdGw="/>
+            <table:column id="c_com_diploma_ccms_domain_Worker_privateMail" property="privateMail" z="+DWtDdgG6EWoosKd76cX48vsNnQ="/>
+        </table:table>
+    </page:list>
+</div>
