@@ -22,7 +22,10 @@ field string --fieldName pass --notNull
 field string --fieldName name --notNull
 field string --fieldName surname --notNull
 field string --fieldName phone
+field string --fieldName privateMail
 field string --fieldName street
+field date --fieldName birthday --type java.util.Date
+field date --fieldName dateHire --type java.util.Date
 field reference --fieldName roleName --type com.diploma.ccms.domain.WorkerRole
 field reference --fieldName regionName --type com.diploma.ccms.domain.Region  --notNull
 field reference --fieldName teamName --type com.diploma.ccms.domain.Team --notNull
@@ -31,6 +34,10 @@ field file --fieldName photo --contentType JPG
 
 finder add --finderName findWorkersByLoginEquals
 
+
+entity jpa --class com.diploma.ccms.domain.Contact
+field reference --fieldName owner --type com.diploma.ccms.domain.Worker  --notNull
+field reference --fieldName asignee --type com.diploma.ccms.domain.Worker  --notNull
 
 
 entity jpa --class com.diploma.ccms.domain.Message
@@ -45,6 +52,14 @@ finder add --finderName findMessagesByFromWorkerEquals
 finder add --finderName findMessagesByToWorkerEquals
 finder add --finderName findMessagesByTitleLike
 finder add --finderName findMessagesByTextLike
+
+entity jpa --class com.diploma.ccms.domain.Note
+field string --fieldName title --notNull
+field string --fieldName text --notNull --sizeMax 1000000
+field date --fieldName datetime --type java.util.Date --notNull
+field reference --fieldName author --type com.diploma.ccms.domain.Worker --notNull
+
+finder add --finderName findNotesByAuthorEquals
 
 
 
@@ -69,20 +84,22 @@ field string --fieldName roomName --notNull --unique true
 
 entity jpa --class com.diploma.ccms.domain.RoomCalendar
 field string --fieldName title --notNull
-field string --fieldName body --notNull
+field string --fieldName body
 field date --fieldName start --type java.util.Date --notNull
 field date --fieldName end --type java.util.Date --notNull --future true
-field boolean --fieldName readOnly --notNull --value false
+field boolean --fieldName readOnly --value false
+field boolean --fieldName allDay --value false
 field reference --fieldName roomName --type com.diploma.ccms.domain.Room --notNull false
 field reference --fieldName WorkerName --type com.diploma.ccms.domain.Worker
 json add
 
 entity jpa --class com.diploma.ccms.domain.Calendar
 field string --fieldName title --notNull
-field string --fieldName body --notNull
+//field string --fieldName body
 field date --fieldName start --type java.util.Date --notNull
 field date --fieldName end --type java.util.Date --notNull --future true
-field boolean --fieldName readOnly --notNull --value false
+field boolean --fieldName readOnly --value false
+field boolean --fieldName allDay --value false
 field reference --fieldName WorkerName --type com.diploma.ccms.domain.Worker
 json add
 
