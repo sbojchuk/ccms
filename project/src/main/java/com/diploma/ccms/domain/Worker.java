@@ -1,7 +1,10 @@
 package com.diploma.ccms.domain;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,11 +25,14 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 @Configurable
-public class Worker {
+public class Worker implements UserDetails {
+    private static final long serialVersionUID = 1148968754347580432L;
 
     @NotNull
     @Column(unique = true)
@@ -291,5 +297,43 @@ public class Worker {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Set<GrantedAuthority> roles = new HashSet<GrantedAuthority>();
+        roles.add(roleName);
+        return roles;
+
+    }
+
+    @Override
+    public String getPassword() {
+        return pass;
+    }
+
+    @Override
+    public String getUsername() {
+        return login;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

@@ -15,4 +15,11 @@
 		<intercept-url pattern="/**" access="permitAll" />
 	</http>
 
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref="UserServiceBean">
+			<!-- <password-encoder hash="sha-256" />  -->
+		</authentication-provider>
+	</authentication-manager>
+	<beans:bean id="UserServiceBean" class="com.diploma.ccms.service.UserService" />
+
 </beans:beans>

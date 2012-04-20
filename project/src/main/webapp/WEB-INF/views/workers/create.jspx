@@ -11,7 +11,7 @@
 		z="uNpKMweu/4Vp9jBAX5ZmX6L/Arw=">
 		<field:input field="login" id="c_com_diploma_ccms_domain_Worker_login"
 			required="true" z="r8xO/0v3HJuN8UaY0BJMPiPN3nU=" />
-		<field:input field="pass" id="c_com_diploma_ccms_domain_Worker_pass"
+		<field:input type="password" field="pass" id="c_com_diploma_ccms_domain_Worker_pass"
 			required="true" z="q/Fn7fbRX1EXGDU5CmGw/mzMtI8=" />
 		<field:input field="name" id="c_com_diploma_ccms_domain_Worker_name"
 			required="true" z="MW29z+Z0iKasFBNnc/zAbtKZ3bs=" />

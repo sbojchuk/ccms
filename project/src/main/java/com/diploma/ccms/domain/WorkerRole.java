@@ -15,11 +15,13 @@ import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 @Configurable
-public class WorkerRole {
+public class WorkerRole implements GrantedAuthority{
+    private static final long serialVersionUID = 8267682475527493178L;
 
     @NotNull
     @Column(unique = true)
@@ -131,5 +133,10 @@ public class WorkerRole {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+
+    @Override
+    public String getAuthority() {
+        return roleName;
     }
 }
