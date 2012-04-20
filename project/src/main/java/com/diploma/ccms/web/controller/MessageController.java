@@ -24,11 +24,9 @@ import com.diploma.ccms.domain.Worker;
 
 @RequestMapping("/messages")
 @Controller
-
-
 public class MessageController {
 
-	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
+    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid Message message, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, message);
@@ -39,7 +37,7 @@ public class MessageController {
         return "redirect:/messages/" + encodeUrlPathSegment(message.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(params = "form", produces = "text/html")
+    @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new Message());
         List<String[]> dependencies = new ArrayList<String[]>();
@@ -53,7 +51,7 @@ public class MessageController {
         return "messages/create";
     }
 
-	@RequestMapping(value = "/{id}", produces = "text/html")
+    @RequestMapping(value = "/{id}", produces = "text/html")
     public String show(@PathVariable("id") Long id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("message", Message.findMessage(id));
@@ -61,7 +59,7 @@ public class MessageController {
         return "messages/show";
     }
 
-	@RequestMapping(produces = "text/html")
+    @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
@@ -76,7 +74,7 @@ public class MessageController {
         return "messages/list";
     }
 
-	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
+    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
     public String update(@Valid Message message, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, message);
@@ -87,14 +85,15 @@ public class MessageController {
         return "redirect:/messages/" + encodeUrlPathSegment(message.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
+    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, Message.findMessage(id));
         return "messages/update";
     }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Message message = Message.findMessage(id);
         message.remove();
         uiModel.asMap().clear();
@@ -103,68 +102,69 @@ public class MessageController {
         return "redirect:/messages";
     }
 
-	void addDateTimeFormatPatterns(Model uiModel) {
+    void addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("message_datetime_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
 
-	void populateEditForm(Model uiModel, Message message) {
+    void populateEditForm(Model uiModel, Message message) {
         uiModel.addAttribute("message", message);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("workers", Worker.findAllWorkers());
     }
 
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }
         try {
             pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
+        } catch (UnsupportedEncodingException uee) {
+        }
         return pathSegment;
     }
 
-	@RequestMapping(params = { "find=ByFromWorkerEquals", "form" }, method = RequestMethod.GET)
+    @RequestMapping(params = { "find=ByFromWorkerEquals", "form" }, method = RequestMethod.GET)
     public String findMessagesByFromWorkerEqualsForm(Model uiModel) {
         uiModel.addAttribute("workers", Worker.findAllWorkers());
         return "messages/findMessagesByFromWorkerEquals";
     }
 
-	@RequestMapping(params = "find=ByFromWorkerEquals", method = RequestMethod.GET)
+    @RequestMapping(params = "find=ByFromWorkerEquals", method = RequestMethod.GET)
     public String findMessagesByFromWorkerEquals(@RequestParam("fromWorker") Worker fromWorker, Model uiModel) {
         uiModel.addAttribute("messages", Message.findMessagesByFromWorkerEquals(fromWorker).getResultList());
         return "messages/list";
     }
 
-	@RequestMapping(params = { "find=ByTextLike", "form" }, method = RequestMethod.GET)
+    @RequestMapping(params = { "find=ByTextLike", "form" }, method = RequestMethod.GET)
     public String findMessagesByTextLikeForm(Model uiModel) {
         return "messages/findMessagesByTextLike";
     }
 
-	@RequestMapping(params = "find=ByTextLike", method = RequestMethod.GET)
+    @RequestMapping(params = "find=ByTextLike", method = RequestMethod.GET)
     public String findMessagesByTextLike(@RequestParam("text") String text, Model uiModel) {
         uiModel.addAttribute("messages", Message.findMessagesByTextLike(text).getResultList());
         return "messages/list";
     }
 
-	@RequestMapping(params = { "find=ByTitleLike", "form" }, method = RequestMethod.GET)
+    @RequestMapping(params = { "find=ByTitleLike", "form" }, method = RequestMethod.GET)
     public String findMessagesByTitleLikeForm(Model uiModel) {
         return "messages/findMessagesByTitleLike";
     }
 
-	@RequestMapping(params = "find=ByTitleLike", method = RequestMethod.GET)
+    @RequestMapping(params = "find=ByTitleLike", method = RequestMethod.GET)
     public String findMessagesByTitleLike(@RequestParam("title") String title, Model uiModel) {
         uiModel.addAttribute("messages", Message.findMessagesByTitleLike(title).getResultList());
         return "messages/list";
     }
 
-	@RequestMapping(params = { "find=ByToWorkerEquals", "form" }, method = RequestMethod.GET)
+    @RequestMapping(params = { "find=ByToWorkerEquals", "form" }, method = RequestMethod.GET)
     public String findMessagesByToWorkerEqualsForm(Model uiModel) {
         uiModel.addAttribute("workers", Worker.findAllWorkers());
         return "messages/findMessagesByToWorkerEquals";
     }
 
-	@RequestMapping(params = "find=ByToWorkerEquals", method = RequestMethod.GET)
+    @RequestMapping(params = "find=ByToWorkerEquals", method = RequestMethod.GET)
     public String findMessagesByToWorkerEquals(@RequestParam("toWorker") Worker toWorker, Model uiModel) {
         uiModel.addAttribute("messages", Message.findMessagesByToWorkerEquals(toWorker).getResultList());
         return "messages/list";

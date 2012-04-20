@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_com_diploma_ccms_domain_Wiki" items="${wikis}" z="DLW4XqjBsHfG5OYP0Kbzv/Wb0Go=">
-        <table:table data="${wikis}" id="l_com_diploma_ccms_domain_Wiki" path="/wikis" z="/zCXUF5oP8cTQ9R0FKCH/3GJq6g=">
-            <table:column id="c_com_diploma_ccms_domain_Wiki_title" property="title" z="cOu5RqEbjFWp0uPAhv5R1QdaTos="/>
-            <table:column date="true" dateTimePattern="${wiki_enterdate_date_format}" id="c_com_diploma_ccms_domain_Wiki_enterDate" property="enterDate" z="cDRFGwo/LliKqJx5yVeJ9H4CkkU="/>
-            <table:column id="c_com_diploma_ccms_domain_Wiki_WorkerName" property="workerName" z="npSEgBWqRJHhar79G++dVJGvAIo="/>
-            <table:column id="c_com_diploma_ccms_domain_Wiki_category" property="category" z="Id5VzKBNC5vMR86HN2ddj4gNv1Q="/>
-        </table:table>
-    </page:list>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<page:list id="pl_com_diploma_ccms_domain_Wiki" items="${wikis}"
+		z="DLW4XqjBsHfG5OYP0Kbzv/Wb0Go=">
+		<table:table data="${wikis}" id="l_com_diploma_ccms_domain_Wiki"
+			path="/wikis" z="/zCXUF5oP8cTQ9R0FKCH/3GJq6g=">
+			<table:column id="c_com_diploma_ccms_domain_Wiki_title"
+				property="title" z="cOu5RqEbjFWp0uPAhv5R1QdaTos=" />
+			<table:column date="true"
+				dateTimePattern="${wiki_enterdate_date_format}"
+				id="c_com_diploma_ccms_domain_Wiki_enterDate" property="enterDate"
+				z="cDRFGwo/LliKqJx5yVeJ9H4CkkU=" />
+			<table:column id="c_com_diploma_ccms_domain_Wiki_WorkerName"
+				property="workerName" z="npSEgBWqRJHhar79G++dVJGvAIo=" />
+			<table:column id="c_com_diploma_ccms_domain_Wiki_category"
+				property="category" z="Id5VzKBNC5vMR86HN2ddj4gNv1Q=" />
+		</table:table>
+	</page:list>
 </div>

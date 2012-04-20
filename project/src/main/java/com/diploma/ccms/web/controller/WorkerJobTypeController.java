@@ -19,10 +19,9 @@ import com.diploma.ccms.domain.WorkerJobType;
 
 @RequestMapping("/workerjobtypes")
 @Controller
-
 public class WorkerJobTypeController {
 
-	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
+    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid WorkerJobType workerJobType, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, workerJobType);
@@ -33,20 +32,20 @@ public class WorkerJobTypeController {
         return "redirect:/workerjobtypes/" + encodeUrlPathSegment(workerJobType.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(params = "form", produces = "text/html")
+    @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new WorkerJobType());
         return "workerjobtypes/create";
     }
 
-	@RequestMapping(value = "/{id}", produces = "text/html")
+    @RequestMapping(value = "/{id}", produces = "text/html")
     public String show(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("workerjobtype", WorkerJobType.findWorkerJobType(id));
         uiModel.addAttribute("itemId", id);
         return "workerjobtypes/show";
     }
 
-	@RequestMapping(produces = "text/html")
+    @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
@@ -60,7 +59,7 @@ public class WorkerJobTypeController {
         return "workerjobtypes/list";
     }
 
-	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
+    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
     public String update(@Valid WorkerJobType workerJobType, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, workerJobType);
@@ -71,14 +70,15 @@ public class WorkerJobTypeController {
         return "redirect:/workerjobtypes/" + encodeUrlPathSegment(workerJobType.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
+    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, WorkerJobType.findWorkerJobType(id));
         return "workerjobtypes/update";
     }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         WorkerJobType workerJobType = WorkerJobType.findWorkerJobType(id);
         workerJobType.remove();
         uiModel.asMap().clear();
@@ -87,18 +87,19 @@ public class WorkerJobTypeController {
         return "redirect:/workerjobtypes";
     }
 
-	void populateEditForm(Model uiModel, WorkerJobType workerJobType) {
+    void populateEditForm(Model uiModel, WorkerJobType workerJobType) {
         uiModel.addAttribute("workerJobType", workerJobType);
     }
 
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }
         try {
             pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
+        } catch (UnsupportedEncodingException uee) {
+        }
         return pathSegment;
     }
 }

@@ -24,11 +24,9 @@ import com.diploma.ccms.domain.Worker;
 
 @RequestMapping("/blogs")
 @Controller
-
-
 public class BlogController {
 
-	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
+    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid Blog blog, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, blog);
@@ -39,7 +37,7 @@ public class BlogController {
         return "redirect:/blogs/" + encodeUrlPathSegment(blog.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(params = "form", produces = "text/html")
+    @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new Blog());
         List<String[]> dependencies = new ArrayList<String[]>();
@@ -50,7 +48,7 @@ public class BlogController {
         return "blogs/create";
     }
 
-	@RequestMapping(value = "/{id}", produces = "text/html")
+    @RequestMapping(value = "/{id}", produces = "text/html")
     public String show(@PathVariable("id") Long id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("blog", Blog.findBlog(id));
@@ -58,7 +56,7 @@ public class BlogController {
         return "blogs/show";
     }
 
-	@RequestMapping(produces = "text/html")
+    @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
@@ -73,7 +71,7 @@ public class BlogController {
         return "blogs/list";
     }
 
-	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
+    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
     public String update(@Valid Blog blog, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, blog);
@@ -84,14 +82,15 @@ public class BlogController {
         return "redirect:/blogs/" + encodeUrlPathSegment(blog.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
+    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, Blog.findBlog(id));
         return "blogs/update";
     }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Blog blog = Blog.findBlog(id);
         blog.remove();
         uiModel.asMap().clear();
@@ -100,44 +99,45 @@ public class BlogController {
         return "redirect:/blogs";
     }
 
-	void addDateTimeFormatPatterns(Model uiModel) {
+    void addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("blog_enterdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
 
-	void populateEditForm(Model uiModel, Blog blog) {
+    void populateEditForm(Model uiModel, Blog blog) {
         uiModel.addAttribute("blog", blog);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("workers", Worker.findAllWorkers());
     }
 
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }
         try {
             pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
+        } catch (UnsupportedEncodingException uee) {
+        }
         return pathSegment;
     }
 
-	@RequestMapping(params = { "find=ByBodyLike", "form" }, method = RequestMethod.GET)
+    @RequestMapping(params = { "find=ByBodyLike", "form" }, method = RequestMethod.GET)
     public String findBlogsByBodyLikeForm(Model uiModel) {
         return "blogs/findBlogsByBodyLike";
     }
 
-	@RequestMapping(params = "find=ByBodyLike", method = RequestMethod.GET)
+    @RequestMapping(params = "find=ByBodyLike", method = RequestMethod.GET)
     public String findBlogsByBodyLike(@RequestParam("body") String body, Model uiModel) {
         uiModel.addAttribute("blogs", Blog.findBlogsByBodyLike(body).getResultList());
         return "blogs/list";
     }
 
-	@RequestMapping(params = { "find=ByTitleLike", "form" }, method = RequestMethod.GET)
+    @RequestMapping(params = { "find=ByTitleLike", "form" }, method = RequestMethod.GET)
     public String findBlogsByTitleLikeForm(Model uiModel) {
         return "blogs/findBlogsByTitleLike";
     }
 
-	@RequestMapping(params = "find=ByTitleLike", method = RequestMethod.GET)
+    @RequestMapping(params = "find=ByTitleLike", method = RequestMethod.GET)
     public String findBlogsByTitleLike(@RequestParam("title") String title, Model uiModel) {
         uiModel.addAttribute("blogs", Blog.findBlogsByTitleLike(title).getResultList());
         return "blogs/list";

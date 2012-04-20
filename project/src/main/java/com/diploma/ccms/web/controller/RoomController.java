@@ -19,10 +19,9 @@ import com.diploma.ccms.domain.Room;
 
 @RequestMapping("/rooms")
 @Controller
-
 public class RoomController {
 
-	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
+    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid Room room, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, room);
@@ -33,20 +32,20 @@ public class RoomController {
         return "redirect:/rooms/" + encodeUrlPathSegment(room.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(params = "form", produces = "text/html")
+    @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new Room());
         return "rooms/create";
     }
 
-	@RequestMapping(value = "/{id}", produces = "text/html")
+    @RequestMapping(value = "/{id}", produces = "text/html")
     public String show(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("room", Room.findRoom(id));
         uiModel.addAttribute("itemId", id);
         return "rooms/show";
     }
 
-	@RequestMapping(produces = "text/html")
+    @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
@@ -60,7 +59,7 @@ public class RoomController {
         return "rooms/list";
     }
 
-	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
+    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
     public String update(@Valid Room room, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, room);
@@ -71,14 +70,15 @@ public class RoomController {
         return "redirect:/rooms/" + encodeUrlPathSegment(room.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
+    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, Room.findRoom(id));
         return "rooms/update";
     }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Room room = Room.findRoom(id);
         room.remove();
         uiModel.asMap().clear();
@@ -87,18 +87,19 @@ public class RoomController {
         return "redirect:/rooms";
     }
 
-	void populateEditForm(Model uiModel, Room room) {
+    void populateEditForm(Model uiModel, Room room) {
         uiModel.addAttribute("room", room);
     }
 
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }
         try {
             pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
+        } catch (UnsupportedEncodingException uee) {
+        }
         return pathSegment;
     }
 }

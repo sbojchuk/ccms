@@ -25,10 +25,9 @@ import com.diploma.ccms.domain.Worker;
 
 @RequestMapping("/todoes")
 @Controller
-
 public class TodoController {
 
-	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
+    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid Todo todo, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, todo);
@@ -39,7 +38,7 @@ public class TodoController {
         return "redirect:/todoes/" + encodeUrlPathSegment(todo.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(params = "form", produces = "text/html")
+    @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new Todo());
         List<String[]> dependencies = new ArrayList<String[]>();
@@ -56,7 +55,7 @@ public class TodoController {
         return "todoes/create";
     }
 
-	@RequestMapping(value = "/{id}", produces = "text/html")
+    @RequestMapping(value = "/{id}", produces = "text/html")
     public String show(@PathVariable("id") Long id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("todo", Todo.findTodo(id));
@@ -64,7 +63,7 @@ public class TodoController {
         return "todoes/show";
     }
 
-	@RequestMapping(produces = "text/html")
+    @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
@@ -79,7 +78,7 @@ public class TodoController {
         return "todoes/list";
     }
 
-	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
+    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
     public String update(@Valid Todo todo, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, todo);
@@ -90,14 +89,15 @@ public class TodoController {
         return "redirect:/todoes/" + encodeUrlPathSegment(todo.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
+    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, Todo.findTodo(id));
         return "todoes/update";
     }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Todo todo = Todo.findTodo(id);
         todo.remove();
         uiModel.asMap().clear();
@@ -106,26 +106,27 @@ public class TodoController {
         return "redirect:/todoes";
     }
 
-	void addDateTimeFormatPatterns(Model uiModel) {
+    void addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("todo_enterdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("todo_duedate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
 
-	void populateEditForm(Model uiModel, Todo todo) {
+    void populateEditForm(Model uiModel, Todo todo) {
         uiModel.addAttribute("todo", todo);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("todocategorys", TodoCategory.findAllTodoCategorys());
         uiModel.addAttribute("workers", Worker.findAllWorkers());
     }
 
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }
         try {
             pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
+        } catch (UnsupportedEncodingException uee) {
+        }
         return pathSegment;
     }
 }

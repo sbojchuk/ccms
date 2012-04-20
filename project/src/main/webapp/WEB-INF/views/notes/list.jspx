@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_com_diploma_ccms_domain_Note" items="${notes}" z="oPEgpCJE8LWnYvlXsIiT9Y4Zyvg=">
-        <table:table data="${notes}" id="l_com_diploma_ccms_domain_Note" path="/notes" z="yTkQ/RoH4Z0vGjsp4h8UF2pHhAQ=">
-            <table:column id="c_com_diploma_ccms_domain_Note_title" property="title" z="WWAuXehTwMYuZ/sSzHUsVivEig4="/>
-            <table:column id="c_com_diploma_ccms_domain_Note_text" property="text" z="PSg11RwNv9qEHe/cv2E3jVXZdIg="/>
-            <table:column date="true" dateTimePattern="${note_datetime_date_format}" id="c_com_diploma_ccms_domain_Note_datetime" property="datetime" z="oAeXkhECNHlES9vafIwRquXGHV4="/>
-            <table:column id="c_com_diploma_ccms_domain_Note_author" property="author" z="AnQ7lFbR3g9402YcDM7iuU+f6uk="/>
-        </table:table>
-    </page:list>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<page:list id="pl_com_diploma_ccms_domain_Note" items="${notes}"
+		z="oPEgpCJE8LWnYvlXsIiT9Y4Zyvg=">
+		<table:table data="${notes}" id="l_com_diploma_ccms_domain_Note"
+			path="/notes" z="yTkQ/RoH4Z0vGjsp4h8UF2pHhAQ=">
+			<table:column id="c_com_diploma_ccms_domain_Note_title"
+				property="title" z="WWAuXehTwMYuZ/sSzHUsVivEig4=" />
+			<table:column id="c_com_diploma_ccms_domain_Note_text"
+				property="text" z="PSg11RwNv9qEHe/cv2E3jVXZdIg=" />
+			<table:column date="true"
+				dateTimePattern="${note_datetime_date_format}"
+				id="c_com_diploma_ccms_domain_Note_datetime" property="datetime"
+				z="oAeXkhECNHlES9vafIwRquXGHV4=" />
+			<table:column id="c_com_diploma_ccms_domain_Note_author"
+				property="author" z="AnQ7lFbR3g9402YcDM7iuU+f6uk=" />
+		</table:table>
+	</page:list>
 </div>

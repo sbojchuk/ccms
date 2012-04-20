@@ -19,9 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Configurable
 @Entity
-
-
-
 public class DocumentCategory {
 
     @NotNull
@@ -29,61 +26,66 @@ public class DocumentCategory {
 
     private String description;
 
-	public String getTitle() {
+    public String getTitle() {
         return this.title;
     }
 
-	public void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-	public String getDescription() {
+    public String getDescription() {
         return this.description;
     }
 
-	public void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-	public String toString() {
+    public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
-	@PersistenceContext
+    @PersistenceContext
     transient EntityManager entityManager;
 
-	public static final EntityManager entityManager() {
+    public static final EntityManager entityManager() {
         EntityManager em = new DocumentCategory().entityManager;
-        if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+        if (em == null)
+            throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
 
-	public static long countDocumentCategorys() {
+    public static long countDocumentCategorys() {
         return entityManager().createQuery("SELECT COUNT(o) FROM DocumentCategory o", Long.class).getSingleResult();
     }
 
-	public static List<DocumentCategory> findAllDocumentCategorys() {
+    public static List<DocumentCategory> findAllDocumentCategorys() {
         return entityManager().createQuery("SELECT o FROM DocumentCategory o", DocumentCategory.class).getResultList();
     }
 
-	public static DocumentCategory findDocumentCategory(Long id) {
-        if (id == null) return null;
+    public static DocumentCategory findDocumentCategory(Long id) {
+        if (id == null)
+            return null;
         return entityManager().find(DocumentCategory.class, id);
     }
 
-	public static List<DocumentCategory> findDocumentCategoryEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM DocumentCategory o", DocumentCategory.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<DocumentCategory> findDocumentCategoryEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM DocumentCategory o", DocumentCategory.class).setFirstResult(firstResult).setMaxResults(maxResults)
+                .getResultList();
     }
 
-	@Transactional
+    @Transactional
     public void persist() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
 
-	@Transactional
+    @Transactional
     public void remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
@@ -92,48 +94,51 @@ public class DocumentCategory {
         }
     }
 
-	@Transactional
+    @Transactional
     public void flush() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.flush();
     }
 
-	@Transactional
+    @Transactional
     public void clear() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.clear();
     }
 
-	@Transactional
+    @Transactional
     public DocumentCategory merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         DocumentCategory merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-	@Version
+    @Version
     @Column(name = "version")
     private Integer version;
 
-	public Long getId() {
+    public Long getId() {
         return this.id;
     }
 
-	public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-	public Integer getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
 
-	public void setVersion(Integer version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 }

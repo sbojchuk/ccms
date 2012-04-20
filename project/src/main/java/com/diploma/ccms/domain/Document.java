@@ -23,9 +23,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Configurable
 @Entity
-
-
-
 public class Document {
 
     @NotNull
@@ -46,64 +43,64 @@ public class Document {
     private DocumentCategory category;
 
     @NotNull
-    
     @Lob
     private byte[] file;
 
-	public String toString() {
+    public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
-	public String getTitle() {
+    public String getTitle() {
         return this.title;
     }
 
-	public void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-	public String getDescription() {
+    public String getDescription() {
         return this.description;
     }
 
-	public void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-	public Boolean getShared() {
+    public Boolean getShared() {
         return this.shared;
     }
 
-	public void setShared(Boolean shared) {
+    public void setShared(Boolean shared) {
         this.shared = shared;
     }
 
-	public Worker getWorkerName() {
+    public Worker getWorkerName() {
         return this.WorkerName;
     }
 
-	public void setWorkerName(Worker WorkerName) {
+    public void setWorkerName(Worker WorkerName) {
         this.WorkerName = WorkerName;
     }
 
-	public DocumentCategory getCategory() {
+    public DocumentCategory getCategory() {
         return this.category;
     }
 
-	public void setCategory(DocumentCategory category) {
+    public void setCategory(DocumentCategory category) {
         this.category = category;
     }
 
-	public byte[] getFile() {
+    public byte[] getFile() {
         return this.file;
     }
 
-	public void setFile(byte[] file) {
+    public void setFile(byte[] file) {
         this.file = file;
     }
 
-	public static TypedQuery<Document> findDocumentsByDescriptionLike(String description) {
-        if (description == null || description.length() == 0) throw new IllegalArgumentException("The description argument is required");
+    public static TypedQuery<Document> findDocumentsByDescriptionLike(String description) {
+        if (description == null || description.length() == 0)
+            throw new IllegalArgumentException("The description argument is required");
         description = description.replace('*', '%');
         if (description.charAt(0) != '%') {
             description = "%" + description;
@@ -117,8 +114,9 @@ public class Document {
         return q;
     }
 
-	public static TypedQuery<Document> findDocumentsByTitleLike(String title) {
-        if (title == null || title.length() == 0) throw new IllegalArgumentException("The title argument is required");
+    public static TypedQuery<Document> findDocumentsByTitleLike(String title) {
+        if (title == null || title.length() == 0)
+            throw new IllegalArgumentException("The title argument is required");
         title = title.replace('*', '%');
         if (title.charAt(0) != '%') {
             title = "%" + title;
@@ -132,41 +130,45 @@ public class Document {
         return q;
     }
 
-	@PersistenceContext
+    @PersistenceContext
     transient EntityManager entityManager;
 
-	public static final EntityManager entityManager() {
+    public static final EntityManager entityManager() {
         EntityManager em = new Document().entityManager;
-        if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+        if (em == null)
+            throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
 
-	public static long countDocuments() {
+    public static long countDocuments() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Document o", Long.class).getSingleResult();
     }
 
-	public static List<Document> findAllDocuments() {
+    public static List<Document> findAllDocuments() {
         return entityManager().createQuery("SELECT o FROM Document o", Document.class).getResultList();
     }
 
-	public static Document findDocument(Long id) {
-        if (id == null) return null;
+    public static Document findDocument(Long id) {
+        if (id == null)
+            return null;
         return entityManager().find(Document.class, id);
     }
 
-	public static List<Document> findDocumentEntries(int firstResult, int maxResults) {
+    public static List<Document> findDocumentEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Document o", Document.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
 
-	@Transactional
+    @Transactional
     public void persist() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
 
-	@Transactional
+    @Transactional
     public void remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
@@ -175,48 +177,51 @@ public class Document {
         }
     }
 
-	@Transactional
+    @Transactional
     public void flush() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.flush();
     }
 
-	@Transactional
+    @Transactional
     public void clear() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.clear();
     }
 
-	@Transactional
+    @Transactional
     public Document merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         Document merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-	@Version
+    @Version
     @Column(name = "version")
     private Integer version;
 
-	public Long getId() {
+    public Long getId() {
         return this.id;
     }
 
-	public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-	public Integer getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
 
-	public void setVersion(Integer version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 }

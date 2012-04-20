@@ -26,9 +26,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 @Configurable
-
-
-
 public class Todo {
 
     @NotNull
@@ -68,138 +65,142 @@ public class Todo {
     @ManyToOne
     private TodoCategory category;
 
-	public String getTitle() {
+    public String getTitle() {
         return this.title;
     }
 
-	public void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-	public String getText() {
+    public String getText() {
         return this.text;
     }
 
-	public void setText(String text) {
+    public void setText(String text) {
         this.text = text;
     }
 
-	public Date getEnterDate() {
+    public Date getEnterDate() {
         return this.enterDate;
     }
 
-	public void setEnterDate(Date enterDate) {
+    public void setEnterDate(Date enterDate) {
         this.enterDate = enterDate;
     }
 
-	public Date getDueDate() {
+    public Date getDueDate() {
         return this.dueDate;
     }
 
-	public void setDueDate(Date dueDate) {
+    public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
 
-	public Boolean getViewed() {
+    public Boolean getViewed() {
         return this.viewed;
     }
 
-	public void setViewed(Boolean viewed) {
+    public void setViewed(Boolean viewed) {
         this.viewed = viewed;
     }
 
-	public Boolean getDone() {
+    public Boolean getDone() {
         return this.done;
     }
 
-	public void setDone(Boolean done) {
+    public void setDone(Boolean done) {
         this.done = done;
     }
 
-	public Worker getReporter() {
+    public Worker getReporter() {
         return this.reporter;
     }
 
-	public void setReporter(Worker reporter) {
+    public void setReporter(Worker reporter) {
         this.reporter = reporter;
     }
 
-	public Worker getAssignee() {
+    public Worker getAssignee() {
         return this.assignee;
     }
 
-	public void setAssignee(Worker assignee) {
+    public void setAssignee(Worker assignee) {
         this.assignee = assignee;
     }
 
-	public TodoCategory getCategory() {
+    public TodoCategory getCategory() {
         return this.category;
     }
 
-	public void setCategory(TodoCategory category) {
+    public void setCategory(TodoCategory category) {
         this.category = category;
     }
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-	@Version
+    @Version
     @Column(name = "version")
     private Integer version;
 
-	public Long getId() {
+    public Long getId() {
         return this.id;
     }
 
-	public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-	public Integer getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
 
-	public void setVersion(Integer version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
-	@PersistenceContext
+    @PersistenceContext
     transient EntityManager entityManager;
 
-	public static final EntityManager entityManager() {
+    public static final EntityManager entityManager() {
         EntityManager em = new Todo().entityManager;
-        if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+        if (em == null)
+            throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
 
-	public static long countTodoes() {
+    public static long countTodoes() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Todo o", Long.class).getSingleResult();
     }
 
-	public static List<Todo> findAllTodoes() {
+    public static List<Todo> findAllTodoes() {
         return entityManager().createQuery("SELECT o FROM Todo o", Todo.class).getResultList();
     }
 
-	public static Todo findTodo(Long id) {
-        if (id == null) return null;
+    public static Todo findTodo(Long id) {
+        if (id == null)
+            return null;
         return entityManager().find(Todo.class, id);
     }
 
-	public static List<Todo> findTodoEntries(int firstResult, int maxResults) {
+    public static List<Todo> findTodoEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Todo o", Todo.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
 
-	@Transactional
+    @Transactional
     public void persist() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
 
-	@Transactional
+    @Transactional
     public void remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
@@ -208,27 +209,30 @@ public class Todo {
         }
     }
 
-	@Transactional
+    @Transactional
     public void flush() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.flush();
     }
 
-	@Transactional
+    @Transactional
     public void clear() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.clear();
     }
 
-	@Transactional
+    @Transactional
     public Todo merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         Todo merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }
 
-	public String toString() {
+    public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

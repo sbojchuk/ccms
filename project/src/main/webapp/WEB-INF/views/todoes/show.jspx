@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_com_diploma_ccms_domain_Todo" object="${todo}" path="/todoes" z="V3c2PDmW0IfL2+4bjCjnP9Tv9dc=">
-        <field:display field="title" id="s_com_diploma_ccms_domain_Todo_title" object="${todo}" z="s1ZWQSZMhPFrOd6G0WnwJpYgTz8="/>
-        <field:display field="text" id="s_com_diploma_ccms_domain_Todo_text" object="${todo}" z="BTpbNdytL0aHl+mmdvCyDfU8+7g="/>
-        <field:display date="true" dateTimePattern="${todo_enterdate_date_format}" field="enterDate" id="s_com_diploma_ccms_domain_Todo_enterDate" object="${todo}" z="da2haRFFILDl/CLpeW6MKridnoQ="/>
-        <field:display date="true" dateTimePattern="${todo_duedate_date_format}" field="dueDate" id="s_com_diploma_ccms_domain_Todo_dueDate" object="${todo}" z="3XKkVtca2MJwKxFrntaT6sBZW+E="/>
-        <field:display field="viewed" id="s_com_diploma_ccms_domain_Todo_viewed" object="${todo}" z="rqUtrJWrgepngkQWm8VUSfxjKSs="/>
-        <field:display field="done" id="s_com_diploma_ccms_domain_Todo_done" object="${todo}" z="mh9Td00B22/26bbyK92Mp53HZCE="/>
-        <field:display field="reporter" id="s_com_diploma_ccms_domain_Todo_reporter" object="${todo}" z="LZGJc/7X4VLgcLSn6Eq5mxIOcxE="/>
-        <field:display field="assignee" id="s_com_diploma_ccms_domain_Todo_assignee" object="${todo}" z="W8U2lwhHUaNvlM4I21lvQYID4O4="/>
-        <field:display field="category" id="s_com_diploma_ccms_domain_Todo_category" object="${todo}" z="IsSCfPxrA/5H8I2xcqBjt61td7c="/>
-    </page:show>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<page:show id="ps_com_diploma_ccms_domain_Todo" object="${todo}"
+		path="/todoes" z="V3c2PDmW0IfL2+4bjCjnP9Tv9dc=">
+		<field:display field="title" id="s_com_diploma_ccms_domain_Todo_title"
+			object="${todo}" z="s1ZWQSZMhPFrOd6G0WnwJpYgTz8=" />
+		<field:display field="text" id="s_com_diploma_ccms_domain_Todo_text"
+			object="${todo}" z="BTpbNdytL0aHl+mmdvCyDfU8+7g=" />
+		<field:display date="true"
+			dateTimePattern="${todo_enterdate_date_format}" field="enterDate"
+			id="s_com_diploma_ccms_domain_Todo_enterDate" object="${todo}"
+			z="da2haRFFILDl/CLpeW6MKridnoQ=" />
+		<field:display date="true"
+			dateTimePattern="${todo_duedate_date_format}" field="dueDate"
+			id="s_com_diploma_ccms_domain_Todo_dueDate" object="${todo}"
+			z="3XKkVtca2MJwKxFrntaT6sBZW+E=" />
+		<field:display field="viewed"
+			id="s_com_diploma_ccms_domain_Todo_viewed" object="${todo}"
+			z="rqUtrJWrgepngkQWm8VUSfxjKSs=" />
+		<field:display field="done" id="s_com_diploma_ccms_domain_Todo_done"
+			object="${todo}" z="mh9Td00B22/26bbyK92Mp53HZCE=" />
+		<field:display field="reporter"
+			id="s_com_diploma_ccms_domain_Todo_reporter" object="${todo}"
+			z="LZGJc/7X4VLgcLSn6Eq5mxIOcxE=" />
+		<field:display field="assignee"
+			id="s_com_diploma_ccms_domain_Todo_assignee" object="${todo}"
+			z="W8U2lwhHUaNvlM4I21lvQYID4O4=" />
+		<field:display field="category"
+			id="s_com_diploma_ccms_domain_Todo_category" object="${todo}"
+			z="IsSCfPxrA/5H8I2xcqBjt61td7c=" />
+	</page:show>
 </div>

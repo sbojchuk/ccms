@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_com_diploma_ccms_domain_Team" items="${teams}" z="X71I9lFd8boCVMKL5SQUxTEt3To=">
-        <table:table data="${teams}" id="l_com_diploma_ccms_domain_Team" path="/teams" z="PCZwJXe3WPhy8MbH9wL5377UEYM=">
-            <table:column id="c_com_diploma_ccms_domain_Team_teamName" property="teamName" z="HwukU2yDYvLZ1HZwJ897o54I1yo="/>
-        </table:table>
-    </page:list>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<page:list id="pl_com_diploma_ccms_domain_Team" items="${teams}"
+		z="X71I9lFd8boCVMKL5SQUxTEt3To=">
+		<table:table data="${teams}" id="l_com_diploma_ccms_domain_Team"
+			path="/teams" z="PCZwJXe3WPhy8MbH9wL5377UEYM=">
+			<table:column id="c_com_diploma_ccms_domain_Team_teamName"
+				property="teamName" z="HwukU2yDYvLZ1HZwJ897o54I1yo=" />
+		</table:table>
+	</page:list>
 </div>

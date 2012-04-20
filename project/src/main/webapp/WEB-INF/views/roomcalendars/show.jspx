@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_com_diploma_ccms_domain_RoomCalendar" object="${roomcalendar}" path="/roomcalendars" z="MD3BHkbiIbpHDuEW9Ghdi1Kr3Ls=">
-        <field:display field="title" id="s_com_diploma_ccms_domain_RoomCalendar_title" object="${roomcalendar}" z="92jV3HH+2NZ4qIGRQNoaJwPT8OM="/>
-        <field:display field="body" id="s_com_diploma_ccms_domain_RoomCalendar_body" object="${roomcalendar}" z="Ya7GaBd/duEKj23Ryh8pOjc5O6E="/>
-        <field:display field="readOnly" id="s_com_diploma_ccms_domain_RoomCalendar_readOnly" object="${roomcalendar}" z="8xDIDZa/uSoTZiKlosFgbQXGF/g="/>
-        <field:display field="allDay" id="s_com_diploma_ccms_domain_RoomCalendar_allDay" object="${roomcalendar}" z="ZGd8iS3Wxf68MG1/eSShXL5i1NM="/>
-        <field:display field="roomName" id="s_com_diploma_ccms_domain_RoomCalendar_roomName" object="${roomcalendar}" z="RzmhcB/SSAsdpIV1BFbWVR99szw="/>
-        <field:display field="workerName" id="s_com_diploma_ccms_domain_RoomCalendar_WorkerName" object="${roomcalendar}" z="vdBbzahYaDJlHrFYh61fzdyJSkw="/>
-    </page:show>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<page:show id="ps_com_diploma_ccms_domain_RoomCalendar"
+		object="${roomcalendar}" path="/roomcalendars"
+		z="MD3BHkbiIbpHDuEW9Ghdi1Kr3Ls=">
+		<field:display field="title"
+			id="s_com_diploma_ccms_domain_RoomCalendar_title"
+			object="${roomcalendar}" z="92jV3HH+2NZ4qIGRQNoaJwPT8OM=" />
+		<field:display field="body"
+			id="s_com_diploma_ccms_domain_RoomCalendar_body"
+			object="${roomcalendar}" z="Ya7GaBd/duEKj23Ryh8pOjc5O6E=" />
+		<field:display field="readOnly"
+			id="s_com_diploma_ccms_domain_RoomCalendar_readOnly"
+			object="${roomcalendar}" z="8xDIDZa/uSoTZiKlosFgbQXGF/g=" />
+		<field:display field="allDay"
+			id="s_com_diploma_ccms_domain_RoomCalendar_allDay"
+			object="${roomcalendar}" z="ZGd8iS3Wxf68MG1/eSShXL5i1NM=" />
+		<field:display field="roomName"
+			id="s_com_diploma_ccms_domain_RoomCalendar_roomName"
+			object="${roomcalendar}" z="RzmhcB/SSAsdpIV1BFbWVR99szw=" />
+		<field:display field="workerName"
+			id="s_com_diploma_ccms_domain_RoomCalendar_WorkerName"
+			object="${roomcalendar}" z="vdBbzahYaDJlHrFYh61fzdyJSkw=" />
+	</page:show>
 </div>

@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_com_diploma_ccms_domain_Worker" object="${worker}" path="/workers" z="iQamgfMz7tfHSdGgWB8YCdDd83Q=">
-        <field:display field="login" id="s_com_diploma_ccms_domain_Worker_login" object="${worker}" z="4HjNYZAHZPDLTqADXwCdyd4GRAk="/>
-        <field:display field="pass" id="s_com_diploma_ccms_domain_Worker_pass" object="${worker}" z="HYhzpM8Xx937WviE05t1DOTtIbU="/>
-        <field:display field="name" id="s_com_diploma_ccms_domain_Worker_name" object="${worker}" z="egBKi4f8HsCgN5Ynj/jGjRUelAo="/>
-        <field:display field="surname" id="s_com_diploma_ccms_domain_Worker_surname" object="${worker}" z="ES6rDyTeRfbtJ4oZ9zGg6RpkdI0="/>
-        <field:display field="phone" id="s_com_diploma_ccms_domain_Worker_phone" object="${worker}" z="1VohSBGktVWKME/kgylZA99MluU="/>
-        <field:display field="privateMail" id="s_com_diploma_ccms_domain_Worker_privateMail" object="${worker}" z="JZug5Vfq4gKYkQsNndLyunI+pLo="/>
-        <field:display field="street" id="s_com_diploma_ccms_domain_Worker_street" object="${worker}" z="e/Rkpq+iZVtm51YsnThOISuQXRA="/>
-        <field:display date="true" dateTimePattern="${worker_birthday_date_format}" field="birthday" id="s_com_diploma_ccms_domain_Worker_birthday" object="${worker}" z="EmRENzOD8cefRn6vszpdLPB3+04="/>
-        <field:display date="true" dateTimePattern="${worker_datehire_date_format}" field="dateHire" id="s_com_diploma_ccms_domain_Worker_dateHire" object="${worker}" z="oQ0LtnMFcGhHLh6m2nvl4LtMrJU="/>
-        <field:display field="roleName" id="s_com_diploma_ccms_domain_Worker_roleName" object="${worker}" z="wJnkS5HOd6iZ3AnuqTU07TI2wX8="/>
-        <field:display field="regionName" id="s_com_diploma_ccms_domain_Worker_regionName" object="${worker}" z="obgn4zC59pMlQ8GaXlDJYjUcoGs="/>
-        <field:display field="teamName" id="s_com_diploma_ccms_domain_Worker_teamName" object="${worker}" z="iRDO/HwFc7JQ+f+sLvRXQwEzBOw="/>
-        <field:display field="jobTypeName" id="s_com_diploma_ccms_domain_Worker_jobTypeName" object="${worker}" z="a43X3qenfQB/KwX1hCUeDmDGIYM="/>
-        <field:display field="photo" id="s_com_diploma_ccms_domain_Worker_photo" object="${worker}" z="lcI4umkwCdlmQFaIzB4gefboNPI="/>
-    </page:show>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<page:show id="ps_com_diploma_ccms_domain_Worker" object="${worker}"
+		path="/workers" z="iQamgfMz7tfHSdGgWB8YCdDd83Q=">
+		<field:display field="login"
+			id="s_com_diploma_ccms_domain_Worker_login" object="${worker}"
+			z="4HjNYZAHZPDLTqADXwCdyd4GRAk=" />
+		<field:display field="pass" id="s_com_diploma_ccms_domain_Worker_pass"
+			object="${worker}" z="HYhzpM8Xx937WviE05t1DOTtIbU=" />
+		<field:display field="name" id="s_com_diploma_ccms_domain_Worker_name"
+			object="${worker}" z="egBKi4f8HsCgN5Ynj/jGjRUelAo=" />
+		<field:display field="surname"
+			id="s_com_diploma_ccms_domain_Worker_surname" object="${worker}"
+			z="ES6rDyTeRfbtJ4oZ9zGg6RpkdI0=" />
+		<field:display field="phone"
+			id="s_com_diploma_ccms_domain_Worker_phone" object="${worker}"
+			z="1VohSBGktVWKME/kgylZA99MluU=" />
+		<field:display field="privateMail"
+			id="s_com_diploma_ccms_domain_Worker_privateMail" object="${worker}"
+			z="JZug5Vfq4gKYkQsNndLyunI+pLo=" />
+		<field:display field="street"
+			id="s_com_diploma_ccms_domain_Worker_street" object="${worker}"
+			z="e/Rkpq+iZVtm51YsnThOISuQXRA=" />
+		<field:display date="true"
+			dateTimePattern="${worker_birthday_date_format}" field="birthday"
+			id="s_com_diploma_ccms_domain_Worker_birthday" object="${worker}"
+			z="EmRENzOD8cefRn6vszpdLPB3+04=" />
+		<field:display date="true"
+			dateTimePattern="${worker_datehire_date_format}" field="dateHire"
+			id="s_com_diploma_ccms_domain_Worker_dateHire" object="${worker}"
+			z="oQ0LtnMFcGhHLh6m2nvl4LtMrJU=" />
+		<field:display field="roleName"
+			id="s_com_diploma_ccms_domain_Worker_roleName" object="${worker}"
+			z="wJnkS5HOd6iZ3AnuqTU07TI2wX8=" />
+		<field:display field="regionName"
+			id="s_com_diploma_ccms_domain_Worker_regionName" object="${worker}"
+			z="obgn4zC59pMlQ8GaXlDJYjUcoGs=" />
+		<field:display field="teamName"
+			id="s_com_diploma_ccms_domain_Worker_teamName" object="${worker}"
+			z="iRDO/HwFc7JQ+f+sLvRXQwEzBOw=" />
+		<field:display field="jobTypeName"
+			id="s_com_diploma_ccms_domain_Worker_jobTypeName" object="${worker}"
+			z="a43X3qenfQB/KwX1hCUeDmDGIYM=" />
+		<field:display field="photo"
+			id="s_com_diploma_ccms_domain_Worker_photo" object="${worker}"
+			z="lcI4umkwCdlmQFaIzB4gefboNPI=" />
+	</page:show>
 </div>

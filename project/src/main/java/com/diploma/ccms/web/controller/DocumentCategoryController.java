@@ -19,10 +19,9 @@ import com.diploma.ccms.domain.DocumentCategory;
 
 @RequestMapping("/documentcategorys")
 @Controller
-
 public class DocumentCategoryController {
 
-	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
+    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid DocumentCategory documentCategory, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, documentCategory);
@@ -33,20 +32,20 @@ public class DocumentCategoryController {
         return "redirect:/documentcategorys/" + encodeUrlPathSegment(documentCategory.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(params = "form", produces = "text/html")
+    @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new DocumentCategory());
         return "documentcategorys/create";
     }
 
-	@RequestMapping(value = "/{id}", produces = "text/html")
+    @RequestMapping(value = "/{id}", produces = "text/html")
     public String show(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("documentcategory", DocumentCategory.findDocumentCategory(id));
         uiModel.addAttribute("itemId", id);
         return "documentcategorys/show";
     }
 
-	@RequestMapping(produces = "text/html")
+    @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
@@ -60,7 +59,7 @@ public class DocumentCategoryController {
         return "documentcategorys/list";
     }
 
-	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
+    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
     public String update(@Valid DocumentCategory documentCategory, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, documentCategory);
@@ -71,14 +70,15 @@ public class DocumentCategoryController {
         return "redirect:/documentcategorys/" + encodeUrlPathSegment(documentCategory.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
+    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, DocumentCategory.findDocumentCategory(id));
         return "documentcategorys/update";
     }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         DocumentCategory documentCategory = DocumentCategory.findDocumentCategory(id);
         documentCategory.remove();
         uiModel.asMap().clear();
@@ -87,18 +87,19 @@ public class DocumentCategoryController {
         return "redirect:/documentcategorys";
     }
 
-	void populateEditForm(Model uiModel, DocumentCategory documentCategory) {
+    void populateEditForm(Model uiModel, DocumentCategory documentCategory) {
         uiModel.addAttribute("documentCategory", documentCategory);
     }
 
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }
         try {
             pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
+        } catch (UnsupportedEncodingException uee) {
+        }
         return pathSegment;
     }
 }

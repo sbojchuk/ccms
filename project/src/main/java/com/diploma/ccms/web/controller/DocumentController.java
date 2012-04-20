@@ -23,11 +23,9 @@ import com.diploma.ccms.domain.Worker;
 
 @RequestMapping("/documents")
 @Controller
-
-
 public class DocumentController {
 
-	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
+    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid Document document, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, document);
@@ -38,7 +36,7 @@ public class DocumentController {
         return "redirect:/documents/" + encodeUrlPathSegment(document.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(params = "form", produces = "text/html")
+    @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new Document());
         List<String[]> dependencies = new ArrayList<String[]>();
@@ -52,14 +50,14 @@ public class DocumentController {
         return "documents/create";
     }
 
-	@RequestMapping(value = "/{id}", produces = "text/html")
+    @RequestMapping(value = "/{id}", produces = "text/html")
     public String show(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("document", Document.findDocument(id));
         uiModel.addAttribute("itemId", id);
         return "documents/show";
     }
 
-	@RequestMapping(produces = "text/html")
+    @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
@@ -73,7 +71,7 @@ public class DocumentController {
         return "documents/list";
     }
 
-	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
+    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
     public String update(@Valid Document document, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, document);
@@ -84,14 +82,15 @@ public class DocumentController {
         return "redirect:/documents/" + encodeUrlPathSegment(document.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
+    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, Document.findDocument(id));
         return "documents/update";
     }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Document document = Document.findDocument(id);
         document.remove();
         uiModel.asMap().clear();
@@ -100,40 +99,41 @@ public class DocumentController {
         return "redirect:/documents";
     }
 
-	void populateEditForm(Model uiModel, Document document) {
+    void populateEditForm(Model uiModel, Document document) {
         uiModel.addAttribute("document", document);
         uiModel.addAttribute("documentcategorys", DocumentCategory.findAllDocumentCategorys());
         uiModel.addAttribute("workers", Worker.findAllWorkers());
     }
 
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }
         try {
             pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
+        } catch (UnsupportedEncodingException uee) {
+        }
         return pathSegment;
     }
 
-	@RequestMapping(params = { "find=ByDescriptionLike", "form" }, method = RequestMethod.GET)
+    @RequestMapping(params = { "find=ByDescriptionLike", "form" }, method = RequestMethod.GET)
     public String findDocumentsByDescriptionLikeForm(Model uiModel) {
         return "documents/findDocumentsByDescriptionLike";
     }
 
-	@RequestMapping(params = "find=ByDescriptionLike", method = RequestMethod.GET)
+    @RequestMapping(params = "find=ByDescriptionLike", method = RequestMethod.GET)
     public String findDocumentsByDescriptionLike(@RequestParam("description") String description, Model uiModel) {
         uiModel.addAttribute("documents", Document.findDocumentsByDescriptionLike(description).getResultList());
         return "documents/list";
     }
 
-	@RequestMapping(params = { "find=ByTitleLike", "form" }, method = RequestMethod.GET)
+    @RequestMapping(params = { "find=ByTitleLike", "form" }, method = RequestMethod.GET)
     public String findDocumentsByTitleLikeForm(Model uiModel) {
         return "documents/findDocumentsByTitleLike";
     }
 
-	@RequestMapping(params = "find=ByTitleLike", method = RequestMethod.GET)
+    @RequestMapping(params = "find=ByTitleLike", method = RequestMethod.GET)
     public String findDocumentsByTitleLike(@RequestParam("title") String title, Model uiModel) {
         uiModel.addAttribute("documents", Document.findDocumentsByTitleLike(title).getResultList());
         return "documents/list";

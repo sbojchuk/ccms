@@ -26,9 +26,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Configurable
 @Entity
-
-
-
 public class Note {
 
     @NotNull
@@ -47,106 +44,111 @@ public class Note {
     @ManyToOne
     private Worker author;
 
-	public static TypedQuery<Note> findNotesByAuthorEquals(Worker author) {
-        if (author == null) throw new IllegalArgumentException("The author argument is required");
+    public static TypedQuery<Note> findNotesByAuthorEquals(Worker author) {
+        if (author == null)
+            throw new IllegalArgumentException("The author argument is required");
         EntityManager em = Note.entityManager();
         TypedQuery<Note> q = em.createQuery("SELECT o FROM Note AS o WHERE o.author = :author", Note.class);
         q.setParameter("author", author);
         return q;
     }
 
-	public String getTitle() {
+    public String getTitle() {
         return this.title;
     }
 
-	public void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-	public String getText() {
+    public String getText() {
         return this.text;
     }
 
-	public void setText(String text) {
+    public void setText(String text) {
         this.text = text;
     }
 
-	public Date getDatetime() {
+    public Date getDatetime() {
         return this.datetime;
     }
 
-	public void setDatetime(Date datetime) {
+    public void setDatetime(Date datetime) {
         this.datetime = datetime;
     }
 
-	public Worker getAuthor() {
+    public Worker getAuthor() {
         return this.author;
     }
 
-	public void setAuthor(Worker author) {
+    public void setAuthor(Worker author) {
         this.author = author;
     }
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-	@Version
+    @Version
     @Column(name = "version")
     private Integer version;
 
-	public Long getId() {
+    public Long getId() {
         return this.id;
     }
 
-	public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-	public Integer getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
 
-	public void setVersion(Integer version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
-	@PersistenceContext
+    @PersistenceContext
     transient EntityManager entityManager;
 
-	public static final EntityManager entityManager() {
+    public static final EntityManager entityManager() {
         EntityManager em = new Note().entityManager;
-        if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+        if (em == null)
+            throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
 
-	public static long countNotes() {
+    public static long countNotes() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Note o", Long.class).getSingleResult();
     }
 
-	public static List<Note> findAllNotes() {
+    public static List<Note> findAllNotes() {
         return entityManager().createQuery("SELECT o FROM Note o", Note.class).getResultList();
     }
 
-	public static Note findNote(Long id) {
-        if (id == null) return null;
+    public static Note findNote(Long id) {
+        if (id == null)
+            return null;
         return entityManager().find(Note.class, id);
     }
 
-	public static List<Note> findNoteEntries(int firstResult, int maxResults) {
+    public static List<Note> findNoteEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Note o", Note.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
 
-	@Transactional
+    @Transactional
     public void persist() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
 
-	@Transactional
+    @Transactional
     public void remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
@@ -155,27 +157,30 @@ public class Note {
         }
     }
 
-	@Transactional
+    @Transactional
     public void flush() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.flush();
     }
 
-	@Transactional
+    @Transactional
     public void clear() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.clear();
     }
 
-	@Transactional
+    @Transactional
     public Note merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         Note merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }
 
-	public String toString() {
+    public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

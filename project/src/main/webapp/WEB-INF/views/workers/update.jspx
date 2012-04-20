@@ -1,21 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_com_diploma_ccms_domain_Worker" modelAttribute="worker" path="/workers" versionField="Version" z="N1LkJ9TJaQ+tOsPOcXmYTfv6q3o=">
-        <field:input field="login" id="c_com_diploma_ccms_domain_Worker_login" required="true" z="r8xO/0v3HJuN8UaY0BJMPiPN3nU="/>
-        <field:input field="pass" id="c_com_diploma_ccms_domain_Worker_pass" required="true" z="q/Fn7fbRX1EXGDU5CmGw/mzMtI8="/>
-        <field:input field="name" id="c_com_diploma_ccms_domain_Worker_name" required="true" z="MW29z+Z0iKasFBNnc/zAbtKZ3bs="/>
-        <field:input field="surname" id="c_com_diploma_ccms_domain_Worker_surname" required="true" z="3eybEs1KKtI+wekVh18uEx2Coik="/>
-        <field:input field="phone" id="c_com_diploma_ccms_domain_Worker_phone" z="sxva2cZ2RW0xAD1+aD7qLMD6pwY="/>
-        <field:input field="privateMail" id="c_com_diploma_ccms_domain_Worker_privateMail" z="NaL9cK/KbCJY1/RgozPbc8uSPhU="/>
-        <field:input field="street" id="c_com_diploma_ccms_domain_Worker_street" z="JCmEIao5rXb/HvG/H/hs5O2zfm0="/>
-        <field:datetime dateTimePattern="${worker_birthday_date_format}" field="birthday" id="c_com_diploma_ccms_domain_Worker_birthday" z="ypEeurv74IYSA8CnUYJuiyavH2k="/>
-        <field:datetime dateTimePattern="${worker_datehire_date_format}" field="dateHire" id="c_com_diploma_ccms_domain_Worker_dateHire" z="IX2/In5s41J+t/0RiCznKDrcut8="/>
-        <field:select field="roleName" id="c_com_diploma_ccms_domain_Worker_roleName" itemValue="id" items="${workerroles}" path="/workerroles" z="lWMyZkr35DwuZQYp9bgSdzDqlYQ="/>
-        <field:select field="regionName" id="c_com_diploma_ccms_domain_Worker_regionName" itemValue="id" items="${regions}" path="/regions" required="true" z="oBCd0os1AhIBzj09Vg4J0k+1/Ro="/>
-        <field:select field="teamName" id="c_com_diploma_ccms_domain_Worker_teamName" itemValue="id" items="${teams}" path="/teams" required="true" z="pjg0Ww1OU8fy9MvmLH+P4poPDAo="/>
-        <field:select field="jobTypeName" id="c_com_diploma_ccms_domain_Worker_jobTypeName" itemValue="id" items="${workerjobtypes}" path="/workerjobtypes" required="true" z="klq9/EnNL4FxDNeIUcKHPTjVYQ8="/>
-        <field:textarea field="photo" id="c_com_diploma_ccms_domain_Worker_photo" z="Koi9Dw5Fr4RFwLUBUlUfZyvBMZk="/>
-    </form:update>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<form:update id="fu_com_diploma_ccms_domain_Worker"
+		modelAttribute="worker" path="/workers" versionField="Version"
+		z="N1LkJ9TJaQ+tOsPOcXmYTfv6q3o=">
+		<field:input field="login" id="c_com_diploma_ccms_domain_Worker_login"
+			required="true" z="r8xO/0v3HJuN8UaY0BJMPiPN3nU=" />
+		<field:input field="pass" id="c_com_diploma_ccms_domain_Worker_pass"
+			required="true" z="q/Fn7fbRX1EXGDU5CmGw/mzMtI8=" />
+		<field:input field="name" id="c_com_diploma_ccms_domain_Worker_name"
+			required="true" z="MW29z+Z0iKasFBNnc/zAbtKZ3bs=" />
+		<field:input field="surname"
+			id="c_com_diploma_ccms_domain_Worker_surname" required="true"
+			z="3eybEs1KKtI+wekVh18uEx2Coik=" />
+		<field:input field="phone" id="c_com_diploma_ccms_domain_Worker_phone"
+			z="sxva2cZ2RW0xAD1+aD7qLMD6pwY=" />
+		<field:input field="privateMail"
+			id="c_com_diploma_ccms_domain_Worker_privateMail"
+			z="NaL9cK/KbCJY1/RgozPbc8uSPhU=" />
+		<field:input field="street"
+			id="c_com_diploma_ccms_domain_Worker_street"
+			z="JCmEIao5rXb/HvG/H/hs5O2zfm0=" />
+		<field:datetime dateTimePattern="${worker_birthday_date_format}"
+			field="birthday" id="c_com_diploma_ccms_domain_Worker_birthday"
+			z="ypEeurv74IYSA8CnUYJuiyavH2k=" />
+		<field:datetime dateTimePattern="${worker_datehire_date_format}"
+			field="dateHire" id="c_com_diploma_ccms_domain_Worker_dateHire"
+			z="IX2/In5s41J+t/0RiCznKDrcut8=" />
+		<field:select field="roleName"
+			id="c_com_diploma_ccms_domain_Worker_roleName" itemValue="id"
+			items="${workerroles}" path="/workerroles"
+			z="lWMyZkr35DwuZQYp9bgSdzDqlYQ=" />
+		<field:select field="regionName"
+			id="c_com_diploma_ccms_domain_Worker_regionName" itemValue="id"
+			items="${regions}" path="/regions" required="true"
+			z="oBCd0os1AhIBzj09Vg4J0k+1/Ro=" />
+		<field:select field="teamName"
+			id="c_com_diploma_ccms_domain_Worker_teamName" itemValue="id"
+			items="${teams}" path="/teams" required="true"
+			z="pjg0Ww1OU8fy9MvmLH+P4poPDAo=" />
+		<field:select field="jobTypeName"
+			id="c_com_diploma_ccms_domain_Worker_jobTypeName" itemValue="id"
+			items="${workerjobtypes}" path="/workerjobtypes" required="true"
+			z="klq9/EnNL4FxDNeIUcKHPTjVYQ8=" />
+		<field:textarea field="photo"
+			id="c_com_diploma_ccms_domain_Worker_photo"
+			z="Koi9Dw5Fr4RFwLUBUlUfZyvBMZk=" />
+	</form:update>
 </div>

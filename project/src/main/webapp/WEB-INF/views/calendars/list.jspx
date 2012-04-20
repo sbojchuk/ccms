@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_com_diploma_ccms_domain_Calendar" items="${calendars}" z="GkMNK6V7J2zMTBQhO0n/FXRBavw=">
-        <table:table data="${calendars}" id="l_com_diploma_ccms_domain_Calendar" path="/calendars" z="HujfReBQTfn5fadx0E+SMPE9EQ4=">
-            <table:column id="c_com_diploma_ccms_domain_Calendar_title" property="title" z="S75IyhILi3NaFwxUO5HXuOgpO+Q="/>
-            <table:column id="c_com_diploma_ccms_domain_Calendar_readOnly" property="readOnly" z="SIzNTnBa0lQHIjXh2BKMEWoe9gw="/>
-            <table:column id="c_com_diploma_ccms_domain_Calendar_allDay" property="allDay" z="tZ6+HKlVRFdwcQoki/ZU89CtDwU="/>
-            <table:column id="c_com_diploma_ccms_domain_Calendar_WorkerName" property="workerName" z="ZwCG3gjmYdC+s2+JBueXQ3EeLFQ="/>
-        </table:table>
-    </page:list>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<page:list id="pl_com_diploma_ccms_domain_Calendar"
+		items="${calendars}" z="GkMNK6V7J2zMTBQhO0n/FXRBavw=">
+		<table:table data="${calendars}"
+			id="l_com_diploma_ccms_domain_Calendar" path="/calendars"
+			z="HujfReBQTfn5fadx0E+SMPE9EQ4=">
+			<table:column id="c_com_diploma_ccms_domain_Calendar_title"
+				property="title" z="S75IyhILi3NaFwxUO5HXuOgpO+Q=" />
+			<table:column id="c_com_diploma_ccms_domain_Calendar_readOnly"
+				property="readOnly" z="SIzNTnBa0lQHIjXh2BKMEWoe9gw=" />
+			<table:column id="c_com_diploma_ccms_domain_Calendar_allDay"
+				property="allDay" z="tZ6+HKlVRFdwcQoki/ZU89CtDwU=" />
+			<table:column id="c_com_diploma_ccms_domain_Calendar_WorkerName"
+				property="workerName" z="ZwCG3gjmYdC+s2+JBueXQ3EeLFQ=" />
+		</table:table>
+	</page:list>
 </div>

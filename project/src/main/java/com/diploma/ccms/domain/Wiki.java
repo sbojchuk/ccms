@@ -25,9 +25,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Configurable
 @Entity
-
-
-
 public class Wiki {
 
     @NotNull
@@ -46,16 +43,18 @@ public class Wiki {
     @ManyToOne
     private WikiCategory category;
 
-	public static TypedQuery<Wiki> findWikisByCategory(WikiCategory category) {
-        if (category == null) throw new IllegalArgumentException("The category argument is required");
+    public static TypedQuery<Wiki> findWikisByCategory(WikiCategory category) {
+        if (category == null)
+            throw new IllegalArgumentException("The category argument is required");
         EntityManager em = Wiki.entityManager();
         TypedQuery<Wiki> q = em.createQuery("SELECT o FROM Wiki AS o WHERE o.category = :category", Wiki.class);
         q.setParameter("category", category);
         return q;
     }
 
-	public static TypedQuery<Wiki> findWikisByTitleLike(String title) {
-        if (title == null || title.length() == 0) throw new IllegalArgumentException("The title argument is required");
+    public static TypedQuery<Wiki> findWikisByTitleLike(String title) {
+        if (title == null || title.length() == 0)
+            throw new IllegalArgumentException("The title argument is required");
         title = title.replace('*', '%');
         if (title.charAt(0) != '%') {
             title = "%" + title;
@@ -69,41 +68,45 @@ public class Wiki {
         return q;
     }
 
-	@PersistenceContext
+    @PersistenceContext
     transient EntityManager entityManager;
 
-	public static final EntityManager entityManager() {
+    public static final EntityManager entityManager() {
         EntityManager em = new Wiki().entityManager;
-        if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+        if (em == null)
+            throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
 
-	public static long countWikis() {
+    public static long countWikis() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Wiki o", Long.class).getSingleResult();
     }
 
-	public static List<Wiki> findAllWikis() {
+    public static List<Wiki> findAllWikis() {
         return entityManager().createQuery("SELECT o FROM Wiki o", Wiki.class).getResultList();
     }
 
-	public static Wiki findWiki(Long id) {
-        if (id == null) return null;
+    public static Wiki findWiki(Long id) {
+        if (id == null)
+            return null;
         return entityManager().find(Wiki.class, id);
     }
 
-	public static List<Wiki> findWikiEntries(int firstResult, int maxResults) {
+    public static List<Wiki> findWikiEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Wiki o", Wiki.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
 
-	@Transactional
+    @Transactional
     public void persist() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
 
-	@Transactional
+    @Transactional
     public void remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
@@ -112,84 +115,87 @@ public class Wiki {
         }
     }
 
-	@Transactional
+    @Transactional
     public void flush() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.flush();
     }
 
-	@Transactional
+    @Transactional
     public void clear() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.clear();
     }
 
-	@Transactional
+    @Transactional
     public Wiki merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         Wiki merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-	@Version
+    @Version
     @Column(name = "version")
     private Integer version;
 
-	public Long getId() {
+    public Long getId() {
         return this.id;
     }
 
-	public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-	public Integer getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
 
-	public void setVersion(Integer version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
-	public String toString() {
+    public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
-	public String getTitle() {
+    public String getTitle() {
         return this.title;
     }
 
-	public void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-	public Date getEnterDate() {
+    public Date getEnterDate() {
         return this.enterDate;
     }
 
-	public void setEnterDate(Date enterDate) {
+    public void setEnterDate(Date enterDate) {
         this.enterDate = enterDate;
     }
 
-	public Worker getWorkerName() {
+    public Worker getWorkerName() {
         return this.WorkerName;
     }
 
-	public void setWorkerName(Worker WorkerName) {
+    public void setWorkerName(Worker WorkerName) {
         this.WorkerName = WorkerName;
     }
 
-	public WikiCategory getCategory() {
+    public WikiCategory getCategory() {
         return this.category;
     }
 
-	public void setCategory(WikiCategory category) {
+    public void setCategory(WikiCategory category) {
         this.category = category;
     }
 }

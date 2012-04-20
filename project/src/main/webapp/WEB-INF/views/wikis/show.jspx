@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_com_diploma_ccms_domain_Wiki" object="${wiki}" path="/wikis" z="Xq7hgvYdv+Q9FyMKX2pfeidua+g=">
-        <field:display field="title" id="s_com_diploma_ccms_domain_Wiki_title" object="${wiki}" z="IMl+s0i//vjPK6IxPVBH/NERDQ8="/>
-        <field:display date="true" dateTimePattern="${wiki_enterdate_date_format}" field="enterDate" id="s_com_diploma_ccms_domain_Wiki_enterDate" object="${wiki}" z="aqpqbKsc99zwvaSQEBK9t2+UxIQ="/>
-        <field:display field="workerName" id="s_com_diploma_ccms_domain_Wiki_WorkerName" object="${wiki}" z="c1h6y44z0l5mhSSsrALcpf61+nM="/>
-        <field:display field="category" id="s_com_diploma_ccms_domain_Wiki_category" object="${wiki}" z="jbtPWeNmW2Q+hSHMm1r7RhnW9b8="/>
-    </page:show>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<page:show id="ps_com_diploma_ccms_domain_Wiki" object="${wiki}"
+		path="/wikis" z="Xq7hgvYdv+Q9FyMKX2pfeidua+g=">
+		<field:display field="title" id="s_com_diploma_ccms_domain_Wiki_title"
+			object="${wiki}" z="IMl+s0i//vjPK6IxPVBH/NERDQ8=" />
+		<field:display date="true"
+			dateTimePattern="${wiki_enterdate_date_format}" field="enterDate"
+			id="s_com_diploma_ccms_domain_Wiki_enterDate" object="${wiki}"
+			z="aqpqbKsc99zwvaSQEBK9t2+UxIQ=" />
+		<field:display field="workerName"
+			id="s_com_diploma_ccms_domain_Wiki_WorkerName" object="${wiki}"
+			z="c1h6y44z0l5mhSSsrALcpf61+nM=" />
+		<field:display field="category"
+			id="s_com_diploma_ccms_domain_Wiki_category" object="${wiki}"
+			z="jbtPWeNmW2Q+hSHMm1r7RhnW9b8=" />
+	</page:show>
 </div>

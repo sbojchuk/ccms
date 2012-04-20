@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_com_diploma_ccms_domain_BlogComment" modelAttribute="blogComment" path="/blogcomments" versionField="Version" z="nQBuyXsuAQpPuqjOqHqtz9DPGb0=">
-        <field:input field="title" id="c_com_diploma_ccms_domain_BlogComment_title" required="true" z="VdzTgLBUOXhkTYIsjTh3OZVDNSk="/>
-        <field:textarea field="body" id="c_com_diploma_ccms_domain_BlogComment_body" required="true" z="P9NrLxj0/VFA/Z5CgtlmICJ32/s="/>
-        <field:datetime dateTimePattern="${blogComment_enterdate_date_format}" field="enterDate" id="c_com_diploma_ccms_domain_BlogComment_enterDate" required="true" z="w64JVHZmMz+RS90drC2PcENcZxI="/>
-        <field:select field="WorkerName" id="c_com_diploma_ccms_domain_BlogComment_WorkerName" itemValue="id" items="${workers}" path="/workers" required="true" z="Wq6btZHvhYNTYBWc6ixh1cYDCwM="/>
-        <field:select field="blogReference" id="c_com_diploma_ccms_domain_BlogComment_blogReference" itemValue="id" items="${blogs}" path="/blogs" required="true" z="lu5/hzDR5usFAUpwHqV2IyCGhaY="/>
-    </form:update>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<form:update id="fu_com_diploma_ccms_domain_BlogComment"
+		modelAttribute="blogComment" path="/blogcomments"
+		versionField="Version" z="nQBuyXsuAQpPuqjOqHqtz9DPGb0=">
+		<field:input field="title"
+			id="c_com_diploma_ccms_domain_BlogComment_title" required="true"
+			z="VdzTgLBUOXhkTYIsjTh3OZVDNSk=" />
+		<field:textarea field="body"
+			id="c_com_diploma_ccms_domain_BlogComment_body" required="true"
+			z="P9NrLxj0/VFA/Z5CgtlmICJ32/s=" />
+		<field:datetime dateTimePattern="${blogComment_enterdate_date_format}"
+			field="enterDate"
+			id="c_com_diploma_ccms_domain_BlogComment_enterDate" required="true"
+			z="w64JVHZmMz+RS90drC2PcENcZxI=" />
+		<field:select field="WorkerName"
+			id="c_com_diploma_ccms_domain_BlogComment_WorkerName" itemValue="id"
+			items="${workers}" path="/workers" required="true"
+			z="Wq6btZHvhYNTYBWc6ixh1cYDCwM=" />
+		<field:select field="blogReference"
+			id="c_com_diploma_ccms_domain_BlogComment_blogReference"
+			itemValue="id" items="${blogs}" path="/blogs" required="true"
+			z="lu5/hzDR5usFAUpwHqV2IyCGhaY=" />
+	</form:update>
 </div>

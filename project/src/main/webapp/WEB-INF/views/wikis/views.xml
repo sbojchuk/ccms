@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
-    <definition extends="default" name="wikis/list">
-        <put-attribute name="body" value="/WEB-INF/views/wikis/list.jspx"/>
-    </definition>
-<definition extends="default" name="wikis/show">
-        <put-attribute name="body" value="/WEB-INF/views/wikis/show.jspx"/>
-    </definition>
-<definition extends="default" name="wikis/create">
-        <put-attribute name="body" value="/WEB-INF/views/wikis/create.jspx"/>
-    </definition>
-<definition extends="default" name="wikis/update">
-        <put-attribute name="body" value="/WEB-INF/views/wikis/update.jspx"/>
-    </definition>
-<definition extends="default" name="wikis/findWikisByCategory">
-        <put-attribute name="body" value="/WEB-INF/views/wikis/findWikisByCategory.jspx"/>
-    </definition>
-<definition extends="default" name="wikis/findWikisByTitleLike">
-        <put-attribute name="body" value="/WEB-INF/views/wikis/findWikisByTitleLike.jspx"/>
-    </definition>
+	<definition extends="default" name="wikis/list">
+		<put-attribute name="body" value="/WEB-INF/views/wikis/list.jspx" />
+	</definition>
+	<definition extends="default" name="wikis/show">
+		<put-attribute name="body" value="/WEB-INF/views/wikis/show.jspx" />
+	</definition>
+	<definition extends="default" name="wikis/create">
+		<put-attribute name="body" value="/WEB-INF/views/wikis/create.jspx" />
+	</definition>
+	<definition extends="default" name="wikis/update">
+		<put-attribute name="body" value="/WEB-INF/views/wikis/update.jspx" />
+	</definition>
+	<definition extends="default" name="wikis/findWikisByCategory">
+		<put-attribute name="body"
+			value="/WEB-INF/views/wikis/findWikisByCategory.jspx" />
+	</definition>
+	<definition extends="default" name="wikis/findWikisByTitleLike">
+		<put-attribute name="body"
+			value="/WEB-INF/views/wikis/findWikisByTitleLike.jspx" />
+	</definition>
 </tiles-definitions>

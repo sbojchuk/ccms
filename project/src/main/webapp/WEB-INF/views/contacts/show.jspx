@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_com_diploma_ccms_domain_Contact" object="${contact}" path="/contacts" z="oZKRO5pzVI1Bn8r7HYVjxAYK1K8=">
-        <field:display field="owner" id="s_com_diploma_ccms_domain_Contact_owner" object="${contact}" z="dSIM5SiDtUqDpPmTiB/YUfyY6FY="/>
-        <field:display field="asignee" id="s_com_diploma_ccms_domain_Contact_asignee" object="${contact}" z="rx04sEvN/+/4p9RTqc0CyUOeOyQ="/>
-    </page:show>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<page:show id="ps_com_diploma_ccms_domain_Contact" object="${contact}"
+		path="/contacts" z="oZKRO5pzVI1Bn8r7HYVjxAYK1K8=">
+		<field:display field="owner"
+			id="s_com_diploma_ccms_domain_Contact_owner" object="${contact}"
+			z="dSIM5SiDtUqDpPmTiB/YUfyY6FY=" />
+		<field:display field="asignee"
+			id="s_com_diploma_ccms_domain_Contact_asignee" object="${contact}"
+			z="rx04sEvN/+/4p9RTqc0CyUOeOyQ=" />
+	</page:show>
 </div>

@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_com_diploma_ccms_domain_Todo" modelAttribute="todo" path="/todoes" versionField="Version" z="dHBMwagpPYMoYbmOM5Yn0/o4+Hs=">
-        <field:input field="title" id="c_com_diploma_ccms_domain_Todo_title" required="true" z="Ou0QdEExnVwTJRA2EbuUns/CkUk="/>
-        <field:input field="text" id="c_com_diploma_ccms_domain_Todo_text" required="true" z="ngF0OWPNjjXlGMo7DwPfY+sIFRM="/>
-        <field:datetime dateTimePattern="${todo_enterdate_date_format}" field="enterDate" id="c_com_diploma_ccms_domain_Todo_enterDate" required="true" z="iiPF2SpFVVQVOz3AIdYKPKTD4g0="/>
-        <field:datetime dateTimePattern="${todo_duedate_date_format}" field="dueDate" future="true" id="c_com_diploma_ccms_domain_Todo_dueDate" required="true" z="X6QIaiOfxKLYyX7M48IKhGS98eg="/>
-        <field:checkbox field="viewed" id="c_com_diploma_ccms_domain_Todo_viewed" z="Gcm1kbW9J4G4RK3ueswjXqWQDss="/>
-        <field:checkbox field="done" id="c_com_diploma_ccms_domain_Todo_done" z="WKwVGfDOdzG2Uxv6aYeiK3cWVs4="/>
-        <field:select field="reporter" id="c_com_diploma_ccms_domain_Todo_reporter" itemValue="id" items="${workers}" path="/workers" required="true" z="J4uHoi19C8as3wg1HeKXHu+JdXs="/>
-        <field:select field="assignee" id="c_com_diploma_ccms_domain_Todo_assignee" itemValue="id" items="${workers}" path="/workers" required="true" z="QGGZhdFqp8R9Osnarn0FVFkfROs="/>
-        <field:select field="category" id="c_com_diploma_ccms_domain_Todo_category" itemValue="id" items="${todocategorys}" path="/todocategorys" required="true" z="IXrPc5FlpfVR0L+Qtm3gdFmpzkY="/>
-    </form:update>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<form:update id="fu_com_diploma_ccms_domain_Todo" modelAttribute="todo"
+		path="/todoes" versionField="Version" z="dHBMwagpPYMoYbmOM5Yn0/o4+Hs=">
+		<field:input field="title" id="c_com_diploma_ccms_domain_Todo_title"
+			required="true" z="Ou0QdEExnVwTJRA2EbuUns/CkUk=" />
+		<field:input field="text" id="c_com_diploma_ccms_domain_Todo_text"
+			required="true" z="ngF0OWPNjjXlGMo7DwPfY+sIFRM=" />
+		<field:datetime dateTimePattern="${todo_enterdate_date_format}"
+			field="enterDate" id="c_com_diploma_ccms_domain_Todo_enterDate"
+			required="true" z="iiPF2SpFVVQVOz3AIdYKPKTD4g0=" />
+		<field:datetime dateTimePattern="${todo_duedate_date_format}"
+			field="dueDate" future="true"
+			id="c_com_diploma_ccms_domain_Todo_dueDate" required="true"
+			z="X6QIaiOfxKLYyX7M48IKhGS98eg=" />
+		<field:checkbox field="viewed"
+			id="c_com_diploma_ccms_domain_Todo_viewed"
+			z="Gcm1kbW9J4G4RK3ueswjXqWQDss=" />
+		<field:checkbox field="done" id="c_com_diploma_ccms_domain_Todo_done"
+			z="WKwVGfDOdzG2Uxv6aYeiK3cWVs4=" />
+		<field:select field="reporter"
+			id="c_com_diploma_ccms_domain_Todo_reporter" itemValue="id"
+			items="${workers}" path="/workers" required="true"
+			z="J4uHoi19C8as3wg1HeKXHu+JdXs=" />
+		<field:select field="assignee"
+			id="c_com_diploma_ccms_domain_Todo_assignee" itemValue="id"
+			items="${workers}" path="/workers" required="true"
+			z="QGGZhdFqp8R9Osnarn0FVFkfROs=" />
+		<field:select field="category"
+			id="c_com_diploma_ccms_domain_Todo_category" itemValue="id"
+			items="${todocategorys}" path="/todocategorys" required="true"
+			z="IXrPc5FlpfVR0L+Qtm3gdFmpzkY=" />
+	</form:update>
 </div>

@@ -25,10 +25,9 @@ import com.diploma.ccms.domain.Worker;
 
 @RequestMapping("/blogcomments")
 @Controller
-
 public class BlogCommentController {
 
-	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
+    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid BlogComment blogComment, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, blogComment);
@@ -39,7 +38,7 @@ public class BlogCommentController {
         return "redirect:/blogcomments/" + encodeUrlPathSegment(blogComment.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(params = "form", produces = "text/html")
+    @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new BlogComment());
         List<String[]> dependencies = new ArrayList<String[]>();
@@ -53,7 +52,7 @@ public class BlogCommentController {
         return "blogcomments/create";
     }
 
-	@RequestMapping(value = "/{id}", produces = "text/html")
+    @RequestMapping(value = "/{id}", produces = "text/html")
     public String show(@PathVariable("id") Long id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("blogcomment", BlogComment.findBlogComment(id));
@@ -61,7 +60,7 @@ public class BlogCommentController {
         return "blogcomments/show";
     }
 
-	@RequestMapping(produces = "text/html")
+    @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
@@ -76,7 +75,7 @@ public class BlogCommentController {
         return "blogcomments/list";
     }
 
-	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
+    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
     public String update(@Valid BlogComment blogComment, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, blogComment);
@@ -87,14 +86,15 @@ public class BlogCommentController {
         return "redirect:/blogcomments/" + encodeUrlPathSegment(blogComment.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
+    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, BlogComment.findBlogComment(id));
         return "blogcomments/update";
     }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         BlogComment blogComment = BlogComment.findBlogComment(id);
         blogComment.remove();
         uiModel.asMap().clear();
@@ -103,25 +103,26 @@ public class BlogCommentController {
         return "redirect:/blogcomments";
     }
 
-	void addDateTimeFormatPatterns(Model uiModel) {
+    void addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("blogComment_enterdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
 
-	void populateEditForm(Model uiModel, BlogComment blogComment) {
+    void populateEditForm(Model uiModel, BlogComment blogComment) {
         uiModel.addAttribute("blogComment", blogComment);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("blogs", Blog.findAllBlogs());
         uiModel.addAttribute("workers", Worker.findAllWorkers());
     }
 
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }
         try {
             pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
+        } catch (UnsupportedEncodingException uee) {
+        }
         return pathSegment;
     }
 }

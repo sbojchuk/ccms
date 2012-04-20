@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_com_diploma_ccms_domain_Message" modelAttribute="message" path="/messages" versionField="Version" z="jtJYKBKM8iMww4jTqomLdP9nYLo=">
-        <field:input field="title" id="c_com_diploma_ccms_domain_Message_title" required="true" z="Ed7tV3/xYsSAc3YaFjxG3Fj2w7E="/>
-        <field:textarea field="text" id="c_com_diploma_ccms_domain_Message_text" required="true" z="21Iubc+2P2k7p/+9/DOHO/eKJiY="/>
-        <field:datetime dateTimePattern="${message_datetime_date_format}" field="datetime" id="c_com_diploma_ccms_domain_Message_datetime" required="true" z="fhOhPVl6JzQUWi1/ImFHDSfB7t0="/>
-        <field:checkbox field="viewed" id="c_com_diploma_ccms_domain_Message_viewed" z="KSt+WjWkkoNb2FfF8ifPTKa02QU="/>
-        <field:select field="fromWorker" id="c_com_diploma_ccms_domain_Message_fromWorker" itemValue="id" items="${workers}" path="/workers" required="true" z="x4bklHcToebhDe328KErCJ0X58s="/>
-        <field:select field="toWorker" id="c_com_diploma_ccms_domain_Message_toWorker" itemValue="id" items="${workers}" path="/workers" required="true" z="OA6wTNUBnEQcyPIYMQGOti0OUGY="/>
-    </form:update>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<form:update id="fu_com_diploma_ccms_domain_Message"
+		modelAttribute="message" path="/messages" versionField="Version"
+		z="jtJYKBKM8iMww4jTqomLdP9nYLo=">
+		<field:input field="title"
+			id="c_com_diploma_ccms_domain_Message_title" required="true"
+			z="Ed7tV3/xYsSAc3YaFjxG3Fj2w7E=" />
+		<field:textarea field="text"
+			id="c_com_diploma_ccms_domain_Message_text" required="true"
+			z="21Iubc+2P2k7p/+9/DOHO/eKJiY=" />
+		<field:datetime dateTimePattern="${message_datetime_date_format}"
+			field="datetime" id="c_com_diploma_ccms_domain_Message_datetime"
+			required="true" z="fhOhPVl6JzQUWi1/ImFHDSfB7t0=" />
+		<field:checkbox field="viewed"
+			id="c_com_diploma_ccms_domain_Message_viewed"
+			z="KSt+WjWkkoNb2FfF8ifPTKa02QU=" />
+		<field:select field="fromWorker"
+			id="c_com_diploma_ccms_domain_Message_fromWorker" itemValue="id"
+			items="${workers}" path="/workers" required="true"
+			z="x4bklHcToebhDe328KErCJ0X58s=" />
+		<field:select field="toWorker"
+			id="c_com_diploma_ccms_domain_Message_toWorker" itemValue="id"
+			items="${workers}" path="/workers" required="true"
+			z="OA6wTNUBnEQcyPIYMQGOti0OUGY=" />
+	</form:update>
 </div>

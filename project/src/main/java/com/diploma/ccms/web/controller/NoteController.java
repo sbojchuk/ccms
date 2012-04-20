@@ -24,11 +24,9 @@ import com.diploma.ccms.domain.Worker;
 
 @RequestMapping("/notes")
 @Controller
-
-
 public class NoteController {
 
-	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
+    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid Note note, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, note);
@@ -39,7 +37,7 @@ public class NoteController {
         return "redirect:/notes/" + encodeUrlPathSegment(note.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(params = "form", produces = "text/html")
+    @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new Note());
         List<String[]> dependencies = new ArrayList<String[]>();
@@ -50,7 +48,7 @@ public class NoteController {
         return "notes/create";
     }
 
-	@RequestMapping(value = "/{id}", produces = "text/html")
+    @RequestMapping(value = "/{id}", produces = "text/html")
     public String show(@PathVariable("id") Long id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("note", Note.findNote(id));
@@ -58,7 +56,7 @@ public class NoteController {
         return "notes/show";
     }
 
-	@RequestMapping(produces = "text/html")
+    @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
@@ -73,7 +71,7 @@ public class NoteController {
         return "notes/list";
     }
 
-	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
+    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
     public String update(@Valid Note note, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, note);
@@ -84,14 +82,15 @@ public class NoteController {
         return "redirect:/notes/" + encodeUrlPathSegment(note.getId().toString(), httpServletRequest);
     }
 
-	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
+    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, Note.findNote(id));
         return "notes/update";
     }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Note note = Note.findNote(id);
         note.remove();
         uiModel.asMap().clear();
@@ -100,34 +99,35 @@ public class NoteController {
         return "redirect:/notes";
     }
 
-	void addDateTimeFormatPatterns(Model uiModel) {
+    void addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("note_datetime_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
 
-	void populateEditForm(Model uiModel, Note note) {
+    void populateEditForm(Model uiModel, Note note) {
         uiModel.addAttribute("note", note);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("workers", Worker.findAllWorkers());
     }
 
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }
         try {
             pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
+        } catch (UnsupportedEncodingException uee) {
+        }
         return pathSegment;
     }
 
-	@RequestMapping(params = { "find=ByAuthorEquals", "form" }, method = RequestMethod.GET)
+    @RequestMapping(params = { "find=ByAuthorEquals", "form" }, method = RequestMethod.GET)
     public String findNotesByAuthorEqualsForm(Model uiModel) {
         uiModel.addAttribute("workers", Worker.findAllWorkers());
         return "notes/findNotesByAuthorEquals";
     }
 
-	@RequestMapping(params = "find=ByAuthorEquals", method = RequestMethod.GET)
+    @RequestMapping(params = "find=ByAuthorEquals", method = RequestMethod.GET)
     public String findNotesByAuthorEquals(@RequestParam("author") Worker author, Model uiModel) {
         uiModel.addAttribute("notes", Note.findNotesByAuthorEquals(author).getResultList());
         return "notes/list";

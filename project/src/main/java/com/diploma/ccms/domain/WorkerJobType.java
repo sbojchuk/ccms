@@ -19,54 +19,56 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 @Configurable
-
-
-
 public class WorkerJobType {
 
     @NotNull
     @Column(unique = true)
     private String jobTypeName;
 
-	public String toString() {
+    public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
-	@PersistenceContext
+    @PersistenceContext
     transient EntityManager entityManager;
 
-	public static final EntityManager entityManager() {
+    public static final EntityManager entityManager() {
         EntityManager em = new WorkerJobType().entityManager;
-        if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+        if (em == null)
+            throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
 
-	public static long countWorkerJobTypes() {
+    public static long countWorkerJobTypes() {
         return entityManager().createQuery("SELECT COUNT(o) FROM WorkerJobType o", Long.class).getSingleResult();
     }
 
-	public static List<WorkerJobType> findAllWorkerJobTypes() {
+    public static List<WorkerJobType> findAllWorkerJobTypes() {
         return entityManager().createQuery("SELECT o FROM WorkerJobType o", WorkerJobType.class).getResultList();
     }
 
-	public static WorkerJobType findWorkerJobType(Long id) {
-        if (id == null) return null;
+    public static WorkerJobType findWorkerJobType(Long id) {
+        if (id == null)
+            return null;
         return entityManager().find(WorkerJobType.class, id);
     }
 
-	public static List<WorkerJobType> findWorkerJobTypeEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM WorkerJobType o", WorkerJobType.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<WorkerJobType> findWorkerJobTypeEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM WorkerJobType o", WorkerJobType.class).setFirstResult(firstResult).setMaxResults(maxResults)
+                .getResultList();
     }
 
-	@Transactional
+    @Transactional
     public void persist() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
 
-	@Transactional
+    @Transactional
     public void remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
@@ -75,56 +77,59 @@ public class WorkerJobType {
         }
     }
 
-	@Transactional
+    @Transactional
     public void flush() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.flush();
     }
 
-	@Transactional
+    @Transactional
     public void clear() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.clear();
     }
 
-	@Transactional
+    @Transactional
     public WorkerJobType merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         WorkerJobType merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-	@Version
+    @Version
     @Column(name = "version")
     private Integer version;
 
-	public Long getId() {
+    public Long getId() {
         return this.id;
     }
 
-	public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-	public Integer getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
 
-	public void setVersion(Integer version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
-	public String getJobTypeName() {
+    public String getJobTypeName() {
         return this.jobTypeName;
     }
 
-	public void setJobTypeName(String jobTypeName) {
+    public void setJobTypeName(String jobTypeName) {
         this.jobTypeName = jobTypeName;
     }
 }

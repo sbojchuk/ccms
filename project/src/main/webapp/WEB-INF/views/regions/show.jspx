@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_com_diploma_ccms_domain_Region" object="${region}" path="/regions" z="LZoAM9fL3jqqUPDgrouh6Po2Lqc=">
-        <field:display field="regionName" id="s_com_diploma_ccms_domain_Region_regionName" object="${region}" z="LBvoCf/YglSX7u9o5vo3SVi6B6I="/>
-    </page:show>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<page:show id="ps_com_diploma_ccms_domain_Region" object="${region}"
+		path="/regions" z="LZoAM9fL3jqqUPDgrouh6Po2Lqc=">
+		<field:display field="regionName"
+			id="s_com_diploma_ccms_domain_Region_regionName" object="${region}"
+			z="LBvoCf/YglSX7u9o5vo3SVi6B6I=" />
+	</page:show>
 </div>

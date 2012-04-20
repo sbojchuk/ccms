@@ -27,9 +27,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Configurable
 @Entity
-
-
-
 public class Message {
 
     @NotNull
@@ -56,118 +53,122 @@ public class Message {
     @ManyToOne
     private Worker toWorker;
 
-	public String toString() {
+    public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-	@Version
+    @Version
     @Column(name = "version")
     private Integer version;
 
-	public Long getId() {
+    public Long getId() {
         return this.id;
     }
 
-	public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-	public Integer getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
 
-	public void setVersion(Integer version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
-	public String getTitle() {
+    public String getTitle() {
         return this.title;
     }
 
-	public void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-	public String getText() {
+    public String getText() {
         return this.text;
     }
 
-	public void setText(String text) {
+    public void setText(String text) {
         this.text = text;
     }
 
-	public Date getDatetime() {
+    public Date getDatetime() {
         return this.datetime;
     }
 
-	public void setDatetime(Date datetime) {
+    public void setDatetime(Date datetime) {
         this.datetime = datetime;
     }
 
-	public Boolean getViewed() {
+    public Boolean getViewed() {
         return this.viewed;
     }
 
-	public void setViewed(Boolean viewed) {
+    public void setViewed(Boolean viewed) {
         this.viewed = viewed;
     }
 
-	public Worker getFromWorker() {
+    public Worker getFromWorker() {
         return this.fromWorker;
     }
 
-	public void setFromWorker(Worker fromWorker) {
+    public void setFromWorker(Worker fromWorker) {
         this.fromWorker = fromWorker;
     }
 
-	public Worker getToWorker() {
+    public Worker getToWorker() {
         return this.toWorker;
     }
 
-	public void setToWorker(Worker toWorker) {
+    public void setToWorker(Worker toWorker) {
         this.toWorker = toWorker;
     }
 
-	@PersistenceContext
+    @PersistenceContext
     transient EntityManager entityManager;
 
-	public static final EntityManager entityManager() {
+    public static final EntityManager entityManager() {
         EntityManager em = new Message().entityManager;
-        if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+        if (em == null)
+            throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
 
-	public static long countMessages() {
+    public static long countMessages() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Message o", Long.class).getSingleResult();
     }
 
-	public static List<Message> findAllMessages() {
+    public static List<Message> findAllMessages() {
         return entityManager().createQuery("SELECT o FROM Message o", Message.class).getResultList();
     }
 
-	public static Message findMessage(Long id) {
-        if (id == null) return null;
+    public static Message findMessage(Long id) {
+        if (id == null)
+            return null;
         return entityManager().find(Message.class, id);
     }
 
-	public static List<Message> findMessageEntries(int firstResult, int maxResults) {
+    public static List<Message> findMessageEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Message o", Message.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
 
-	@Transactional
+    @Transactional
     public void persist() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
 
-	@Transactional
+    @Transactional
     public void remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
@@ -176,36 +177,41 @@ public class Message {
         }
     }
 
-	@Transactional
+    @Transactional
     public void flush() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.flush();
     }
 
-	@Transactional
+    @Transactional
     public void clear() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         this.entityManager.clear();
     }
 
-	@Transactional
+    @Transactional
     public Message merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager == null)
+            this.entityManager = entityManager();
         Message merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }
 
-	public static TypedQuery<Message> findMessagesByFromWorkerEquals(Worker fromWorker) {
-        if (fromWorker == null) throw new IllegalArgumentException("The fromWorker argument is required");
+    public static TypedQuery<Message> findMessagesByFromWorkerEquals(Worker fromWorker) {
+        if (fromWorker == null)
+            throw new IllegalArgumentException("The fromWorker argument is required");
         EntityManager em = Message.entityManager();
         TypedQuery<Message> q = em.createQuery("SELECT o FROM Message AS o WHERE o.fromWorker = :fromWorker", Message.class);
         q.setParameter("fromWorker", fromWorker);
         return q;
     }
 
-	public static TypedQuery<Message> findMessagesByTextLike(String text) {
-        if (text == null || text.length() == 0) throw new IllegalArgumentException("The text argument is required");
+    public static TypedQuery<Message> findMessagesByTextLike(String text) {
+        if (text == null || text.length() == 0)
+            throw new IllegalArgumentException("The text argument is required");
         text = text.replace('*', '%');
         if (text.charAt(0) != '%') {
             text = "%" + text;
@@ -219,8 +225,9 @@ public class Message {
         return q;
     }
 
-	public static TypedQuery<Message> findMessagesByTitleLike(String title) {
-        if (title == null || title.length() == 0) throw new IllegalArgumentException("The title argument is required");
+    public static TypedQuery<Message> findMessagesByTitleLike(String title) {
+        if (title == null || title.length() == 0)
+            throw new IllegalArgumentException("The title argument is required");
         title = title.replace('*', '%');
         if (title.charAt(0) != '%') {
             title = "%" + title;
@@ -234,8 +241,9 @@ public class Message {
         return q;
     }
 
-	public static TypedQuery<Message> findMessagesByToWorkerEquals(Worker toWorker) {
-        if (toWorker == null) throw new IllegalArgumentException("The toWorker argument is required");
+    public static TypedQuery<Message> findMessagesByToWorkerEquals(Worker toWorker) {
+        if (toWorker == null)
+            throw new IllegalArgumentException("The toWorker argument is required");
         EntityManager em = Message.entityManager();
         TypedQuery<Message> q = em.createQuery("SELECT o FROM Message AS o WHERE o.toWorker = :toWorker", Message.class);
         q.setParameter("toWorker", toWorker);
