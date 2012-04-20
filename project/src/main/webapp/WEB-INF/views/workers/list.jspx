@@ -10,8 +10,6 @@
 			path="/workers" z="67zYbpRsp2uzQMQ4YKAj2wNgR/w=">
 			<table:column id="c_com_diploma_ccms_domain_Worker_login"
 				property="login" z="AseZrEGIB6Cl5JaWRXjqiPzfmTA=" />
-			<table:column id="c_com_diploma_ccms_domain_Worker_pass"
-				property="pass" z="EGBkHQaiM03mQ7xin2VHJDKn7iA=" />
 			<table:column id="c_com_diploma_ccms_domain_Worker_name"
 				property="name" z="oMqwI88BX4eJlemZ9WY6kh3R9jQ=" />
 			<table:column id="c_com_diploma_ccms_domain_Worker_surname"
