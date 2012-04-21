@@ -1,5 +1,6 @@
 package com.diploma.ccms.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -17,9 +18,16 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.diploma.ccms.domain.service.DomainUserIntarface;
+
 @Entity
 @Configurable
-public class Team {
+public class Team implements Serializable, DomainUserIntarface{
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -3087329022549549717L;
 
     @NotNull
     @Column(unique = true)
@@ -130,5 +138,10 @@ public class Team {
 
     public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
+
+    @Override
+    public String getUiValue() {
+        return teamName;
     }
 }

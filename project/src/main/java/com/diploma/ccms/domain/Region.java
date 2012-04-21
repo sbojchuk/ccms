@@ -1,5 +1,6 @@
 package com.diploma.ccms.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -17,9 +18,13 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.diploma.ccms.domain.service.DomainUserIntarface;
+
 @Configurable
 @Entity
-public class Region {
+public class Region implements Serializable, DomainUserIntarface {
+
+    private static final long serialVersionUID = 6487959882976613007L;
 
     @NotNull
     @Column(unique = true)
@@ -130,5 +135,9 @@ public class Region {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+    
+    public String getUiValue(){
+        return regionName;
     }
 }

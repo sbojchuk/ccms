@@ -18,9 +18,11 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.diploma.ccms.domain.service.DomainUserIntarface;
+
 @Entity
 @Configurable
-public class WorkerJobType implements Serializable{
+public class WorkerJobType implements Serializable, DomainUserIntarface{
 
     /**
      * 
@@ -137,5 +139,10 @@ public class WorkerJobType implements Serializable{
 
     public void setJobTypeName(String jobTypeName) {
         this.jobTypeName = jobTypeName;
+    }
+
+    @Override
+    public String getUiValue() {
+        return jobTypeName;
     }
 }

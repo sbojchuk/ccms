@@ -1,12 +1,48 @@
-<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
-	xmlns:form="http://www.springframework.org/tags/form"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:spring="http://www.springframework.org/tags" version="2.0">
-	<jsp:output omit-xml-declaration="yes" />
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+ xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+ <jsp:output omit-xml-declaration="yes" />
 
-	<jsp:directive.attribute name="id" type="java.lang.String"
+
+ <jsp:directive.attribute name="id" type="java.lang.String" required="true" description="The id of the tag" />
+ <jsp:directive.attribute name="legend" type="java.lang.String" required="false" description="The title of form" />
+ <jsp:directive.attribute name="modelAttribute" type="java.lang.String" required="true" description="Model attribute of form" />
+ <jsp:directive.attribute name="path" type="java.lang.String" required="true" description="Relative URL path (with leading /)" />
+ <jsp:directive.attribute name="multipart" type="java.lang.Boolean" required="false" description="Is a multipart form (default: false)" />
+ <!-- <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Check if element has been modified" /> -->
+ <!-- <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" /> -->
+
+
+ <c:set var="enctype" value="application/x-www-form-urlencoded" />
+ <c:if test="${multipart}">
+  <c:set var="enctype" value="multipart/form-data" />
+ </c:if>
+
+ <spring:url value="${path}" var="form_url" />
+
+ <form:form action="${form_url}" method="POST" modelAttribute="${modelAttribute}" enctype="${enctype}" class="form grid_6">
+  <fieldset>
+   <legend>${legend}</legend>
+   <form:errors cssClass="errors" delimiter="&lt;p/&gt;" />
+   <jsp:doBody />
+
+
+   <!--<div class="submit" id="${fn:escapeXml(id)}_submit">
+   <spring:message code="button_save" var="save_button" htmlEscape="false" />
+    <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script> 
+   <input id="proceed" type="submit" value="${fn:escapeXml(save_button)}" />
+  </div>-->
+
+   <div class="action">
+    <button class="button button-gray" type="submit">
+     <span class="accept"> <!--  -->
+     </span>OK
+    </button>
+    <button class="button button-gray" type="reset">Reset</button>
+   </div>
+  </fieldset>
+ </form:form>
+
+ <!--<jsp:directive.attribute name="id" type="java.lang.String"
 		required="true" rtexprvalue="true"
 		description="The identifier for this tag (do not change!)" />
 	<jsp:directive.attribute name="modelAttribute" type="java.lang.String"
@@ -88,5 +124,5 @@
 				</div>
 			</form:form>
 		</util:panel>
-	</c:if>
+	</c:if> -->
 </jsp:root>

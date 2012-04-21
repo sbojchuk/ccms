@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
@@ -38,6 +39,11 @@ public class WorkerController {
         uiModel.asMap().clear();
         worker.persist();
         return "redirect:/workers/" + encodeUrlPathSegment(worker.getId().toString(), httpServletRequest);
+    }
+    
+    @RequestMapping(value = "save_worker", method = RequestMethod.POST)
+    public String createWorker(){
+        return "workers/create";
     }
 
     @RequestMapping(params = "form", produces = "text/html")
@@ -144,4 +150,19 @@ public class WorkerController {
         uiModel.addAttribute("workers", Worker.findWorkersByLoginEquals(login).getResultList());
         return "workers/list";
     }
+    
+    
+    /**
+     * Generate preview for e-mail
+     * 
+     * @param petId
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/preview_email", method = RequestMethod.POST)
+    @ResponseBody
+    public String getPreview(@RequestParam("data") String data) {    
+        return data;
+    }
+    
 }

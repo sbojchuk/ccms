@@ -6,7 +6,7 @@
 	xmlns:spring="http://www.springframework.org/tags" version="2.0">
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
-	<form:create id="fc_com_diploma_ccms_domain_Team" modelAttribute="team"
+	<!-- <form:create id="fc_com_diploma_ccms_domain_Team" modelAttribute="team"
 		path="/teams" render="${empty dependencies}"
 		z="/DWgQcQ0sUaRrv41JfWpwB9Hy4w=">
 		<field:input field="teamName"
@@ -15,5 +15,25 @@
 	</form:create>
 	<form:dependency dependencies="${dependencies}"
 		id="d_com_diploma_ccms_domain_Team" render="${not empty dependencies}"
-		z="0dXJNblTl9lAKZSz0JNcgi4zbZs=" />
+		z="0dXJNblTl9lAKZSz0JNcgi4zbZs=" /> -->
+  
+  
+  <section class="main-section grid_7">
+
+  <div class="main-content">
+   <header>
+    <h2>Teams</h2>
+   </header>
+   <section class="container_6 clearfix">
+
+
+    <form:create id="fc_com_diploma_ccms_domain_Team" modelAttribute="region" path="/teams" legend="Create new Team">
+      <field:input field="teamName" id="c_com_diploma_ccms_domain_Team_teamName" required="true" label="Team" smallLabel="Name of new Team" type="text"/>
+    </form:create>
+
+
+   </section>
+  </div>
+
+ </section>
 </div>

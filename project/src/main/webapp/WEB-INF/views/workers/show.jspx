@@ -1,10 +1,105 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-	<jsp:directive.page contentType="text/html;charset=UTF-8" />
-	<jsp:output omit-xml-declaration="yes" />
-	<page:show id="ps_com_diploma_ccms_domain_Worker" object="${worker}"
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+ <jsp:directive.page contentType="text/html;charset=UTF-8" />
+ <jsp:output omit-xml-declaration="yes" />
+
+
+
+
+
+ <!-- Main Section -->
+
+ <section class="main-section grid_7">
+
+  <div class="main-content grid_4 alpha">
+   <header class="clearfix">
+    <span class="avatar"> <!--  -->
+    </span>
+    <hgroup>
+     <h2>${worker.name} ${worker.surname}</h2>
+     <h4>
+      <a href="#">${worker.jobTypeName.jobTypeName}</a>
+     </h4>
+    </hgroup>
+    <p class="tags">
+     <a href="#">Add To Contacts</a>
+    </p>
+   </header>
+
+   <section>
+    <script type="text/javascript">
+                    $(document).ready(function() {
+                        // Add markItUp! to your textarea in one line
+                        $('.markItUpTextarea').markItUp(mySettings, {
+                            root : 'markitup/skins/simple/'
+                        });
+                    });
+                </script>
+    <style>
+.markItUp {
+ width: 390px;
+}
+</style>
+
+
+    <h3>Send private message to ${worker.name} ${worker.surname}</h3>
+    <form method="post" style="width: 400px;">
+     <textarea class="markItUpTextarea" style="height: 80px; width: 100%;"><!--  --></textarea>
+     <button class="fr button button-gray">Send message</button>
+    </form>
+    <div class="clear">
+     <!--  -->
+    </div>
+    <h3>History</h3>
+    <!-- <ul class="listing list-view">
+     <li class="note"><a href="editnote.html" class="more"></a> <span class="timestamp">Dec 28, 2010</span>
+      <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
+      <div class="entry-meta">Posted by Administrator</div></li>
+     <li class="note"><a href="editnote.html" class="more"></a> <span class="timestamp">Dec 28, 2010</span>
+      <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
+      <div class="entry-meta">Posted by Administrator</div></li>
+     <li class="note"><a href="editnote.html" class="more"></a> <span class="timestamp">Dec 28, 2010</span>
+      <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
+      <div class="entry-meta">Posted by Administrator</div></li>
+    </ul> -->
+   </section>
+
+
+  </div>
+
+  <div class="preview-pane grid_3 omega">
+   <div class="content">
+    <h3>${worker.name}'s contact information</h3>
+    <ul class="profile-info">
+     <li class="email">${worker.privateMail}<span>email</span></li>
+     <li class="mobile">${worker.mobile}<span>mobile</span></li>
+     <li class="phone">${worker.phone}<span>work</span></li>
+    </ul>
+    <!-- <h3>Tasks About John</h3>
+    None so far. <a href="#">Add a task now</a>  -->
+
+    <h3>Additional info</h3>
+    <ul class="profile-info">
+     <li class="calendar-day">${worker.birthday}<span>birthday</span></li>
+     <li class="calendar-day">${worker.dateHire}<span>hire date</span></li>
+     <li class="building">${worker.regionName.regionName}<span>living region</span></li>
+     <li class="house">${worker.street}<span>home address</span></li>
+    </ul>
+   </div>
+   <div class="preview">
+    <!-- -->
+   </div>
+  </div>
+
+ </section>
+
+ <!-- Main Section End -->
+
+
+
+
+
+ <!-- <page:show id="ps_com_diploma_ccms_domain_Worker" object="${worker}"
 		path="/workers" z="iQamgfMz7tfHSdGgWB8YCdDd83Q=">
 		<field:display field="login"
 			id="s_com_diploma_ccms_domain_Worker_login" object="${worker}"
@@ -49,4 +144,7 @@
 			id="s_com_diploma_ccms_domain_Worker_photo" object="${worker}"
 			z="lcI4umkwCdlmQFaIzB4gefboNPI=" />
 	</page:show>
+ -->
+
+
 </div>

@@ -6,7 +6,7 @@
 	xmlns:spring="http://www.springframework.org/tags" version="2.0">
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
-	<form:create id="fc_com_diploma_ccms_domain_WorkerRole"
+	<!-- <form:create id="fc_com_diploma_ccms_domain_WorkerRole"
 		modelAttribute="workerRole" path="/workerroles"
 		render="${empty dependencies}" z="JNDeLXRe1XYqpAQt55Kh4kIRxfw=">
 		<field:input field="roleName"
@@ -15,5 +15,31 @@
 	</form:create>
 	<form:dependency dependencies="${dependencies}"
 		id="d_com_diploma_ccms_domain_WorkerRole"
-		render="${not empty dependencies}" z="c3y653HCy0fTZ8Q7NzFSa84tWEo=" />
+		render="${not empty dependencies}" z="c3y653HCy0fTZ8Q7NzFSa84tWEo=" />  -->
+  
+  
+  
+  
+  <section class="main-section grid_7">
+
+  <div class="main-content">
+   <header>
+    <ul class="action-buttons clearfix fr">
+     <li><a href="http://themes.vivantdesigns.com/streamlined/documentation/index.html" class="button button-gray no-text help" rel="#overlay"><span
+       class="help"></span></a></li>
+    </ul>
+    <h2>Employees</h2>
+   </header>
+   <section class="container_6 clearfix">
+
+
+    <form:create id="fc_com_diploma_ccms_domain_WorkerRole" modelAttribute="worker" path="/workerroles" legend="Create new Worker Role">
+      <field:input field="roleName" id="c_com_diploma_ccms_domain_WorkerRole_roleName" required="true" label="Role" smallLabel="" type="text"/>
+    </form:create>
+
+
+   </section>
+  </div>
+
+ </section>
 </div>

@@ -1,49 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
-	xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:spring="http://www.springframework.org/tags" version="2.0">
-	<jsp:directive.page contentType="text/html;charset=UTF-8" />
-	<jsp:output omit-xml-declaration="yes" />
-	<form:create id="fc_com_diploma_ccms_domain_Worker"
-		modelAttribute="worker" path="/workers" render="${empty dependencies}"
-		z="uNpKMweu/4Vp9jBAX5ZmX6L/Arw=">
-		<field:input field="login" id="c_com_diploma_ccms_domain_Worker_login"
-			required="true" z="r8xO/0v3HJuN8UaY0BJMPiPN3nU=" />
-		<field:input type="password" field="pass" id="c_com_diploma_ccms_domain_Worker_pass"
-			required="true" z="q/Fn7fbRX1EXGDU5CmGw/mzMtI8=" />
-		<field:input field="name" id="c_com_diploma_ccms_domain_Worker_name"
-			required="true" z="MW29z+Z0iKasFBNnc/zAbtKZ3bs=" />
-		<field:input field="surname"
-			id="c_com_diploma_ccms_domain_Worker_surname" required="true"
-			z="3eybEs1KKtI+wekVh18uEx2Coik=" />
-		<field:input field="phone" id="c_com_diploma_ccms_domain_Worker_phone"
-			z="sxva2cZ2RW0xAD1+aD7qLMD6pwY=" />
-		<field:input field="privateMail"
-			id="c_com_diploma_ccms_domain_Worker_privateMail"
-			z="NaL9cK/KbCJY1/RgozPbc8uSPhU=" />
-		<field:input field="street"
-			id="c_com_diploma_ccms_domain_Worker_street"
-			z="JCmEIao5rXb/HvG/H/hs5O2zfm0=" />
-		<field:datetime dateTimePattern="${worker_birthday_date_format}"
-			field="birthday" id="c_com_diploma_ccms_domain_Worker_birthday"
-			z="ypEeurv74IYSA8CnUYJuiyavH2k=" />
-		<field:datetime dateTimePattern="${worker_datehire_date_format}"
-			field="dateHire" id="c_com_diploma_ccms_domain_Worker_dateHire"
-			z="IX2/In5s41J+t/0RiCznKDrcut8=" />
-		<field:select field="roleName"
-			id="c_com_diploma_ccms_domain_Worker_roleName" itemValue="id"
-			items="${workerroles}" path="/workerroles"
-			z="lWMyZkr35DwuZQYp9bgSdzDqlYQ=" />
-		<field:select field="regionName"
-			id="c_com_diploma_ccms_domain_Worker_regionName" itemValue="id"
-			items="${regions}" path="/regions" required="true"
-			z="oBCd0os1AhIBzj09Vg4J0k+1/Ro=" />
-		<field:select field="teamName"
-			id="c_com_diploma_ccms_domain_Worker_teamName" itemValue="id"
-			items="${teams}" path="/teams" required="true"
-			z="pjg0Ww1OU8fy9MvmLH+P4poPDAo=" />
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+ xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+ <jsp:directive.page contentType="text/html;charset=UTF-8" />
+ <jsp:output omit-xml-declaration="yes" />
+
+ <!-- <form:create id="fc_com_diploma_ccms_domain_Worker"
+		modelAttribute="worker" path="/workers"
+		>
+		
 		<field:select field="jobTypeName"
 			id="c_com_diploma_ccms_domain_Worker_jobTypeName" itemValue="id"
 			items="${workerjobtypes}" path="/workerjobtypes" required="true"
@@ -54,5 +18,45 @@
 	</form:create>
 	<form:dependency dependencies="${dependencies}"
 		id="d_com_diploma_ccms_domain_Worker"
-		render="${not empty dependencies}" z="98iDVkdJMLRntHbA+khtdKO5ZK8=" />
+		render="${not empty dependencies}" z="98iDVkdJMLRntHbA+khtdKO5ZK8=" /> 
+ -->
+ <section class="main-section grid_7">
+
+  <div class="main-content">
+   <header>
+    <h2>Employees</h2>
+   </header>
+   <section class="container_6 clearfix">
+
+
+    <form:create id="fc_com_diploma_ccms_domain_Worker" modelAttribute="worker" path="/workers" legend="Create new employee">
+      <field:input field="login" id="c_com_diploma_ccms_domain_Worker_login" required="true" label="Login" smallLabel="Enter login" type="text"/>
+      <field:input field="pass" id="c_com_diploma_ccms_domain_Worker_pass" required="true" label="Password" smallLabel="Enter password" type="password"/>
+      <field:input field="name" id="c_com_diploma_ccms_domain_Worker_name" required="true" label="Name" smallLabel="Enter name" type="text"/>
+      <field:input field="surname" id="c_com_diploma_ccms_domain_Worker_surname" required="true" label="Surname" smallLabel="Enter surname" type="text"/>
+      
+      <field:input field="mobile" id="c_com_diploma_ccms_domain_Worker_mobile" required="false" label="Mobile phone number" smallLabel="Private phone number" type="text"/>
+      <field:input field="privateMail" id="c_com_diploma_ccms_domain_Worker_privateMail" required="false" label="Email" smallLabel="A valid email address" type="email"/>
+
+      <field:select field="regionName" id="c_com_diploma_ccms_domain_Worker_regionName" items="${regions}" required="true" label="Region" smallLabel="Please select"/>
+      <field:input field="street" id="c_com_diploma_ccms_domain_Worker_street" required="false" label="Address" smallLabel="Enter full home address" type="text"/>
+      
+      <field:input field="birthday" id="c_com_diploma_ccms_domain_Worker_birthday" required="false" label="Birthdate" smallLabel="mm/dd/yyyy" type="date"/>
+      
+      <field:input field="dateHire" id="c_com_diploma_ccms_domain_Worker_dateHire" required="false" label="Hire Date" smallLabel="mm/dd/yyyy" type="date"/>
+      <field:select field="roleName" id="c_com_diploma_ccms_domain_Worker_roleName" items="${workerroles}" required="true" label="Eployee role" smallLabel="Please select role"/>
+      <field:select field="teamName" id="c_com_diploma_ccms_domain_Worker_teamName" items="${teams}" required="true" label="Employee related team" smallLabel="Please select working team"/>
+      <field:select field="jobTypeName" id="c_com_diploma_ccms_domain_Worker_jobTypeName" items="${workerjobtypes}" required="true" label="Job type" smallLabel="Like QA, Developer, etc.."/>
+      
+      <field:input field="phone" id="c_com_diploma_ccms_domain_Worker_phone" required="false" label="Phone number" smallLabel="Working office phone number" type="text"/>
+      
+      <field:textarea field="photo" id="c_com_diploma_ccms_domain_Worker_photo" />
+    </form:create>
+
+
+   </section>
+  </div>
+
+ </section>
+
 </div>

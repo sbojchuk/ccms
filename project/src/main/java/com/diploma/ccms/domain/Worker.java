@@ -29,9 +29,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.diploma.ccms.domain.service.DomainUserIntarface;
+
 @Entity
 @Configurable
-public class Worker implements UserDetails {
+public class Worker implements UserDetails, DomainUserIntarface {
     private static final long serialVersionUID = 1148968754347580432L;
 
     @NotNull
@@ -48,17 +50,19 @@ public class Worker implements UserDetails {
     private String surname;
 
     private String phone;
+    
+    private String mobile;
 
     private String privateMail;
 
     private String street;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date birthday;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dateHire;
 
     @ManyToOne
@@ -336,4 +340,17 @@ public class Worker implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public String getUiValue() {
+        return name + " " + surname;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
 }

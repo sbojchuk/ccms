@@ -6,7 +6,7 @@
 	xmlns:spring="http://www.springframework.org/tags" version="2.0">
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
-	<form:create id="fc_com_diploma_ccms_domain_WorkerJobType"
+	<!-- <form:create id="fc_com_diploma_ccms_domain_WorkerJobType"
 		modelAttribute="workerJobType" path="/workerjobtypes"
 		render="${empty dependencies}" z="oyVvlJ9yVmxUtaLWZvQrapIO7cQ=">
 		<field:input field="jobTypeName"
@@ -15,5 +15,26 @@
 	</form:create>
 	<form:dependency dependencies="${dependencies}"
 		id="d_com_diploma_ccms_domain_WorkerJobType"
-		render="${not empty dependencies}" z="rrUQZCJ8vQUHUy1CfyfzkkPxGmQ=" />
+		render="${not empty dependencies}" z="rrUQZCJ8vQUHUy1CfyfzkkPxGmQ=" /> -->
+  
+  
+  <section class="main-section grid_7">
+
+  <div class="main-content">
+   <header>
+    <h2>Worker's job type</h2>
+   </header>
+   <section class="container_6 clearfix">
+
+
+    <form:create id="fc_com_diploma_ccms_domain_WorkerJobType" modelAttribute="region" path="/workerjobtypes" legend="Create new Job Type">
+      <field:input field="jobTypeName" id="c_com_diploma_ccms_domain_WorkerJobType_jobTypeName" required="true" label="Job Type" smallLabel="Type of job, like QA, Developer etc." type="text"/>
+    </form:create>
+
+
+   </section>
+  </div>
+
+ </section>
+  
 </div>

@@ -18,9 +18,13 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.diploma.ccms.domain.service.DomainUserIntarface;
+
+
+//TODO move in future to enum types, not to DB
 @Entity
 @Configurable
-public class WorkerRole implements GrantedAuthority{
+public class WorkerRole implements GrantedAuthority, DomainUserIntarface {
     private static final long serialVersionUID = 8267682475527493178L;
 
     @NotNull
@@ -137,6 +141,10 @@ public class WorkerRole implements GrantedAuthority{
 
     @Override
     public String getAuthority() {
+        return roleName;
+    }
+    
+    public String getUiValue(){
         return roleName;
     }
 }
