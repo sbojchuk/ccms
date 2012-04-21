@@ -1,5 +1,6 @@
 package com.diploma.ccms.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -19,7 +20,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 @Configurable
-public class WorkerJobType {
+public class WorkerJobType implements Serializable{
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -3422647717132957909L;
 
     @NotNull
     @Column(unique = true)

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:spring="http://www.springframework.org/tags"
-	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" id="footer" version="2.0">
-	<jsp:directive.page contentType="text/html;charset=UTF-8" />
-	<jsp:output omit-xml-declaration="yes" />
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:jsp="http://java.sun.com/JSP/Page"
+ xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" id="footer" version="2.0">
+ <jsp:directive.page contentType="text/html;charset=UTF-8" />
+ <jsp:output omit-xml-declaration="yes" />
 
-	<spring:url value="/" var="home" />
+ <!-- <spring:url value="/" var="home" />
 	<span> <a href="${home}"> <spring:message code="button_home" />
 	</a>
 	</span>
@@ -33,5 +30,17 @@
 		title="${fn:escapeXml(sponsored)}"> <img align="right"
 			alt="${fn:escapeXml(sponsored)}" src="${logo}" />
 	</a>
-	</span>
+	</span> -->
+
+
+
+  <div id="footer-inner" class="container_8 clearfix">
+   <div class="grid_8">
+    <span class="fr"><a href="http://themes.vivantdesigns.com/streamlined/dashboard.html#">Documentation</a> | <a
+     href="http://themes.vivantdesigns.com/streamlined/dashboard.html#">Feedback</a></span>Last account activity from 127.0.0.1 - <a
+     href="http://themes.vivantdesigns.com/streamlined/dashboard.html#">Details</a> | © 2010. All rights reserved. Theme design by VivantDesigns
+   </div>
+  </div>
+
+
 </div>

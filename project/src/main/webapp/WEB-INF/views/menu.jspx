@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
-	<jsp:directive.page contentType="text/html;charset=UTF-8" />
-	<jsp:output omit-xml-declaration="yes" />
-	<menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+<!-- <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
 		<menu:category id="c_documentcategory"
 			z="dD58WTNSYIfBG2r5gFEyCB8D3dw=">
 			<menu:item id="i_documentcategory_new" messageCode="global_menu_new"
@@ -139,5 +135,59 @@
 				url="/regions?page=1&amp;size=${empty param.size ? 10 : param.size}"
 				z="R4yrjjgk2KXYIlMw++M9nLkYTpE=" />
 		</menu:category>
-	</menu:menu>
-</div>
+	</menu:menu> -->
+
+<!-- Sidebar -->
+
+<aside class="grid_1" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+ <jsp:directive.page contentType="text/html;charset=UTF-8" />
+ <jsp:output omit-xml-declaration="yes" />
+ <nav class="global">
+  <ul class="clearfix">
+   <li class="active"><a class="nav-icon icon-house" href="./index_files/index.html">Overview</a></li>
+   <li><a class="nav-icon icon-time" href="http://themes.vivantdesigns.com/streamlined/activity.html">Latest Activity</a></li>
+   <li><a class="nav-icon icon-book" href="http://themes.vivantdesigns.com/streamlined/contacts.html"><span>2</span>Contacts</a></li>
+   <li><a class="nav-icon icon-tick" href="http://themes.vivantdesigns.com/streamlined/tasks.html"><span>1</span>Tasks</a></li>
+   <li><a class="nav-icon icon-note" href="http://themes.vivantdesigns.com/streamlined/notes.html">Notes</a></li>
+  </ul>
+ </nav>
+
+ <nav class="subnav recent">
+  <h4>Recent Contacts</h4>
+  <ul class="clearfix">
+   <li><a class="contact" href="http://themes.vivantdesigns.com/streamlined/profile.html"><h5>John Doe</h5>
+     <h6>Some Company LTD</h6></a>
+    <div class="tooltip left">
+     <span class="avatar">
+      <!-- -->
+     </span>
+     <h5>John Doe</h5>
+     <h6>Some Company LTD</h6>
+     <address>123 Some Street, LA</address>
+    </div></li>
+   <li><a class="contact" href="http://themes.vivantdesigns.com/streamlined/profile.html"><h5>Jane Roe</h5>
+     <h6>Other Company Inc.</h6></a>
+    <div class="tooltip left">
+     <span class="avatar">
+      <!-- -->
+     </span>
+     <h5>Jane Roe</h5>
+     <h6>Other Company Inc.</h6>
+     <address>456 Other Street, LA</address>
+    </div></li>
+  </ul>
+ </nav>
+
+ <nav class="subnav">
+  <h4>Style Templates</h4>
+  <ul class="clearfix">
+   <li><a href="http://themes.vivantdesigns.com/streamlined/layouts.html">Layouts</a></li>
+   <li><a href="http://themes.vivantdesigns.com/streamlined/styles.html">Styles</a></li>
+   <li><a href="http://themes.vivantdesigns.com/streamlined/forms.html">Forms</a></li>
+   <li><a href="http://themes.vivantdesigns.com/streamlined/tables.html">Tables</a></li>
+  </ul>
+ </nav>
+</aside>
+
+<!-- Sidebar End -->
+
