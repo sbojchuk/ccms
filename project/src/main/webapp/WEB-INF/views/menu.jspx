@@ -139,16 +139,57 @@
 
 <!-- Sidebar -->
 
-<aside class="grid_1" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+<aside class="grid_1" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
  <jsp:directive.page contentType="text/html;charset=UTF-8" />
  <jsp:output omit-xml-declaration="yes" />
  <nav class="global">
   <ul class="clearfix">
-   <li class="active"><a class="nav-icon icon-house" href="./index_files/index.html">Overview</a></li>
-   <li><a class="nav-icon icon-time" href="http://themes.vivantdesigns.com/streamlined/activity.html">Latest Activity</a></li>
-   <li><a class="nav-icon icon-book" href="http://themes.vivantdesigns.com/streamlined/contacts.html"><span>2</span>Contacts</a></li>
-   <li><a class="nav-icon icon-tick" href="http://themes.vivantdesigns.com/streamlined/tasks.html"><span>1</span>Tasks</a></li>
-   <li><a class="nav-icon icon-note" href="http://themes.vivantdesigns.com/streamlined/notes.html">Notes</a></li>
+  
+  <c:choose>
+   <c:when test="${empty menu}"><li class="active"><a class="nav-icon icon-house" href="/ccms">Home page</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-house" href="/ccms">Home page</a></li></c:otherwise>
+  </c:choose>
+  
+  <c:choose>
+   <c:when test="${menu eq 'MAIL' }"><li class="active"><a class="nav-icon icon-mail" href="#"><span>100</span>Mail</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-mail" href="#"><span>100</span>Mail</a></li></c:otherwise>
+  </c:choose>
+  
+   <c:choose>
+   <c:when test="${menu eq 'TASK' }"><li class="active"><a class="nav-icon icon-task" href="#"><span>2</span>Tasks</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-task" href="#"><span>2</span>Tasks</a></li></c:otherwise>
+  </c:choose>
+  
+   <c:choose>
+   <c:when test="${menu eq 'CALENDAR' }"><li class="active"><a class="nav-icon icon-calendar" href="#">Calendar</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-calendar" href="#">Calendar</a></li></c:otherwise>
+  </c:choose>
+  
+   <c:choose>
+   <c:when test="${menu eq 'NOTE' }"><li class="active"><a class="nav-icon icon-note" href="#">Notes</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-note" href="#">Notes</a></li></c:otherwise>
+  </c:choose>
+  
+   <c:choose>
+   <c:when test="${menu eq 'DOCUMENT' }"><li class="active"><a class="nav-icon icon-document" href="#">Documents</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-document" href="#">Documents</a></li></c:otherwise>
+  </c:choose>
+  
+   <c:choose>
+   <c:when test="${menu eq 'WORKER' }"><li class="active"><a class="nav-icon icon-worker" href="#">Employees</a></li></c:when>
+   <c:otherwise> <li><a class="nav-icon icon-worker" href="#">Employees</a></li></c:otherwise>
+  </c:choose>
+  
+   <c:choose>
+   <c:when test="${menu eq 'WIKI' }"><li class="active"><a class="nav-icon icon-wiki" href="#">Wiki</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-wiki" href="#">Wiki</a></li></c:otherwise>
+  </c:choose>
+  
+   <c:choose>
+   <c:when test="${menu eq 'BLOG' }"><li class="active"><a class="nav-icon icon-blog" href="#">Blog</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-blog" href="#">Blog</a></li></c:otherwise>
+  </c:choose>
+  
   </ul>
  </nav>
 

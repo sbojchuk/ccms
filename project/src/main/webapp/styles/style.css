@@ -1019,6 +1019,38 @@ body.login {
     background-image: url(../images/icons/time.png) !important;
 }
 
+.icon-blog {
+    background-image: url(../images/icons/blog.png) !important;
+}
+
+.icon-wiki {
+    background-image: url(../images/icons/wiki.png) !important;
+}
+
+.icon-document {
+    background-image: url(../images/icons/document.png) !important;
+}
+
+.icon-calendar {
+    background-image: url(../images/icons/calendar.png) !important;
+}
+
+.icon-worker {
+    background-image: url(../images/icons/worker.png) !important;
+}
+
+.icon-mail {
+    background-image: url(../images/icons/mail.png) !important;
+}
+
+.icon-wiki {
+    background-image: url(../images/icons/wiki.png) !important;
+}
+
+.icon-task {
+    background-image: url(../images/icons/task.png) !important;
+}
+
 /**
  * Footer
  */
