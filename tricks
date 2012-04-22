@@ -120,6 +120,7 @@ public class UserService implements UserDetailsService{
 
 xmlns:c="http://java.sun.com/jsp/jstl/core"
 xmlns:sec="http://www.springframework.org/security/tags"
-
+xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 
 export MAVEN_OPTS="-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000";
