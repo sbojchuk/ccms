@@ -6,7 +6,7 @@
 	xmlns:spring="http://www.springframework.org/tags" version="2.0">
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
-	<form:create id="fc_com_diploma_ccms_domain_Message"
+	<!-- <form:create id="fc_com_diploma_ccms_domain_Message"
 		modelAttribute="message" path="/messages"
 		render="${empty dependencies}" z="2UFM40Nur9QfS3CfO5Zgw0mdfTs=">
 		<field:input field="title"
@@ -29,8 +29,9 @@
 			id="c_com_diploma_ccms_domain_Message_toWorker" itemValue="id"
 			items="${workers}" path="/workers" required="true"
 			z="OA6wTNUBnEQcyPIYMQGOti0OUGY=" />
-	</form:create>
+	</form:create> 
 	<form:dependency dependencies="${dependencies}"
 		id="d_com_diploma_ccms_domain_Message"
 		render="${not empty dependencies}" z="0cPFLVi7JIDa6tHDIv0W1pbYRoc=" />
+   -->
 </div>

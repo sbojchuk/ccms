@@ -2,6 +2,7 @@ package com.diploma.ccms.web.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
@@ -30,11 +32,15 @@ public class NoteController {
     public String create(@Valid Note note, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, note);
-            return "notes/create";
+            uiModel.addAttribute("menu", "NOTE");
+            return "redirect:/notes";
         }
         uiModel.asMap().clear();
+        note.setAuthor(Worker.getPrincipal());
+        note.setDatetime(new Date());
         note.persist();
-        return "redirect:/notes/" + encodeUrlPathSegment(note.getId().toString(), httpServletRequest);
+        uiModel.addAttribute("menu", "NOTE");
+        return "redirect:/notes";// + encodeUrlPathSegment(note.getId().toString(), httpServletRequest);
     }
 
     @RequestMapping(params = "form", produces = "text/html")
@@ -45,6 +51,7 @@ public class NoteController {
             dependencies.add(new String[] { "worker", "workers" });
         }
         uiModel.addAttribute("dependencies", dependencies);
+        uiModel.addAttribute("menu", "NOTE");
         return "notes/create";
     }
 
@@ -53,21 +60,26 @@ public class NoteController {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("note", Note.findNote(id));
         uiModel.addAttribute("itemId", id);
+        uiModel.addAttribute("menu", "NOTE");
         return "notes/show";
     }
 
     @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        if (page != null || size != null) {
-            int sizeNo = size == null ? 10 : size.intValue();
-            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("notes", Note.findNoteEntries(firstResult, sizeNo));
-            float nrOfPages = (float) Note.countNotes() / sizeNo;
-            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
-        } else {
-            uiModel.addAttribute("notes", Note.findAllNotes());
-        }
+        // if (page != null || size != null) {
+        // int sizeNo = size == null ? 10 : size.intValue();
+        // final int firstResult = page == null ? 0 : (page.intValue() - 1) *
+        // sizeNo;
+        // uiModel.addAttribute("notes", Note.findNoteEntries(firstResult,
+        // sizeNo));
+        // float nrOfPages = (float) Note.countNotes() / sizeNo;
+        // uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages
+        // || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+        // } else {
+        uiModel.addAttribute("notes", Note.findNotesByAuthorEquals(Worker.getPrincipal()).getResultList());
+        // }
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("menu", "NOTE");
         return "notes/list";
     }
 
@@ -79,12 +91,14 @@ public class NoteController {
         }
         uiModel.asMap().clear();
         note.merge();
+        uiModel.addAttribute("menu", "NOTE");
         return "redirect:/notes/" + encodeUrlPathSegment(note.getId().toString(), httpServletRequest);
     }
 
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, Note.findNote(id));
+        uiModel.addAttribute("menu", "NOTE");
         return "notes/update";
     }
 
@@ -96,6 +110,7 @@ public class NoteController {
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
+        uiModel.addAttribute("menu", "NOTE");
         return "redirect:/notes";
     }
 
@@ -124,12 +139,21 @@ public class NoteController {
     @RequestMapping(params = { "find=ByAuthorEquals", "form" }, method = RequestMethod.GET)
     public String findNotesByAuthorEqualsForm(Model uiModel) {
         uiModel.addAttribute("workers", Worker.findAllWorkers());
+        uiModel.addAttribute("menu", "NOTE");
         return "notes/findNotesByAuthorEquals";
     }
 
     @RequestMapping(params = "find=ByAuthorEquals", method = RequestMethod.GET)
     public String findNotesByAuthorEquals(@RequestParam("author") Worker author, Model uiModel) {
         uiModel.addAttribute("notes", Note.findNotesByAuthorEquals(author).getResultList());
+        uiModel.addAttribute("menu", "NOTE");
         return "notes/list";
     }
+
+    @RequestMapping(value = "/get_note", method = RequestMethod.GET)
+    @ResponseBody
+    public String getNote(@RequestParam("id") String id) {
+        return Note.findNote(Long.valueOf(id)).getText();
+    }
+
 }

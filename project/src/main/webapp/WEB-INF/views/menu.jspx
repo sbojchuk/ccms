@@ -150,14 +150,17 @@
    <c:otherwise><li><a class="nav-icon icon-house" href="/ccms">Home page</a></li></c:otherwise>
   </c:choose>
   
+  
+  <jsp:useBean id = "message" class = "com.diploma.ccms.domain.Message"  scope = "page" />
+  <jsp:useBean id = "todo" class = "com.diploma.ccms.domain.Todo"  scope = "page" />
   <c:choose>
-   <c:when test="${menu eq 'MAIL' }"><li class="active"><a class="nav-icon icon-mail" href="#"><span>100</span>Mail</a></li></c:when>
-   <c:otherwise><li><a class="nav-icon icon-mail" href="#"><span>100</span>Mail</a></li></c:otherwise>
+   <c:when test="${menu eq 'MESSAGE' }"><li class="active"><a class="nav-icon icon-mail" href="/ccms/messages"><span><jsp:expression>message.countMessages()</jsp:expression></span>Mail</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-mail" href="/ccms/messages"><span><jsp:expression>message.countMessages()</jsp:expression></span>Mail</a></li></c:otherwise>
   </c:choose>
   
    <c:choose>
-   <c:when test="${menu eq 'TASK' }"><li class="active"><a class="nav-icon icon-task" href="#"><span>2</span>Tasks</a></li></c:when>
-   <c:otherwise><li><a class="nav-icon icon-task" href="#"><span>2</span>Tasks</a></li></c:otherwise>
+   <c:when test="${menu eq 'TODO' }"><li class="active"><a class="nav-icon icon-task" href="/ccms/todoes"><span><jsp:expression>todo.countTodoes()</jsp:expression></span>Tasks</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-task" href="/ccms/todoes"><span><jsp:expression>todo.countTodoes()</jsp:expression></span>Tasks</a></li></c:otherwise>
   </c:choose>
   
    <c:choose>
@@ -166,18 +169,18 @@
   </c:choose>
   
    <c:choose>
-   <c:when test="${menu eq 'NOTE' }"><li class="active"><a class="nav-icon icon-note" href="#">Notes</a></li></c:when>
-   <c:otherwise><li><a class="nav-icon icon-note" href="#">Notes</a></li></c:otherwise>
+   <c:when test="${menu eq 'NOTE' }"><li class="active"><a class="nav-icon icon-note" href="/ccms/notes">Notes</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-note" href="/ccms/notes">Notes</a></li></c:otherwise>
   </c:choose>
   
    <c:choose>
-   <c:when test="${menu eq 'DOCUMENT' }"><li class="active"><a class="nav-icon icon-document" href="#">Documents</a></li></c:when>
+   <c:when test="${menu eq 'DOCUMENT' }"><li class="active"><a class="nav-icon icon-document" href="">Documents</a></li></c:when>
    <c:otherwise><li><a class="nav-icon icon-document" href="#">Documents</a></li></c:otherwise>
   </c:choose>
   
    <c:choose>
-   <c:when test="${menu eq 'WORKER' }"><li class="active"><a class="nav-icon icon-worker" href="#">Employees</a></li></c:when>
-   <c:otherwise> <li><a class="nav-icon icon-worker" href="#">Employees</a></li></c:otherwise>
+   <c:when test="${menu eq 'WORKER' }"><li class="active"><a class="nav-icon icon-worker" href="/ccms/workers">Employees</a></li></c:when>
+   <c:otherwise> <li><a class="nav-icon icon-worker" href="/ccms/workers">Employees</a></li></c:otherwise>
   </c:choose>
   
    <c:choose>

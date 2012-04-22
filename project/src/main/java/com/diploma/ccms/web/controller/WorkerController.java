@@ -38,14 +38,10 @@ public class WorkerController {
         }
         uiModel.asMap().clear();
         worker.persist();
+        uiModel.addAttribute("menu", "WORKER");
         return "redirect:/workers/" + encodeUrlPathSegment(worker.getId().toString(), httpServletRequest);
     }
     
-    @RequestMapping(value = "save_worker", method = RequestMethod.POST)
-    public String createWorker(){
-        return "workers/create";
-    }
-
     @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new Worker());
@@ -60,6 +56,7 @@ public class WorkerController {
             dependencies.add(new String[] { "workerjobtype", "workerjobtypes" });
         }
         uiModel.addAttribute("dependencies", dependencies);
+        uiModel.addAttribute("menu", "WORKER");
         return "workers/create";
     }
 
@@ -68,20 +65,22 @@ public class WorkerController {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("worker", Worker.findWorker(id));
         uiModel.addAttribute("itemId", id);
+        uiModel.addAttribute("menu", "WORKER");
         return "workers/show";
     }
 
     @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        if (page != null || size != null) {
-            int sizeNo = size == null ? 10 : size.intValue();
-            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("workers", Worker.findWorkerEntries(firstResult, sizeNo));
-            float nrOfPages = (float) Worker.countWorkers() / sizeNo;
-            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
-        } else {
+//        if (page != null || size != null) {
+//            int sizeNo = size == null ? 10 : size.intValue();
+//            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
+//            uiModel.addAttribute("workers", Worker.findWorkerEntries(firstResult, sizeNo));
+//            float nrOfPages = (float) Worker.countWorkers() / sizeNo;
+//            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+//        } else {
             uiModel.addAttribute("workers", Worker.findAllWorkers());
-        }
+//        }
+        uiModel.addAttribute("menu", "WORKER");
         addDateTimeFormatPatterns(uiModel);
         return "workers/list";
     }
@@ -90,16 +89,19 @@ public class WorkerController {
     public String update(@Valid Worker worker, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, worker);
+            uiModel.addAttribute("menu", "WORKER");
             return "workers/update";
         }
         uiModel.asMap().clear();
         worker.merge();
+        uiModel.addAttribute("menu", "WORKER");
         return "redirect:/workers/" + encodeUrlPathSegment(worker.getId().toString(), httpServletRequest);
     }
 
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, Worker.findWorker(id));
+        uiModel.addAttribute("menu", "WORKER");
         return "workers/update";
     }
 
@@ -111,6 +113,7 @@ public class WorkerController {
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
+        uiModel.addAttribute("menu", "WORKER");
         return "redirect:/workers";
     }
 
@@ -126,6 +129,7 @@ public class WorkerController {
         uiModel.addAttribute("teams", Team.findAllTeams());
         uiModel.addAttribute("workerjobtypes", WorkerJobType.findAllWorkerJobTypes());
         uiModel.addAttribute("workerroles", WorkerRole.findAllWorkerRoles());
+        uiModel.addAttribute("menu", "WORKER");
     }
 
     String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
@@ -142,12 +146,14 @@ public class WorkerController {
 
     @RequestMapping(params = { "find=ByLoginEquals", "form" }, method = RequestMethod.GET)
     public String findWorkersByLoginEqualsForm(Model uiModel) {
+        uiModel.addAttribute("menu", "WORKER");
         return "workers/findWorkersByLoginEquals";
     }
 
     @RequestMapping(params = "find=ByLoginEquals", method = RequestMethod.GET)
     public String findWorkersByLoginEquals(@RequestParam("login") String login, Model uiModel) {
         uiModel.addAttribute("workers", Worker.findWorkersByLoginEquals(login).getResultList());
+        uiModel.addAttribute("menu", "WORKER");
         return "workers/list";
     }
     

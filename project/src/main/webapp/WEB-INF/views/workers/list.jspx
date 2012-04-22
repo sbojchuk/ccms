@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
-	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-	<jsp:directive.page contentType="text/html;charset=UTF-8" />
-	<jsp:output omit-xml-declaration="yes" />
-	<page:list id="pl_com_diploma_ccms_domain_Worker" items="${workers}"
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core"
+xmlns:sec="http://www.springframework.org/security/tags"
+ xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+ <jsp:directive.page contentType="text/html;charset=UTF-8" />
+ <jsp:output omit-xml-declaration="yes" />
+ <!-- <page:list id="pl_com_diploma_ccms_domain_Worker" items="${workers}"
 		z="jN8HAktiYFVp5UVXMojToAIe2VU=">
 		<table:table data="${workers}" id="l_com_diploma_ccms_domain_Worker"
 			path="/workers" z="67zYbpRsp2uzQMQ4YKAj2wNgR/w=">
@@ -19,5 +19,74 @@
 			<table:column id="c_com_diploma_ccms_domain_Worker_privateMail"
 				property="privateMail" z="+DWtDdgG6EWoosKd76cX48vsNnQ=" />
 		</table:table>
-	</page:list>
+	</page:list> -->
+
+
+ <!-- Main Section -->
+
+ <section class="main-section grid_7">
+
+  <div class="main-content">
+   <header>
+    <h2>List of Employees</h2>
+   </header>
+   <section class="container_6 clearfix">
+    <div class="grid_6">
+     <h3>
+      <!--  -->
+     </h3>
+
+     <hr />
+
+     <table class="datatable paginate sortable full">
+      <thead>
+       <tr>
+        <th>Login</th>
+        <th>Surname</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Job type</th>
+           <th style="width: 35px">
+         <!--  -->
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <c:forEach items="${workers}" var="worker"> 
+       <tr>
+        <td><a href="/ccms/workers/${worker.id}">${worker.login}</a></td>
+        <td>${worker.surname}</td>
+        <td>${worker.name}</td>
+        <td>${worker.phone}</td>
+        <td>${worker.jobTypeName.jobTypeName}</td>
+        <td>
+         <ul class="action-buttons">
+          <li><a href="/ccms/workers/${worker.id}" class="button button-gray no-text"><span class="info">
+             <!--  -->
+           </span></a></li>
+         </ul>
+        </td>
+       </tr>
+       </c:forEach>
+      </tbody>
+     </table>
+
+    </div>
+    <div class="grid_6">
+     <h3>NOTE</h3>
+
+     <hr />
+
+     <div class="message info">
+      <b>INFO:</b> You can sort and navigate through the list
+     </div>
+
+    </div>
+   </section>
+  </div>
+
+ </section>
+
+ <!-- Main Section End -->
+
 </div>

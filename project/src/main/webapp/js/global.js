@@ -100,11 +100,12 @@ $(document).ready(function() {
     $('.list-view > li').click(function(){
         var url = $(this).find('.more').attr('href');
         if (!$(this).hasClass('current')) {
-            $('.preview-pane .preview').animate({left: "-375px"}, 300, function(){
-                $(this).animate({left: "-22px"}, 500).html('<img src="/ccms/images/ajax-loader.gif" />').load(url);
+            $('.preview-pane .preview').animate({left: "-375px"}, 200, function(){
+                $(this).animate({left: "-22px"}, 100).html('<img src="/ccms/images/ajax-loader.gif" />').load(url);
             });
+            $(this).removeClass('unread');
         } else {
-            $('.preview-pane .preview').animate({left: "-375px"}, 300);
+            $('.preview-pane .preview').animate({left: "-375px"}, 200);
         }
         $(this).toggleClass('current').siblings().removeClass('current');
         return false;
@@ -113,7 +114,7 @@ $(document).ready(function() {
     $('.list-view > li a:not(.more)').click(function(e){ e.stopPropagation(); });
 
     $('.preview-pane .preview .close').live('click', function(){
-        $('.preview-pane .preview').animate({left: "-375px"}, 300);
+        $('.preview-pane .preview').animate({left: "-375px"}, 200);
         $('.list-view li').removeClass('current');
         return false;
     });

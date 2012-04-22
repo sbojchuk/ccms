@@ -1,6 +1,8 @@
 <div id="header" xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+ xmlns:sec="http://www.springframework.org/security/tags"
+ xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
 	xmlns:spring="http://www.springframework.org/tags" version="2.0">
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
@@ -15,52 +17,77 @@
     <header>
             <div class="container_8 clearfix">
                 <h1 class="grid_1"><a href="/ccms">C-cms</a></h1>
-                <nav class="grid_5">
+                <nav class="grid_7">
                     <ul class="clearfix">
                         <li class="action">
                             <a href="#" class="has-popupballoon button button-blue"><span class="add"><!-- --></span>New Note</a>
+                            
+  <!--                           <form:create id="fc_com_diploma_ccms_domain_Note" modelAttribute="note"
+  path="/notes" render="${empty dependencies}"
+  z="SYHsCXk8mLtS1omCcZmwnLocqQg=">
+  <field:input field="title" id="c_com_diploma_ccms_domain_Note_title"
+   required="true" z="M/lkXmGm8mdJms9/9Tlj3RovlqU=" />
+  <field:textarea field="text" id="c_com_diploma_ccms_domain_Note_text"
+   required="true" z="S2CgvIHfqy3LnWy0PaPY6So8PH0=" />
+  <field:datetime dateTimePattern="${note_datetime_date_format}"
+   field="datetime" id="c_com_diploma_ccms_domain_Note_datetime"
+   required="true" z="PjLwCQok/cgXPKCjd6I/ZIG9nwk=" />
+  <field:select field="author"
+   id="c_com_diploma_ccms_domain_Note_author" itemValue="id"
+   items="${workers}" path="/workers" required="true"
+   z="W1gBHnelopwJrueZkCxiizKFroU=" />
+ </form:create> -->
+ 
+ 
                             <div class="popupballoon top">
-                                <h3>Add new contact</h3>
-                                First Name<br/>
-                                <input type="text"/><br/>
-                                Last Name<br/>
-                                <input type="text"/><br/>
-                                Company<br/>
-                                <input type="text"/>
-                                <hr/>
-                                <button class="button button-orange">Add contact</button>
-                                <button class="button button-gray close">Cancel</button>
+                                <h3>Add new note</h3>
+                                <form method="post" action="/ccms/notes">
+                                    Title<br/>
+                                    <input type="text" name="title" id="c_com_diploma_ccms_domain_Note_title" required="required" style="background: #EEE;" />
+                                    Text<br/>
+                                    <textarea type="text" name="text" id="c_com_diploma_ccms_domain_Note_text" required="required" ><!-- --></textarea>
+                                    <hr/>
+                                    <button type="submit" class="button button-orange">Add note</button>
+                                    <button type="reset" class="button button-gray close">Cancel</button>
+                                </form>
                             </div>
                         </li>
                         <li class="action">
                             <a href="#" class="has-popupballoon button button-blue"><span class="add"><!-- --></span>New Task</a>
                             <div class="popupballoon top">
                                 <h3>Add new task</h3>
-                                <input type="text" /><br/><br/>
-                                When it's due?<br/>
-                                <input type="date" class="date" /><br/>
-                                What category?<br/>
-                                <select><option>None</option></select>
-                                <hr/>
-                                <button class="button button-orange">Add task</button>
-                                <button class="button button-gray close">Cancel</button>
+                                  <form method="post" action="/ccms/todoes">
+                                      Title<br/>
+                                      <input type="text" name="title" id="c_com_diploma_ccms_domain_Todo_title" required="required" style="background: #EEE;" />
+                                      Text<br/>
+                                      <textarea type="text" name="text" id="c_com_diploma_ccms_domain_Todo_text" required="required" ><!-- --></textarea>
+                                      <br/>
+                                      Due date complete<br/>
+                                      <field:input field="dueDate" id="c_com_diploma_ccms_domain_Todo_dueDate" required="true" label="" smallLabel="mm/dd/yyyy" type="date"/>
+                                      <hr/>
+                                      <button type="submit" class="button button-orange">Add task</button>
+                                      <button type="reset" class="button button-gray close">Cancel</button>
+                                  </form>
                             </div>
                         </li>
-                        <li class="active"><a href="./index_files/index.html">Dashboard</a></li>
-                        <li><a href="">Profile</a></li>
-                        <li class="fr"><a href="#">administrator<span class="arrow-down"><!-- --></span></a>
+                        
+                        <!-- <li class="active"><a href="./index_files/index.html">Dashboard</a></li>
+                        <li><a href="">Profile</a></li>  -->
+                        
+                        <li class="fr"><a href="#"><sec:authentication  property="principal.username" /><span class="arrow-down"><!-- --></span></a>
                             <ul>
-                                <li><a href="#">Account</a></li>
-                                <li><a href="#">Users</a></li>
-                                <li><a href="#">Groups</a></li>
-                                <li><a href="#">Sign out</a></li>
+                                <sec:authentication var="principal_id" property="principal.id" />
+                                <li><a href="/ccms/workers/${principal_id}">Profile</a></li>
+                                
+                                <spring:url value="/resources/j_spring_security_logout" var="logout"/>
+                                <li><a href="${logout}">Sign out</a></li>
                             </ul>
                         </li>
                     </ul>
                 </nav>
-                <form class="grid_2">
+                <!-- <form class="grid_2">
                     <input class="full" type="text" placeholder="Search..."/>
-                </form>
+                </form>  -->
             </div>
         </header>
 </div>

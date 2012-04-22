@@ -25,58 +25,31 @@
 
                     <div class="main-content">
                         <header>
-                            <ul class="action-buttons clearfix fr">
-                                <li><a href="http://themes.vivantdesigns.com/streamlined/documentation/index.html" class="button button-gray no-text help" rel="#overlay"><span class="help"></span></a></li>
-                            </ul>
                             <h2>
-                                Welcome to Streamlined!
+                                
                             </h2>
                         </header>
                         <section class="container_6 clearfix">
-                            <div class="grid_6">
-                                <div class="message info ac">
-                                    <h3>Get started: <a href="http://themes.vivantdesigns.com/streamlined/dashboard.html#">Add contacts to your account</a></h3>
-                                    <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh. Cras egestas vestibulum nisl, nec eleifend nunc pulvinar non.</p>
-                                </div>
-                            </div>
 
                             <hgroup class="grid_6 ac">
-                                <h2>Sed magna enim, tempus eu rutrum ornare.</h2>
-                                <h4>Donec suscipit fermentum turpis, a feugiat felis tincidunt eu</h4>
+                                <h2>Дипломний проект</h2>
+                                <h3>на тему: "Розробка програмного і алгоритмічного забезпечення багатофункціональної корпоративної системи для сумісної роботи, управління документами і проектами засобами JAVA EE"</h3>
+                                <br/>
+                                <br/>
+                                <br/>
                             </hgroup>
 
-                            <figure class="grid_2 ac">
-                                <img src="#" />
-                                <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
+                            <figure class="grid_2 ac fr">
+                            <div style="text-align: left;">
+                                <h4><b>Виконав студент групи ПЗ-07-1:</b><br/>
+                                <i>Бойчук Ярослав Васильович</i></h4>
+                                <h4><b>Керівник:</b><br/>
+                                <i>Випасняк Любомир Іванович</i></h4>
+                                </div>
                             </figure>
-                            <figure class="grid_2 ac">
-                                <img src="#" />
-                                <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
-                            </figure>
-                            <figure class="grid_2 ac">
-                                <img src="#" />
-                                <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
-                            </figure>
-
                             <div class="other-options grid_6">
-                                <h3 class="other">Other things to do...</h3>
-                                <ul>
-                                    <li>
-                                        <h4><a href="#">Lorem Ipsum Dolor Sit Amet</a></h4>
-                                        <p>Nam sit amet massa at lorem molestie egestas.</p>
-                                    </li>
-                                    <li>
-                                        <h4><a href="#">Lorem Ipsum Dolor Sit Amet</a></h4>
-                                        <p>Nam sit amet massa at lorem molestie egestas.</p>
-                                    </li>
-                                    <li>
-                                        <h4><a href="#">Lorem Ipsum Dolor Sit Amet</a></h4>
-                                        <p>Nam sit amet massa at lorem molestie egestas.</p>
-                                    </li>
-                                </ul>
+                                <h3 class="other">Опис проекту</h3>
+                                <p>Проект розроблено засобами Java EE і функціонує як корпоративний портал.</p>
                             </div>
                         </section>
                     </div>

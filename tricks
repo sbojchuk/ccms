@@ -109,3 +109,17 @@ public class UserService implements UserDetailsService{
 
 //in persistance.xml
     <property name="hibernate.hbm2ddl.auto" value="validate"/>
+
+
+
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+        ADMIN
+        </sec:authorize>
+
+
+
+xmlns:c="http://java.sun.com/jsp/jstl/core"
+xmlns:sec="http://www.springframework.org/security/tags"
+
+
+export MAVEN_OPTS="-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000";

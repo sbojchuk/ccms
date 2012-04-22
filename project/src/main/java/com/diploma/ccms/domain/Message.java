@@ -36,20 +36,16 @@ public class Message {
     @Size(max = 1000000)
     private String text;
 
-    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date datetime;
 
-    @NotNull
     @Value("false")
     private Boolean viewed;
 
-    @NotNull
     @ManyToOne
     private Worker fromWorker;
 
-    @NotNull
     @ManyToOne
     private Worker toWorker;
 
@@ -141,11 +137,11 @@ public class Message {
     }
 
     public static long countMessages() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM Message o", Long.class).getSingleResult();
+        return entityManager().createQuery("SELECT COUNT(o) FROM Message o WHERE o.toWorker = :toWorker and o.viewed = false", Long.class).setParameter("toWorker", Worker.getPrincipal()) .getSingleResult();
     }
 
     public static List<Message> findAllMessages() {
-        return entityManager().createQuery("SELECT o FROM Message o", Message.class).getResultList();
+        return entityManager().createQuery("SELECT o FROM Message o ORDER by o.id DESC", Message.class).getResultList();
     }
 
     public static Message findMessage(Long id) {
@@ -245,7 +241,7 @@ public class Message {
         if (toWorker == null)
             throw new IllegalArgumentException("The toWorker argument is required");
         EntityManager em = Message.entityManager();
-        TypedQuery<Message> q = em.createQuery("SELECT o FROM Message AS o WHERE o.toWorker = :toWorker", Message.class);
+        TypedQuery<Message> q = em.createQuery("SELECT o FROM Message AS o WHERE o.toWorker = :toWorker ORDER by o.id DESC", Message.class);
         q.setParameter("toWorker", toWorker);
         return q;
     }

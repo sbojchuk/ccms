@@ -26,6 +26,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -83,6 +84,10 @@ public class Worker implements UserDetails, DomainUserIntarface {
     @Lob
     private byte[] photo;
 
+    public static Worker getPrincipal(){
+        return (Worker) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    }
+    
     public String getLogin() {
         return this.login;
     }

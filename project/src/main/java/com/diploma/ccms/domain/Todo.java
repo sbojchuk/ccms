@@ -14,7 +14,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -34,36 +33,26 @@ public class Todo {
     @NotNull
     private String text;
 
-    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date enterDate;
 
     @NotNull
-    @Future
     @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dueDate;
 
-    @NotNull
     @Value("false")
     private Boolean viewed;
 
-    @NotNull
     @Value("false")
     private Boolean done;
 
-    @NotNull
     @ManyToOne
     private Worker reporter;
 
-    @NotNull
     @ManyToOne
     private Worker assignee;
-
-    @NotNull
-    @ManyToOne
-    private TodoCategory category;
 
     public String getTitle() {
         return this.title;
@@ -129,14 +118,6 @@ public class Todo {
         this.assignee = assignee;
     }
 
-    public TodoCategory getCategory() {
-        return this.category;
-    }
-
-    public void setCategory(TodoCategory category) {
-        this.category = category;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -173,11 +154,11 @@ public class Todo {
     }
 
     public static long countTodoes() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM Todo o", Long.class).getSingleResult();
+        return entityManager().createQuery("SELECT COUNT(o) FROM Todo o WHERE o.assignee = :assignee AND o.done = false", Long.class).setParameter("assignee", Worker.getPrincipal()).getSingleResult();
     }
 
     public static List<Todo> findAllTodoes() {
-        return entityManager().createQuery("SELECT o FROM Todo o", Todo.class).getResultList();
+        return entityManager().createQuery("SELECT o FROM Todo o WHERE o.assignee = :assignee ORDER by o.id DESC", Todo.class).setParameter("assignee", Worker.getPrincipal()).getResultList();
     }
 
     public static Todo findTodo(Long id) {

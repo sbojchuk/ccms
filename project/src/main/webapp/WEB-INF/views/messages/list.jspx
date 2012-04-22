@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
-	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-	<jsp:directive.page contentType="text/html;charset=UTF-8" />
-	<jsp:output omit-xml-declaration="yes" />
-	<page:list id="pl_com_diploma_ccms_domain_Message" items="${messages}"
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core"
+xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+ xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+ <jsp:directive.page contentType="text/html;charset=UTF-8" />
+ <jsp:output omit-xml-declaration="yes" />
+ <!-- <page:list id="pl_com_diploma_ccms_domain_Message" items="${messages}"
 		z="bag9+3zmQRoO4m+92HdY1ks+TAo=">
 		<table:table data="${messages}" id="l_com_diploma_ccms_domain_Message"
 			path="/messages" z="MC/5h0dncbVCLhdN2YcR9/qNSpc=">
@@ -23,5 +23,60 @@
 			<table:column id="c_com_diploma_ccms_domain_Message_toWorker"
 				property="toWorker" z="AK8miJk6ykht7rdmGmFjzGnBQuw=" />
 		</table:table>
-	</page:list>
+	</page:list> -->
+
+
+ <!-- Main Section -->
+
+ <section class="main-section grid_7">
+
+  <div class="main-content grid_4 alpha">
+   <header>
+    <c:if test="${not empty info}">
+       <div class="message info">
+          ${info}   
+       </div>
+    </c:if>
+    
+    <h2>Private Messages</h2>
+   </header>
+   <section>
+    <ul class="listing list-view">
+
+     <c:forEach items="${messages}" var="message">
+     <c:set value="" var="unread"/>
+       <c:if test="${message.viewed eq false}"><c:set value="unread" var="unread"/></c:if>
+     <li class="note ${unread}"> 
+      <a class="more" href="/ccms/messages/get_mail?id=${message.id}"><!--  --></a> <span class="timestamp">${message.datetime}</span> <b>${message.title}</b>
+       <p>${fn:substring(message.text, 0, 20)}...</p>
+       <div class="entry-meta">Send from <a href="/ccms/workers/${message.fromWorker.id}">${message.fromWorker.name} ${message.fromWorker.surname}</a></div></li>
+     </c:forEach>
+
+
+    </ul>
+    <!--<ul class="pagination clearfix">
+                                <li><a href="#" class="button-blue">prev</a></li>
+                                <li><a href="#" class="current button-blue">1</a></li>
+                                <li><a href="#" class="button-blue">2</a></li>
+                                <li><a href="#" class="button-blue">3</a></li>
+                                <li><a href="#" class="button-blue">next</a></li>
+                            </ul> -->
+   </section>
+  </div>
+
+  <div class="preview-pane grid_3 omega">
+   <div class="content">
+    <h3>Preview Pane</h3>
+    <p>This is the preview pane. Click on the more button on an item to view more information.</p>
+   </div>
+   <div class="preview"></div>
+  </div>
+
+ </section>
+
+ <!-- Main Section End -->
+
+
+
+
 </div>

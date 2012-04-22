@@ -2,6 +2,7 @@ package com.diploma.ccms.web.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,9 +17,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
+import sun.security.acl.WorldGroupImpl;
+
+import com.diploma.ccms.domain.Message;
 import com.diploma.ccms.domain.Todo;
 import com.diploma.ccms.domain.TodoCategory;
 import com.diploma.ccms.domain.Worker;
@@ -31,11 +36,15 @@ public class TodoController {
     public String create(@Valid Todo todo, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, todo);
-            return "todoes/create";
+            return "redirect:/todoes/";
         }
         uiModel.asMap().clear();
+        todo.setAssignee(Worker.getPrincipal());
+        todo.setEnterDate(new Date());
+        todo.setReporter(Worker.getPrincipal());
         todo.persist();
-        return "redirect:/todoes/" + encodeUrlPathSegment(todo.getId().toString(), httpServletRequest);
+        uiModel.addAttribute("menu", "TODO");
+        return "redirect:/todoes/";// + encodeUrlPathSegment(todo.getId().toString(), httpServletRequest);
     }
 
     @RequestMapping(params = "form", produces = "text/html")
@@ -52,6 +61,7 @@ public class TodoController {
             dependencies.add(new String[] { "todocategory", "todocategorys" });
         }
         uiModel.addAttribute("dependencies", dependencies);
+        uiModel.addAttribute("menu", "TODO");
         return "todoes/create";
     }
 
@@ -65,16 +75,17 @@ public class TodoController {
 
     @RequestMapping(produces = "text/html")
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        if (page != null || size != null) {
-            int sizeNo = size == null ? 10 : size.intValue();
-            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("todoes", Todo.findTodoEntries(firstResult, sizeNo));
-            float nrOfPages = (float) Todo.countTodoes() / sizeNo;
-            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
-        } else {
-            uiModel.addAttribute("todoes", Todo.findAllTodoes());
-        }
+//        if (page != null || size != null) {
+//            int sizeNo = size == null ? 10 : size.intValue();
+//            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
+//            uiModel.addAttribute("todoes", Todo.findTodoEntries(firstResult, sizeNo));
+//            float nrOfPages = (float) Todo.countTodoes() / sizeNo;
+//            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+//        } else {
+        uiModel.addAttribute("todoes", Todo.findAllTodoes()); 
+//        }
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("menu", "TODO");
         return "todoes/list";
     }
 
@@ -86,6 +97,7 @@ public class TodoController {
         }
         uiModel.asMap().clear();
         todo.merge();
+        uiModel.addAttribute("menu", "TODO");
         return "redirect:/todoes/" + encodeUrlPathSegment(todo.getId().toString(), httpServletRequest);
     }
 
@@ -103,6 +115,7 @@ public class TodoController {
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
+        uiModel.addAttribute("menu", "TODO");
         return "redirect:/todoes";
     }
 
@@ -129,4 +142,24 @@ public class TodoController {
         }
         return pathSegment;
     }
+    
+    
+    @RequestMapping(value = "/get_todo", method = RequestMethod.GET)
+    @ResponseBody
+    public String getTodo(@RequestParam("id") String id) {
+        Todo todo = Todo.findTodo(Long.valueOf(id));
+        return todo.getText();
+    }
+    
+    /**mark todo in done or not done mode
+     * @param id
+     */
+    @RequestMapping(value = "/done", method = RequestMethod.GET)
+    public String done(@RequestParam("id") String id) {
+        Todo todo = Todo.findTodo(Long.valueOf(id));
+        todo.setDone(!todo.getDone());
+        todo.merge();
+        return "redirect:/todoes/";
+    }
+    
 }

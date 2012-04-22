@@ -1,10 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+ xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
-	<page:list id="pl_com_diploma_ccms_domain_Note" items="${notes}"
+ 
+  <!-- Main Section -->
+
+ <section class="main-section grid_7">
+
+  <div class="main-content grid_4 alpha">
+   <header>
+    <c:if test="${not empty info}">
+       <div class="message info">
+          ${info}   
+       </div>
+    </c:if>
+    
+    <h2>Private Notes</h2>
+   </header>
+   <section>
+    <ul class="listing list-view">
+
+     <c:forEach items="${notes}" var="note">
+     <li class="note"> 
+      <a class="more" href="/ccms/notes/get_note?id=${note.id}"><!--  --></a> <span class="timestamp">${note.datetime}</span> <b>${note.title}</b>
+       <p>${fn:substring(note.text, 0, 20)}...</p>
+       <div class="entry-meta"><!--  --></div></li>
+     </c:forEach>
+
+
+    </ul>
+    <!--<ul class="pagination clearfix">
+                                <li><a href="#" class="button-blue">prev</a></li>
+                                <li><a href="#" class="current button-blue">1</a></li>
+                                <li><a href="#" class="button-blue">2</a></li>
+                                <li><a href="#" class="button-blue">3</a></li>
+                                <li><a href="#" class="button-blue">next</a></li>
+                            </ul> -->
+   </section>
+  </div>
+
+  <div class="preview-pane grid_3 omega">
+   <div class="content">
+    <h3>Preview Pane</h3>
+    <p>This is the preview pane. Click on the more button on an item to view more information.</p>
+   </div>
+   <div class="preview"></div>
+  </div>
+
+ </section>
+
+ <!-- Main Section End -->
+ 
+ 
+	<!-- <page:list id="pl_com_diploma_ccms_domain_Note" items="${notes}"
 		z="oPEgpCJE8LWnYvlXsIiT9Y4Zyvg=">
 		<table:table data="${notes}" id="l_com_diploma_ccms_domain_Note"
 			path="/notes" z="yTkQ/RoH4Z0vGjsp4h8UF2pHhAQ=">
@@ -19,5 +71,5 @@
 			<table:column id="c_com_diploma_ccms_domain_Note_author"
 				property="author" z="AnQ7lFbR3g9402YcDM7iuU+f6uk=" />
 		</table:table>
-	</page:list>
+	</page:list> -->
 </div>

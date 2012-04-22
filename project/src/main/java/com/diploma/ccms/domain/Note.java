@@ -35,12 +35,10 @@ public class Note {
     @Size(max = 1000000)
     private String text;
 
-    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date datetime;
 
-    @NotNull
     @ManyToOne
     private Worker author;
 
@@ -48,7 +46,7 @@ public class Note {
         if (author == null)
             throw new IllegalArgumentException("The author argument is required");
         EntityManager em = Note.entityManager();
-        TypedQuery<Note> q = em.createQuery("SELECT o FROM Note AS o WHERE o.author = :author", Note.class);
+        TypedQuery<Note> q = em.createQuery("SELECT o FROM Note AS o WHERE o.author = :author ORDER by o.id DESC", Note.class);
         q.setParameter("author", author);
         return q;
     }

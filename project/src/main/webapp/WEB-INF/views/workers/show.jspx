@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" 
+xmlns:c="http://java.sun.com/jsp/jstl/core"
+xmlns:sec="http://www.springframework.org/security/tags"
+xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
  <jsp:directive.page contentType="text/html;charset=UTF-8" />
  <jsp:output omit-xml-declaration="yes" />
 
@@ -22,7 +25,7 @@
      </h4>
     </hgroup>
     <p class="tags">
-     <a href="#">Add To Contacts</a>
+     <!-- <a href="#">Add To Contacts</a>  -->
     </p>
    </header>
 
@@ -42,16 +45,32 @@
 </style>
 
 
-    <h3>Send private message to ${worker.name} ${worker.surname}</h3>
-    <form method="post" style="width: 400px;">
-     <textarea class="markItUpTextarea" style="height: 80px; width: 100%;"><!--  --></textarea>
-     <button class="fr button button-gray">Send message</button>
+<sec:authentication var="principal_login" property="principal.login" />
+<c:choose>
+<c:when test="${worker.login eq principal_login}">
+<h3> Have a nice day ;) </h3>
+</c:when>
+<c:otherwise>
+
+<h3>Send private message to ${worker.name} ${worker.surname}</h3>
+    <form method="post" action="/ccms/messages?id=${worker.id}" style="width: 400px;">
+     
+     <field:input id="c_com_diploma_ccms_domain_Message_title" field="title" required="true" label="Title" smallLabel="" type="text"/>
+     
+     <textarea id="c_com_diploma_ccms_domain_Message_text" name="text" class="markItUpTextarea" style="height: 80px; width: 100%;" required="required"><!--  --></textarea>
+     <button class="fr button button-gray" type="submit">Send message</button>
     </form>
+
+</c:otherwise>
+</c:choose>
+
+
+    
     <div class="clear">
      <!--  -->
     </div>
-    <h3>History</h3>
-    <!-- <ul class="listing list-view">
+    <!-- <h3>History</h3>
+     <ul class="listing list-view">
      <li class="note"><a href="editnote.html" class="more"></a> <span class="timestamp">Dec 28, 2010</span>
       <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
       <div class="entry-meta">Posted by Administrator</div></li>
@@ -71,19 +90,19 @@
    <div class="content">
     <h3>${worker.name}'s contact information</h3>
     <ul class="profile-info">
-     <li class="email">${worker.privateMail}<span>email</span></li>
-     <li class="mobile">${worker.mobile}<span>mobile</span></li>
-     <li class="phone">${worker.phone}<span>work</span></li>
+     <li class="email"><c:if test="${empty worker.privateMail}">:: none ::</c:if> ${worker.privateMail}<span>email</span></li>
+     <li class="mobile"><c:if test="${empty worker.mobile}">:: none ::</c:if>${worker.mobile}<span>mobile</span></li>
+     <li class="phone"><c:if test="${empty worker.phone}">:: none ::</c:if>${worker.phone}<span>work</span></li>
     </ul>
     <!-- <h3>Tasks About John</h3>
     None so far. <a href="#">Add a task now</a>  -->
 
     <h3>Additional info</h3>
     <ul class="profile-info">
-     <li class="calendar-day">${worker.birthday}<span>birthday</span></li>
-     <li class="calendar-day">${worker.dateHire}<span>hire date</span></li>
-     <li class="building">${worker.regionName.regionName}<span>living region</span></li>
-     <li class="house">${worker.street}<span>home address</span></li>
+     <li class="calendar-day"><c:if test="${empty worker.birthday}">:: none ::</c:if>${worker.birthday}<span>birthday</span></li>
+     <li class="calendar-day"><c:if test="${empty worker.dateHire}">:: none ::</c:if>${worker.dateHire}<span>hire date</span></li>
+     <li class="building"><c:if test="${empty worker.regionName.regionName}">:: none ::</c:if>${worker.regionName.regionName}<span>living region</span></li>
+     <li class="house"><c:if test="${empty worker.street}">:: none ::</c:if>${worker.street}<span>home address</span></li>
     </ul>
    </div>
    <div class="preview">
