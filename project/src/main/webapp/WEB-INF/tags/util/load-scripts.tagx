@@ -13,12 +13,17 @@
  <link rel="stylesheet" media="screen" href="${resources_dir}/styles/messages.css" />
  <link rel="stylesheet" media="screen" href="${resources_dir}/styles/forms.css" />
  <link rel="stylesheet" media="screen" href="${resources_dir}/styles/tables.css" />
+ <link rel="stylesheet" media="screen" href="${resources_dir}/styles/fullcalendar.css" />
+ 
  
  <script src="${resources_dir}/js/jquery.tools.min.js"><!-- --></script>
  <script src="${resources_dir}/js/jquery.tables.js"><!-- --></script>
  
  <script src="${resources_dir}/js/jquery.ui.min.js"><!-- --></script>
  <script src="${resources_dir}/js/global.js"><!-- --></script>
+ 
+ <script src="${resources_dir}/js/fullcalendar.js"><!-- --></script>
+ <script src="${resources_dir}/js/gcal.js"><!-- --></script>
 
 
 <!-- markitup! -->
