@@ -330,8 +330,8 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
     public Converter<Todo, String> getTodoToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.diploma.ccms.domain.Todo, java.lang.String>() {
             public String convert(Todo todo) {
-                return new StringBuilder().append(todo.getTitle()).append(" ").append(todo.getText()).append(" ").append(todo.getEnterDate()).append(" ")
-                        .append(todo.getDueDate()).toString();
+                return new StringBuilder().append(todo.getTitle()).append(" ").append(todo.getText()).append(" ").append(todo.getStart()).append(" ")
+                        .append(todo.getEnd()).toString();
             }
         };
     }

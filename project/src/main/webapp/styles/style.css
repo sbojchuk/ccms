@@ -657,6 +657,14 @@ body.login {
     background: transparent url(../images/icons/tick.png) no-repeat 30px 10px;
 }
 
+.list-view > li.mail {
+    background: transparent url(../images/icons/email.png) no-repeat 30px 10px;
+}
+
+.list-view > li.todo {
+    background: transparent url(../images/icons/accept.png) no-repeat 30px 10px;
+}
+
 .list-view > li.calendar {
     background: transparent url(../images/icons/calendar.png) no-repeat 30px 10px;
 }

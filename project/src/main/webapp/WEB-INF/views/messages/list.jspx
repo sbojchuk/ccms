@@ -46,7 +46,7 @@ xmlns:fn="http://java.sun.com/jsp/jstl/functions"
      <c:forEach items="${messages}" var="message">
      <c:set value="" var="unread"/>
        <c:if test="${message.viewed eq false}"><c:set value="unread" var="unread"/></c:if>
-     <li class="note ${unread}"> 
+     <li class="mail ${unread}"> 
       <a class="more" href="/ccms/messages/get_mail?id=${message.id}"><!--  --></a> <span class="timestamp">${message.datetime}</span> <b>${message.title}</b>
        <p>${fn:substring(message.text, 0, 20)}...</p>
        <div class="entry-meta">Send from <a href="/ccms/workers/${message.fromWorker.id}">${message.fromWorker.name} ${message.fromWorker.surname}</a></div></li>

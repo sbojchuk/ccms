@@ -164,8 +164,8 @@
   </c:choose>
   
    <c:choose>
-   <c:when test="${menu eq 'CALENDAR' }"><li class="active"><a class="nav-icon icon-calendar" href="#">Calendar</a></li></c:when>
-   <c:otherwise><li><a class="nav-icon icon-calendar" href="#">Calendar</a></li></c:otherwise>
+   <c:when test="${menu eq 'CALENDAR' }"><li class="active"><a class="nav-icon icon-calendar" href="/ccms/calendars">Calendar</a></li></c:when>
+   <c:otherwise><li><a class="nav-icon icon-calendar" href="/ccms/calendars">Calendar</a></li></c:otherwise>
   </c:choose>
   
    <c:choose>
@@ -196,41 +196,8 @@
   </ul>
  </nav>
 
- <nav class="subnav recent">
-  <h4>Recent Contacts</h4>
-  <ul class="clearfix">
-   <li><a class="contact" href="http://themes.vivantdesigns.com/streamlined/profile.html"><h5>John Doe</h5>
-     <h6>Some Company LTD</h6></a>
-    <div class="tooltip left">
-     <span class="avatar">
-      <!-- -->
-     </span>
-     <h5>John Doe</h5>
-     <h6>Some Company LTD</h6>
-     <address>123 Some Street, LA</address>
-    </div></li>
-   <li><a class="contact" href="http://themes.vivantdesigns.com/streamlined/profile.html"><h5>Jane Roe</h5>
-     <h6>Other Company Inc.</h6></a>
-    <div class="tooltip left">
-     <span class="avatar">
-      <!-- -->
-     </span>
-     <h5>Jane Roe</h5>
-     <h6>Other Company Inc.</h6>
-     <address>456 Other Street, LA</address>
-    </div></li>
-  </ul>
- </nav>
+ <nav class="subnav recent"><!-- --></nav>
 
- <nav class="subnav">
-  <h4>Style Templates</h4>
-  <ul class="clearfix">
-   <li><a href="http://themes.vivantdesigns.com/streamlined/layouts.html">Layouts</a></li>
-   <li><a href="http://themes.vivantdesigns.com/streamlined/styles.html">Styles</a></li>
-   <li><a href="http://themes.vivantdesigns.com/streamlined/forms.html">Forms</a></li>
-   <li><a href="http://themes.vivantdesigns.com/streamlined/tables.html">Tables</a></li>
-  </ul>
- </nav>
 </aside>
 
 <!-- Sidebar End -->

@@ -111,12 +111,14 @@ public class CalendarController {
         }
         uiModel.asMap().clear();
         calendar.persist();
+        uiModel.addAttribute("menu","CALENDAR");
         return "redirect:/calendars/" + encodeUrlPathSegment(calendar.getId().toString(), httpServletRequest);
     }
 
     @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new Calendar());
+        uiModel.addAttribute("menu","CALENDAR");
         return "calendars/create";
     }
 
@@ -124,6 +126,7 @@ public class CalendarController {
     public String show(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("calendar", Calendar.findCalendar(id));
         uiModel.addAttribute("itemId", id);
+        uiModel.addAttribute("menu","CALENDAR");
         return "calendars/show";
     }
 
@@ -138,6 +141,7 @@ public class CalendarController {
         } else {
             uiModel.addAttribute("calendars", Calendar.findAllCalendars());
         }
+        uiModel.addAttribute("menu","CALENDAR");
         return "calendars/list";
     }
 
@@ -145,16 +149,19 @@ public class CalendarController {
     public String update(@Valid Calendar calendar, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, calendar);
-            return "calendars/update";
+            uiModel.addAttribute("menu","CALENDAR");
+            return "redirect:/calendars/";
         }
         uiModel.asMap().clear();
         calendar.merge();
-        return "redirect:/calendars/" + encodeUrlPathSegment(calendar.getId().toString(), httpServletRequest);
+        uiModel.addAttribute("menu","CALENDAR");
+        return "redirect:/calendars/";// + encodeUrlPathSegment(calendar.getId().toString(), httpServletRequest);
     }
 
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, Calendar.findCalendar(id));
+        uiModel.addAttribute("menu","CALENDAR");
         return "calendars/update";
     }
 
@@ -166,6 +173,7 @@ public class CalendarController {
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
+        uiModel.addAttribute("menu","CALENDAR");
         return "redirect:/calendars";
     }
 

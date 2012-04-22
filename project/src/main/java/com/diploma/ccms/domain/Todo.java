@@ -1,5 +1,6 @@
 package com.diploma.ccms.domain;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +24,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.transaction.annotation.Transactional;
 
+import flexjson.JSONSerializer;
+
 @Entity
 @Configurable
 public class Todo {
@@ -35,12 +38,12 @@ public class Todo {
 
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
-    private Date enterDate;
+    private Date start;
 
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date dueDate;
+    private Date end;
 
     @Value("false")
     private Boolean viewed;
@@ -70,20 +73,20 @@ public class Todo {
         this.text = text;
     }
 
-    public Date getEnterDate() {
-        return this.enterDate;
+    public Date getStart() {
+        return this.start;
     }
 
-    public void setEnterDate(Date enterDate) {
-        this.enterDate = enterDate;
+    public void setStart(Date enterDate) {
+        this.start = enterDate;
     }
 
-    public Date getDueDate() {
-        return this.dueDate;
+    public Date getEnd() {
+        return this.end;
     }
 
-    public void setDueDate(Date dueDate) {
-        this.dueDate = dueDate;
+    public void setEnd(Date dueDate) {
+        this.end = dueDate;
     }
 
     public Boolean getViewed() {
@@ -215,5 +218,30 @@ public class Todo {
 
     public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
+    
+    public String toJson() {
+        return new JSONSerializer().exclude("*.class").serialize(this);
+    }
+    
+    public static String toJsonArray(Collection<Todo> collection) {
+        return new JSONSerializer().exclude("*.class").serialize(collection);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }

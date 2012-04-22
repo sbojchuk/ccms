@@ -4,7 +4,117 @@
 	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
-	<page:list id="pl_com_diploma_ccms_domain_Calendar"
+	
+ 
+ 
+ 
+ <script type='text/javascript'> 
+ 
+ $(document).ready(function() {
+ 
+  var date = new Date();
+  var d = date.getDate();
+  var m = date.getMonth();
+  var y = date.getFullYear();
+  $.post('/ccms/todoes/get_tasks_json', function(events) {
+      
+      $('#calendar').fullCalendar({
+          header: {
+           left: 'prev,next today',
+           center: 'title',
+           right: 'month,agendaWeek,agendaDay'
+          },
+          editable: false,
+          events: [
+   				{
+   					title: 'All Day Event',
+   					start: new Date(y, m, 1)
+   				},
+   				{
+   					title: 'Long Event',
+   					start: new Date(y, m, d-5),
+   					end: new Date(y, m, d-2)
+   				},
+   				{
+   					id: 999,
+   					title: 'Repeating Event',
+   					start: new Date(y, m, d-3, 16, 0),
+   					allDay: false
+   				},
+   				{
+   					id: 999,
+   					title: 'Repeating Event',
+   					start: new Date(y, m, d+4, 16, 0),
+   					allDay: false
+   				},
+   				{
+   					title: 'Meeting',
+   					start: new Date(y, m, d, 10, 30),
+   					allDay: false
+   				},
+   				{
+   					title: 'Lunch',
+   					start: new Date(y, m, d, 12, 0),
+   					end: new Date(y, m, d, 14, 0),
+   					allDay: false
+   				},
+   				{
+   					title: 'Birthday Party',
+   					start: new Date(y, m, d+1, 19, 0),
+   					end: new Date(y, m, d+1, 22, 30),
+   					allDay: false
+   				},
+   				{
+   					title: 'Click for Google',
+   					start: new Date(y, m, 28),
+   					end: new Date(y, m, 29),
+   					url: 'http://google.com/'
+   				}
+   			],
+         });
+    });
+  
+ });
+ 
+ </script> 
+ 
+ 
+ 
+ 
+ 
+ <!-- Main Section -->
+
+                <section class="main-section grid_7">
+
+                    <div class="main-content">
+                        <header>
+                            <ul class="action-buttons clearfix fr">
+                                <li><a href="documentation/index.html" class="button button-gray no-text help" rel="#overlay"><span class="help"></span></a></li>
+                            </ul>
+                            <h2>
+                                Task Calendar
+                            </h2>
+                        </header>
+                        <section>
+                            <div id='calendar' style='font-size:13px'></div> 
+                        </section>
+                    </div>
+
+                </section>
+
+                <!-- Main Section End -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <!-- <page:list id="pl_com_diploma_ccms_domain_Calendar"
 		items="${calendars}" z="GkMNK6V7J2zMTBQhO0n/FXRBavw=">
 		<table:table data="${calendars}"
 			id="l_com_diploma_ccms_domain_Calendar" path="/calendars"
@@ -18,5 +128,5 @@
 			<table:column id="c_com_diploma_ccms_domain_Calendar_WorkerName"
 				property="workerName" z="ZwCG3gjmYdC+s2+JBueXQ3EeLFQ=" />
 		</table:table>
-	</page:list>
+	</page:list> -->
 </div>

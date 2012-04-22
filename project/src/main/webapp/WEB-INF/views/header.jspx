@@ -63,7 +63,7 @@
                                       <textarea type="text" name="text" id="c_com_diploma_ccms_domain_Todo_text" required="required" ><!-- --></textarea>
                                       <br/>
                                       Due date complete<br/>
-                                      <field:input field="dueDate" id="c_com_diploma_ccms_domain_Todo_dueDate" required="true" label="" smallLabel="mm/dd/yyyy" type="date"/>
+                                      <field:input field="end" id="c_com_diploma_ccms_domain_Todo_dueDate" required="true" label="" smallLabel="mm/dd/yyyy" type="date"/>
                                       <hr/>
                                       <button type="submit" class="button button-orange">Add task</button>
                                       <button type="reset" class="button button-gray close">Cancel</button>
