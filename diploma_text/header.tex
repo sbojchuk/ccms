@@ -44,19 +44,6 @@ vpadding=5mm %відстань до рамки зліва, справа
 % для абзацу %
 \usepackage{indentfirst}
 
-% code highlighting %
-\usepackage{listings}
-\lstset{
-language=Java,
-basicstyle=\footnotesize\sffamily,
-numbers=left,
-numberstyle=\tiny,
-frame=tb,
-columns=fullflexible,
-showstringspaces=false,
-breaklines=true 
-}
-
 % automaticaly wrap to other line
 \sloppy
 \usepackage{setspace}
@@ -94,3 +81,15 @@ breaklines=true
 %%% для розриву таблиць 
 \usepackage{longtable}
 \usepackage[]{caption} % table caption in center
+
+\usepackage{listings}
+\usepackage{listings}
+\usepackage{color}
+ 
+\lstset{ %
+  basicstyle=\ttfamily\footnotesize,           % the size of the fonts that are used for the code 
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  keywordstyle=\bf{},          % keyword style
+  commentstyle=\em{},       % comment style
+}

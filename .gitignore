@@ -11,9 +11,9 @@
 project/.springBeans
 
 #exclude latex generated log and other files
-diploma_text/document.aux
-diploma_text/document.log
-diploma_text/document.toc
+document.aux
+document.log
+document.toc
 
 #exclude before normal commit
 #project
