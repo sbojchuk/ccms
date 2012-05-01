@@ -70,13 +70,7 @@
 \par Потрібно бути впевненим, що використовується кількість рядків строго більше ніж одиниця, тому що у випадку із одиницею слід використовувати відношення один-до-багатьох (1:n).
 \par Розглянемо приклад, який зберігає країни в одну таблицю і мови в іншу таблицю. Є країни в світі, де більш ніж одна офіційний мова, і відповідно є випадки коли говорять одною мовою більш ніж в одній країні. Саме для цього призначене відношення багато-до-багатьох. 
 \par Приклад створення такої бази даних продемонстрований нище:
-
-\begin{lstlisting}
-<c:choose>
-<c:when test="${menu eq 'NOTE' }"><li class="active"><a class="nav-icon icon-note" href="/ccms/notes">Notes</a></li></c:when>
-<c:otherwise><li><a class="nav-icon icon-note" href="/ccms/notes">Notes</a></li></c:otherwise>
-</c:choose>
-\end{lstlisting}
+\lstinputlisting[language=SQL]{code/one-to-many.sql}
 
 \par Реалізація такої структури таблиць зображено на рисунку \ref{pic:many_to_many.png}.
 \begin{figure}[!ht]

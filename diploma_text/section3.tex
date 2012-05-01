@@ -58,10 +58,64 @@ CREATE TABLE `worker` (
 		\includegraphics[width=1.00\textwidth]{page_main.png}
 		\captionof{figure}{Загальний інтерфейс програмного продукту}\label{pic:page_main}
 \end{figure}
+\par Весь інтерфейс сайту поділяється на три основні компоненти: головний блок, навігаційна панель, головне меню. Для зручності розробки цих компонентів використано Apache Tiles, що дає змогу поділяти код на логічні одиниці.
+\begin{lstlisting}
+<body>
+ <div id="wrapper">
+  <header>
+   <tiles:insertAttribute name="header" ignore="true" />
+  </header>
+  <section>
+   <div class="container_8 clearfix">
+    <tiles:insertAttribute name="menu" ignore="true" />
+    <tiles:insertAttribute name="body" />
+   </div>
+   <div id="push"><!-- --></div>
+  </section>
+ </div>
+  <footer>
+   <tiles:insertAttribute name="footer" ignore="true" />
+  </footer>
+ <div class="apple_overlay black" id="overlay">
+  <a class="close"></a>
+  <iframe class="contentWrap" style="width: 100%; height: 500px"></iframe>
+ </div>
+ <div style="display: none; position: absolute;" id="calroot">
+  <div id="calhead">
+   <a id="calprev"></a>
+   <div id="caltitle"></div>
+   <a id="calnext"></a>
+  </div>
+  <div id="calbody">
+   <div id="caldays">
+    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+   </div>
+   <div id="calweeks">
+    <!--   -->
+   </div>
+  </div>
+ </div>
+</body>
+\end{lstlisting}
+
 
 
 \subsubsection{Навігаційна панель}
 \par На навігаційній панелі розташовані елементи швидкого доступу до завдань та задач.
+З легкістю можна додати будь-яке завдання, при чому вибрати заголовок завдання, детальний опис та кінцевий час виконання (рисунок \ref{pic:page_navigation_new_task});
+\begin{figure}[!ht]
+\centering
+    \includegraphics[width=0.3\textwidth]{page_navigation_new_task.png}
+    \captionof{figure}{Приклад створення завдання із навігаційної панелі}\label{pic:page_navigation_new_task}
+\end{figure}
+\par Для зручності навігаційна панель рухається разом із прокруткою сторінки, тобто якщо навіть користувач перейде в низ сторінки, то йому панель буде завжди доступна -- це зроблено для простоти і швидкості доступу до створення нової нотатки та завдання.
+\par Справа на навігаційній панелі розташовано меню користувача. Тут знаходяться кнопки переходу на профіль робочого та кнопка виходу із сайту (рисунок \ref{pic:page_navigation_profile}). Після виходу всі дані, які збережені в сесії будуть видалені.
+\begin{figure}[!ht]
+\centering
+    \includegraphics[width=0.3\textwidth]{page_navigation_profile.png}
+    \captionof{figure}{Панель користувача}\label{pic:page_navigation_profile}
+\end{figure}
+
 
 \subsubsection{Головне меню}
 \par Навігація по веб ресурсу реалізована за допомогою головного меню. В головному меню відображаються всі доступні на сайті навігаційні посилання:
@@ -80,19 +134,77 @@ CREATE TABLE `worker` (
 \begin{lstlisting}[language=Java]
 uiModel.addAttribute("menu", "NOTE");
 \end{lstlisting}
-Потім в JSP вигляді головного меню відбувається перевірка на значення поточного меню, і якщо воно сходиться із атрибутом <<menu>> то додається css клас <<active>>:
-\lstinputlisting[language=XML]{code/menu_active.jspx}
+\par Потім в JSP вигляді головного меню відбувається перевірка на значення поточного меню, і якщо воно сходиться із атрибутом <<menu>> то додається css клас <<active>> (рисунок \ref{pic:page_menu}):
+
+\begin{lstlisting}
+<c:choose>
+<c:when test="${menu eq 'NOTE' }"><li class="active"><a class="nav-icon icon-note" href="/ccms/notes">Notes</a></li></c:when>
+<c:otherwise><li><a class="nav-icon icon-note" href="/ccms/notes">Notes</a></li></c:otherwise>
+</c:choose>
+\end{lstlisting}
 
 \begin{figure}[!ht]
 \centering
-    \includegraphics[width=1.00\textwidth]{page_menu.png}
+    \includegraphics[width=0.30\textwidth]{page_menu.png}
     \captionof{figure}{Навігаційне меню порталу}\label{pic:page_menu}
 \end{figure}
+\par Відповідно до переходу на певний пункт, відбувається запит контролеру MVC, і вибірка даних із бази даних через контролер з подальшою передачею на вигляд. Для прикладу запит для запису в БД та перевірка на валідність даних:
+\begin{lstlisting}
+@RequestMapping(method = RequestMethod.POST, produces = "text/html")
+public String create(@Valid Note note, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    if (bindingResult.hasErrors()) {
+        populateEditForm(uiModel, note);
+        uiModel.addAttribute("menu", "NOTE");
+        return "redirect:/notes";
+    }
+    uiModel.asMap().clear();
+    note.setAuthor(Worker.getPrincipal());
+    note.setDatetime(new Date());
+    note.persist();
+    uiModel.addAttribute("menu", "NOTE");
+    return "redirect:/notes";
+}
+\end{lstlisting}
 
 
+\subsection{Робота із даними}
+\par Для маппінгу даних із форми до бази даних використовується JPA із Hibernate фреймворком поверх нього. Для кожної форми створюється певний домен (по своїй суті persistence bean), котрий за допомогою анотацій із пакету Javax дає змогу переносити об'єкти Java в базу даних (за допомогою використання мови запитів Hibernate Query Language). Для прикладу bean для запису нотаток в базу даних:
+\begin{lstlisting} 
+@Configurable
+@Entity
+public class Note {
 
+@NotNull
+private String title;
 
+@NotNull
+@Size(max = 1000000)
+private String text;
 
+@Temporal(TemporalType.TIMESTAMP)
+@DateTimeFormat(style = "M-")
+private Date datetime;
 
+@ManyToOne
+private Worker author;
+
+public static TypedQuery<Note> findNotesByAuthorEquals(Worker author) {
+    if (author == null)
+        throw new IllegalArgumentException("The author argument is required");
+    EntityManager em = Note.entityManager();
+    TypedQuery<Note> q = em.createQuery("SELECT o FROM Note AS o WHERE o.author = :author ORDER by o.id DESC", Note.class);
+    q.setParameter("author", author);
+    return q;
+}
+
+public String getTitle() {
+    return this.title;
+}
+
+public void setTitle(String title) {
+    this.title = title;
+}
+\end{lstlisting}
+\par В вище наведеному коді також 
 
 
