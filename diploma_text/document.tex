@@ -13,25 +13,34 @@
 \input{header.tex}
 \input{eskdx.tex}
 
-
 \begin{document}
 %і\fontsize{14}{14pt}\selectfont
 
 %\maketitle
 
 
+\setcounter{page}{6}
 \tableofcontents
-
 
 %\section*{Вступ}
 %\addcontentsline{toc}{section}{Вступ}
 %Текст вступу
 %
 
+\section*{ПЕРЕЛІК УМОВНИХ СКОРОЧЕНЬ}
+\addcontentsline{toc}{section}{ПЕРЕЛІК УМОВНИХ СКОРОЧЕНЬ}
+\par СКБД -- Система керування базою даних
+\par API -- Application programming interface
+\par JPA -- Java Persistence API
+\par SQL -- Structured Query Language
+\par GUI -- Graphical User Interface
+\par UML -- Unified Modelling Language
+
+
 \section*{ВСТУП}
 \addcontentsline{toc}{section}{ВСТУП}
 В нас час важливою економічною точкою опори для будь-якої комерційної організації є наявність певних факторів, які визнають чітку позицію компанії на ринку. До всіх цих чинників можна віднести багато варіантів, зокрема:
-\begin{enumerate}
+\begin{itemize}
 \item капітал підприємства;
 \item матеріальна база;
 \item технічна база;
@@ -39,7 +48,7 @@
 \item місце підприємства на внутрішньому і зовнішньому ринку;
 \item наявність сучасних засобів виробництва та ведення бізнесу;
 \item та інші.
-\end{enumerate}
+\end{itemize}
 
 Тому кожний розділ ведення бізнесу повинний бути детально розглянутий та впроваджений у життя. 
 Але якщо подивитися із точки зору програмного забезпечення, то на даному етапі розвитку цивілізації, якісне ПЗ відіграє напевно найбільш важливу роль. 
@@ -60,10 +69,10 @@
 
 
 \input{section1.tex}
-\input{section2.tex}
-\input{section3.tex}
-\input{safety.tex}
+% \input{section2.tex}
+% \input{section3.tex}
 \input{economic.tex}
+\input{safety.tex}
 
 
 \section*{ВИСНОВОК}
@@ -77,7 +86,7 @@
 
 
 %%% Bibliography
-\renewcommand{\refname}{ВИКОРИСТАНІ ДЖЕРЕЛА}
+\renewcommand{\refname}{СПИСОК ПОСИЛАНЬ НА ДЖЕРЕЛА}
 \begin{thebibliography}{99}
 \bibitem{portlet2} http://www.jcp.org/en/jsr/detail?id=286 - стандарт портлетів Java Portlet 2.0
 \bibitem{portlet1} http://www.jcp.org/en/jsr/detail?id=168 - стандарт портлетів Java Portlet 1.0
@@ -88,6 +97,16 @@
 \bibitem{EAV} http://en.wikipedia.org/wiki/Entity-attribute-value\_model - EAV модель
 \end{thebibliography}
 
+\newpage
+\ESKDstyle{empty} %page without any style
+
+% \section*{ДОДАТКИ}
+% \addtocontents{toc}{\textbf{ДОДАТКИ}}
+% Додатки
+
+\section*{БІБЛІОГРАФІЧНА ДОВІДКА}
+\addtocontents{toc}{\textbf{БІБЛІОГРАФІЧНА ДОВІДКА}}
+бібліографічна довідка
+
 
 \end{document}
-
