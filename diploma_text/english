@@ -196,3 +196,10 @@ Each employee should have uninterrupted access to his account at any time.
 Authorization should be implemented understandable for every user and easily accessible.
 Office users will be controlled through administrative panel, access to that panel will have only a certain group.
 
+[Algorithm of user authorization]
+General authorization algorithm is checking the user data and return from the server generated data.
+First, server takes sent from the user name and password. Username passed by Acegi Security Controller and encrypt password in code using the algorithm SHA-256. To store data in encrypted form is very dangerous, and if the hacker will get them, he won't have any benefit because data are encrypted and inverse decrypt does not exist. Encryption at the server is through manager authorization and configured in the configuration file with the reference to the Bean with a service which is responsible for the manipulation of user data.
+
+
+[Diagram of classes]
+Relationship class "Team" and the general interface is shown in Figure ##, the rest of class working with this principle. Each class refers to a domain controller and management dependencies from other classes. Interfaces provide unification and classes connection.
