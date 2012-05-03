@@ -42,3 +42,157 @@ However, almost of them are designed mostly for large companies, and small compa
 Therefore, there was done an overview of products and highlighted the main advantages and disadvantages, also showed the current used by license of distribution software.
 
 
+[Advantages and disadvantages of current solutions]
+After analysis of current area, we can can identify several key issues that will be used to develop further software.
+Some part of the software corporate portals are developed by standards.
+All applications can easily interact with each other.
+However they have a great lack for small business, their code is closed and they have huge cost of licenses.
+Therefore, small companies (up to 100 people) simply are unable to afford such luxury.
+
+[Licensing and open API]
+It was the analysis of current products and their licenses, and found that almost 90% using proprietary solutions.
+
+...table...
+
+After some analysis, it seems, had to give small businesses the opportunity to use the product on the basis of free distribution of code, they would be better tried, and eventually invested his money, or simply buy support.
+That is, use one of the open licenses such as GNU Public License.
+
+The economic benefit of the product will be based on paid support, starting from servers selection - to set up it and product support.
+But developers can add to the overall repository their changes and fix errors that speed up the development process.
+The main development strategy is focused on rapid market research and looking for new potential customers.
+Also, much attention will be attend to the market of post Soviet republics, as currently fast grown business market, that demand is, and the proposal does not fully meet the needs.
+Portals that are developed now almost all are aimed to European and American market, and Asia also.
+So based on this, basic requirements have been allocated, as our legislation (for example, job placement workers, documentation, conversion rates, etc.) and localization services.
+Moreover, user support will be much easier and more efficient at native country than from abroad, which will give us an advantage over other existing products.
+
+Also big attention will be given to open API for connection with existing applications.
+Most of all, existing solutions are mainly based on the closed protocol and that make users to become attached to their systems and depend on them.
+Interface and the system of modern products are very heavy and multi-functional, which requires a lot of resources both sides: in user and in server.
+This aspect will be also simplified and it make product known on current market.
+
+
+[Development technology]
+Based on current standards and use of basic technologies it was decided to develop application based on Java.
+After all, Sun (now Oracle) provide main point on market of standardization for portlets, so that will be easy to adapt to current decisions.
+Of course it will be used all advantages of Java EE.
+For flexible and rapid development will be applied Spring Framework with Hibernate ORM wrapper on the top of the database MySQL.
+For the frontend UI logic is mainly used jQuery framework.
+Search will be provided by Apache Lucene.
+Backend server will run on Apache Tomcat.
+At current moment there is no plans for standardization of portlets, just maybe in the future will be highlighted this point to implement in the system.
+
+[Technical review of the product]
+Consider in more details availability of modern business solutions.
+Every company always faced the problem of accounting staff, accounting finance, document collaboration and others.
+There is a huge and essential need for the sharing of documents, corporate calendar, corporate blog, spreadsheets and information boards.
+Enterprise Portal (also known as enterprise information portal (EIP) or corporate portal) is the basis for integrating information, people and processes within an organization.
+This enables you to provide a single point of access, often as a web-interface which use for personalization of information with using specific software applications. One beig benefit of corporate portals is decentralized content making and management that is stored on a remote server and constantly updated.
+
+[Historical overview of the corporate sector]
+The mid-1990s saw the advent of public Web portals like AltaVista, AOL, Excite, and Yahoo!. These sites provided a key set of features (e.g., news, e-mail, weather, stock quotes, and search) that were often presented in self-contained boxes or portlets. Before long, enterprises of all sizes began to see a need for a similar starting place for their variety of internal repositories and applications, many of which were migrating to Web-based technologies.
+By the late 1990s, software vendors began to produce prepackaged enterprise portals. These software packages would be toolkits for enterprises to quickly develop and deploy their own customized enterprise portal. The first commercial portal software vendor began to appear in 1998. Pioneers in this marketing included "pure play" vendors like Epicentric, Plumtree Software and Viador. The space, however, quickly became crowded by 2002, with the entry into the market of competing product offerings from application server vendors (such as BEA, IBM, Passageways, Oracle Corporation and Sun Microsystems), who saw portals as an opportunity to stave off the commoditization of application server technology, and Business Intelligence vendors such as Liferay portal. Enterprises may choose to develop multiple enterprise portals based on business structure and strategic focus while reusing architectural frameworks, component libraries, or standardized project methods (e.g. B2E, B2C, B2B, B2G, etc.).
+In 2003, vendors of Java-based enterprise portals produced a standard known as JSR-168. It was to specify an API for interoperability between enterprise portals and portlets. Software vendors began producing JSR-168 compliant portlets that can be deployed onto any JSR-168 compliant enterprise portal. The second iteration of the standard, JSR-286, is final-released on 12 Jun, 2008.
+
+[Portlets]
+Portlets are pluggable user interface software components that are managed and displayed in a web portal. Portlets produce fragments of markup code that are aggregated into a portal. Typically, following the desktop metaphor, a portal page is displayed as a collection of non-overlapping portlet windows, where each portlet window displays a portlet. Hence a portlet (or collection of portlets) resembles a web-based application that is hosted in a portal. Some examples of portlet applications are email, weather reports, discussion forums, and news.
+Portlet standards are intended to enable software developers to create portlets that can be plugged in to any portal supporting the standards.
+
+[Content management system]
+A content management system (CMS) is a computer system that allows publishing, editing, and modifying content as well as site maintenance from a central page. It provides a collection of procedures used to manage workflow in a collaborative environment. These procedures can be manual or computer-based.
+
+[Document management system]
+A document management system (DMS) is a computer system (or set of computer programs) used to track and store electronic documents and/or images of paper documents. It is usually also capable of keeping track of the different versions modified by different users (history tracking). The term has some overlap with the concepts of content management systems. It is often viewed as a component of enterprise content management (ECM) systems and related to digital asset management, document imaging, workflow systems and records management systems.
+
+
+
+
+
+[[ALGORITHMIC OF CREATION OF CORPORATE SYSTEMS]]
+In the early development of any software much attention should be paid to system design, because it will depend on the ease and accuracy further development of system, its maintenance and improvement.
+Therefore, the design provides a main component of the software.
+Required items for a successful product launch area:
+-building a UML class diagram;
+-construction diagram of relations between objects;
+-designing the database;
+-mock-ups of the future interface;
+-clear distinction between system modules and their interactions.
+As mentioned above, primarily task is to develop the chart classes, show the relationship between objects and their role in the system and the overall interaction.
+
+[Model of system architecture]
+All work is organized on the principle of MVC pattern.
+Model-view-controller - architectural pattern used in the design and software development.
+As shown in Figure ## template divides the system into three parts: model, view and data. 
+It is used to separate data (model) of the user interface (view), so that changes have minimal impact on work with data, and changes in the data model can be made without change the user interface.
+
+The main objective of this pattern - flexible design software, which should facilitate further changes or extension programs, and enable reuse of individual components of the program.
+Also use this template in large systems provides some ordering of their structure and makes them understandable by general reducing complexity.
+
+As mentioned earlier, the architectural pattern Model View Controller (MVC) divides the program into three parts. In the triad of responsibilities to the component model (Model) is a data storage and software interface to them. View (View) responsible for the presentation of these data to the user. Controller (Controller) controls the components receiving signals as a response to user actions, and reports changes in the component model. This internal structure divide system into separate parts and allocates responsibilities among the various components.
+
+
+[Designing a database]
+The database is based on DBMS MySQL - an open system. The relationship with users is through the Model of system. There are all required data in the DB. User passwords are stored in encrypted form.
+A relational database management system (RDBMS) is a database management system (DBMS) that is based on the relational model as introduced by E. F. Codd.
+
+[InnoDB mechanism]
+InnoDB is a powerful mechanism (engine) for data storage developed by Finnish company Innobase Oy, which was acquired in 2006 by Oracle Corporation.
+Distributed under license GNU General Public License. There are all new versions of MySQL, and since version 5.5 for MySQL is default mechanism.
+
+Use InnoDB allows the use of database features such as transactions, foreign keys. It is also compatible with ACID.
+There are two ways to store data file or group of files that are common to all databases and tables, or a data file for each table. Other important features of InnoDB: lock on the level of lines, the possibility of data compression, and MVCC.
+
+[Relations in tables ]
+The unit of the database is table which response for data users, because it depends on it most of the tables. For example, a message or task.
+For communication between the tables use foreign keys. Foreign key is an attribute (set of attributes) in some respects "R", which corresponds to the primary key of another relation or of the same relation "R".
+
+[Database architecture]
+As mentioned above almost all based on respect for table "users". The relation should be based on the model of "one-to-many". The general model of databases shown in Figure ##.
+
+As shown in the picture - all tables in the database are connected. Table "users" links to table documents, comments, blogs, calendars, teams, regions, type of work, wiki, tasks and messages.
+This allows user to ensure the depends of a particular category.
+For example, a user can have multiple documents or comments here and follow the relation of one-to-many.
+Also supporting tables as a category of documents, room category and wiki category tasks with their relation to the main table (for example, a category of tasks can include many tasks).
+
+
+[The external layout of the site]
+
+The basis for the user is appearance - UI (user interface) user interface.
+User Interface - a set of tools for processing and displaying information, the most adapted to convenience, in graphical user interface implemented multi-mode, change color, size, visibility (transparency, translucency, invisibility) windows, their location, sorting elements of windows, flexible configure both the windows and their separate elements (files, folders, labels, fonts, etc.), availability of multi users options.
+
+End user is don't want to know what is doing inside the program - that's why developing a model of the future project, in our case - a mock of web interface.
+Mock-up of interface is built in the usual graphic editor. The main goal of this design is the maximum display all the graphics features of the future work site. Future site layout, including the front page shown in Figure ##.
+
+The figure ##, which shows the layout of the site can clearly see that the navigation menu is located above the site. This menu should always be available to the user, so it will always move, no matter whether user is: the bottom or top, this bar is always available and the follow the user's actions. There should be placed a quick navigation buttons, such as rapid creation of a task or notes.
+
+Navigational bar is available to the left of all. On this panel are placed all project navigation items. Depending on where user is now, it should highlight the current menu item.
+
+User account is placed right in the navigation bar. It should include all the information to control the current user: exit from site, link to profile, private settings.
+
+
+[Project structure]
+After building the database structure and general layout of the site, we should start the development of the server - the site structure. The whole project is based on work of Java EE and on the top of it is Spring framework .
+
+[Sequence diagram]
+Chart sequence - in UML, a sequence diagram which shows the interaction of objects which are arranged in time. Specifically, these charts represent involved objects and the sequence of messages sent.
+
+Sequence diagram shown as vertical lines of different processes or objects that exist at the same time. Sent messages are displayed as horizontal lines in the order sent.
+
+Defined standard UML 2.0 diagrams sequences have the same opportunities as defined by standard UML 1.x, and have additional re-default order messages.
+
+Diagram of relationships to selection of the database data and their formation are shown in Figure ##.
+
+
+[Authorization and Authentication]
+The basis of any corporate system is user management.
+That's why should to develop the full range of user interaction. This should include the following important aspects:
+-ability to authorize users;
+-user roles;
+-storing data in encrypted form;
+-clear distribution of user rights;
+-easy connecting between users;
+-ability to integrate with other system services.
+
+Each employee should have uninterrupted access to his account at any time.
+Authorization should be implemented understandable for every user and easily accessible.
+Office users will be controlled through administrative panel, access to that panel will have only a certain group.
+
