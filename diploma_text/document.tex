@@ -69,11 +69,11 @@
 Як відомо, на ринку до цих пір зберігається тенденція на попит на корпоративне програмне забезпечення, яке б відповідало вимогам малого і середнього бізнесу, і в той же час було практично придатним для використання у великих корпоративних цілях
 
 
-% \input{section1.tex}
-% \input{section2.tex}
-% \input{section3.tex}
-% \input{economic.tex}
-% \input{safety.tex}
+\input{section1.tex}
+\input{section2.tex}
+\input{section3.tex}
+\input{economic.tex}
+\input{safety.tex}
 
 
 \section*{ВИСНОВКИ}
@@ -116,9 +116,8 @@
 
 \section*{ДОДАТОК А}
 
-\newcommand\mycontinue{\noindent\makebox[\linewidth][r]{Продовження додатку А}}
-
-\mycontinue
+\newcommand\mycontinue{\noindent\makebox[\linewidth][r]{{Продовження додатку А}}\afterpage{\mycontinue}}
+\afterpage{\mycontinue}
 
 
 
@@ -144,7 +143,7 @@
 \lstinputlisting[language=Java]{code/show.jspx}
 
 
-% \let\mycontinue\relax % disable text
+\let\mycontinue\relax % disable text
 
 \section*{БІБЛІОГРАФІЧНА ДОВІДКА}
 \addcontentsline{toc}{section}{БІБЛІОГРАФІЧНА ДОВІДКА}
