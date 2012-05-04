@@ -6,8 +6,11 @@ nocolumnxxxi,
 nocolumnxxxii,
 floatsection, %підпис плаваючих об'єктів згдіно номера розліду (таблиці, рисунки)
 hpadding=5mm, %відстань до рамки зліва, справа
-vpadding=5mm %відстань до рамки зліва, справа
+vpadding=5mm, %відстань до рамки зліва, справа
+a4paper
 ]{eskdtext}
+
+\special{papersize=210mm,297mm}
 
 %%% for working with math
 %\usepackage{amsmath}
@@ -105,3 +108,7 @@ vpadding=5mm %відстань до рамки зліва, справа
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % add dots to all table of contents
 
 \usepackage{eskdtotal}
+
+\usepackage{afterpage}
+
+\usepackage{scrpage2}

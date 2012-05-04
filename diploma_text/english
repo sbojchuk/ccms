@@ -203,3 +203,76 @@ First, server takes sent from the user name and password. Username passed by Ace
 
 [Diagram of classes]
 Relationship class "Team" and the general interface is shown in Figure ##, the rest of class working with this principle. Each class refers to a domain controller and management dependencies from other classes. Interfaces provide unification and classes connection.
+
+
+[SOFTWARE IMPLEMENTATION SYSTEMS TO MANAGE USER, DOCUMENTS, TASKS AND POSSIBILITIES OF WORKING TOGETHER]
+
+[The implementation of the database]
+The overall structure of the database is shown in Figure ##. The whole code for creating a database implemented by language SQL with using queries to the database.
+
+External links created by using command Reference.
+Links to other tables on a web interface implemented using the drop-down menu - it gives the opportunity to provide input data and helps to display existing database records.
+
+For example, we will use form for a new user and region selection, that is shown in Figure ##.
+
+[Implementation of a Web interface]
+
+User web interface should be easy and intuitive for each member, so it was implemented in light colours and conveniently located with all navigation elements.
+
+All site interface is divided into three main components: main block, navigation bar, the main menu. For easy development of these components used Apache Tiles, which allows You to divide the code into logical units.
+
+[The navigation panel]
+There are items located on navigation panel for quick access to notes and tasks.
+You can easily add any tasks with title, tasks and deadline (Figure ###)
+
+[Main menu]
+Web portal browsing is available via the main menu. All available links are located in the main menu:
+-home;
+-corporate mail;
+-tasks;
+-calendar;
+-notes;
+-documents;
+-list of workers;
+-corporate wiki;
+-blog.
+
+When going to any menu, it immediately highlighted - this is done for users convenience to be immediately visible where he is at some moment. It's done via the transfer of the controller attribute to model with named menu.
+
+[Working with data]
+For data mapping from the form to a database using JPA with Hibernate framework on top of it. For each form in a certain domain (essentially persistence bean). By annotations from the package Javax that bean can transfer Java objects to the database (by using the query language Hibernate Query Language).
+
+
+[Categories of portal]
+[Authorization]
+The page of authorization offers users to enter their username and password (Figure ##) and in case of invalid data will be displayed error (Figure ##)
+
+In case of entering the correct data, it will record a new session in memory and redirect user to the main page or to the page from which the visitor came.
+
+[Corporate mail]
+All letters received by the user can view in paragraph post. Opposite mail menu displays the number of unread messages (Figure ##).
+
+The message subject is shown above each message. The main message text is cut, but when clicking on the message, will be shown full panel with message. Also below message is shown the time of sending message and the sender. When you click on the sender, it redirects You to his personal page. Each unread message is marked with grey colour to make it easier to find. And on clicking, its colour became white and  number of messages that are displayed next to menu - will be reduced.
+
+Sending messages is possible from the personal page of each user. After visiting personal page, type message subject and body.
+
+[Calendar]
+Personal calendar allows you to show all notes and tasks. Viewing data in available in three possible views: per month, per week (Figure ##) and a per day.
+
+Tasks can be added as for some period or as for whole day. To manipulate entries in the calendar used technology drag & drop from jQuery.
+
+[Tasks and objectives]
+Category Task is designed to save user's tasks and opportunity to view them in the future. This allows to keep all important tasks in one place.
+
+[Users]
+List of all users is shown in the table with some set of fields. There are some manipulations available with list, such as sorting and pagination (Figure ##).
+And if the user has the administrator access - he has ability to create a new user (Figure ##)
+
+[Documents]
+This category is used to store documents for sharing, for example, it may be presentation, documents or other simple notes. To add available three categories: presentation, text documents and spreadsheets. When loading a new document to the portal, you must specify the category of the document and indicate whether the document is for general use or for personal.
+
+[Corporate wiki]
+Corporate wiki mainly designed for sharing useful information among users and has a single central repository of the possibility of any manipulation of documents. Each article has a specific category - making it easier to follow navigation and search.
+
+[Corporate blog]
+Corporate blog has something in common with the wiki, but ability to add information to it can only who has administrative rights and is permission with specific user groups. The main goal of the blog - is likely to inform workers about portal and company news.

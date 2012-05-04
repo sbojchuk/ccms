@@ -69,11 +69,11 @@
 Як відомо, на ринку до цих пір зберігається тенденція на попит на корпоративне програмне забезпечення, яке б відповідало вимогам малого і середнього бізнесу, і в той же час було практично придатним для використання у великих корпоративних цілях
 
 
-\input{section1.tex}
-\input{section2.tex}
-\input{section3.tex}
-\input{economic.tex}
-\input{safety.tex}
+% \input{section1.tex}
+% \input{section2.tex}
+% \input{section3.tex}
+% \input{economic.tex}
+% \input{safety.tex}
 
 
 \section*{ВИСНОВКИ}
@@ -104,6 +104,48 @@
 % \section*{ДОДАТКИ}
 % \addcontentsline{toc}{section}{ДОДАТКИ}
 % \par Додатки
+
+\vspace*{\fill}
+\begin{center}
+ДОДАТКИ	
+\end{center}
+\vspace*{\fill}
+
+\appendix
+\addcontentsline{toc}{section}{ДОДАТКИ}
+
+\section*{ДОДАТОК А}
+
+\newcommand\mycontinue{\noindent\makebox[\linewidth][r]{Продовження додатку А}}
+
+\mycontinue
+
+
+
+\subsection*{Домен для мапінгу даних}
+\lstinputlisting[language=Java]{code/Worker.java}
+
+\subsection*{Контроллер даних}
+\lstinputlisting[language=Java]{code/WorkerController.java}
+
+\subsection*{Сервіс для збереження даних}
+\lstinputlisting[language=Java]{code/UserService.java}
+
+\subsection*{Інтерфейс для збереження даних користувача}
+\lstinputlisting[language=Java]{code/DomainUserIntarface.java}
+
+\subsection*{Конфігурація виглядів для контролера}
+\lstinputlisting[language=Java]{code/views.xml}
+
+\subsection*{Вигляд створення для користувача}
+\lstinputlisting[language=Java]{code/create.jspx}
+
+\subsection*{Вигляд для показу даних про}
+\lstinputlisting[language=Java]{code/show.jspx}
+
+
+% \let\mycontinue\relax % disable text
+
 \section*{БІБЛІОГРАФІЧНА ДОВІДКА}
 \addcontentsline{toc}{section}{БІБЛІОГРАФІЧНА ДОВІДКА}
 {\bf ТЕМА ДИПЛОМНОГО ПРОЕКТУ: <<Розробка програмного та алгоритмічного забезпечення багатофункціональної корпоративної системи для спільної роботи, управління документами і проектами засобами Java EE>>}

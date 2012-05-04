@@ -1,0 +1,139 @@
+<?xml version=1.0 encoding=UTF-8 standalone=no?>
+<div xmlns:field=urn:jsptagdir:/WEB-INF/tags/form/fields 
+xmlns:c=http://java.sun.com/jsp/jstl/core
+xmlns:sec=http://www.springframework.org/security/tags
+xmlns:jsp=http://java.sun.com/JSP/Page xmlns:page=urn:jsptagdir:/WEB-INF/tags/form version=2.0>
+<jsp:directive.page contentType=text/html;charset=UTF-8 />
+<jsp:output omit-xml-declaration=yes />
+<!-- Main Section -->
+<section class=main-section grid_7>
+<div class=main-content grid_4 alpha>
+<header class=clearfix>
+<span class=avatar> <!--  -->
+</span>
+<hgroup>
+<h2>${worker.name} ${worker.surname}</h2>
+<h4>
+<a href=#>${worker.jobTypeName.jobTypeName}</a>
+</h4>
+</hgroup>
+<p class=tags>
+<!-- <a href=#>Add To Contacts</a>  -->
+</p>
+</header>
+<section>
+<script type=text/javascript>
+        $(document).ready(function() {
+            // Add markItUp! to your textarea in one line
+            $('.markItUpTextarea').markItUp(mySettings, {
+                root : 'markitup/skins/simple/'
+            });
+        });
+    </script>
+<style>
+.markItUp {
+width: 390px;
+}
+</style>
+<sec:authentication var=principal_login property=principal.login />
+<c:choose>
+<c:when test=${worker.login eq principal_login}>
+<h3> Have a nice day ;) </h3>
+</c:when>
+<c:otherwise>
+<h3>Send private message to ${worker.name} ${worker.surname}</h3>
+<form method=post action=/ccms/messages?id=${worker.id} style=width: 400px;>
+<field:input id=c_com_diploma_ccms_domain_Message_title field=title required=true label=Title smallLabel= type=text/>
+<textarea id=c_com_diploma_ccms_domain_Message_text name=text class=markItUpTextarea style=height: 80px; width: 100%; required=required><!--  --></textarea>
+<button class=fr button button-gray type=submit>Send message</button>
+</form>
+</c:otherwise>
+</c:choose>
+<div class=clear>
+<!--  -->
+</div>
+<!-- <h3>History</h3>
+<ul class=listing list-view>
+<li class=note><a href=editnote.html class=more></a> <span class=timestamp>Dec 28, 2010</span>
+<p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
+<div class=entry-meta>Posted by Administrator</div></li>
+<li class=note><a href=editnote.html class=more></a> <span class=timestamp>Dec 28, 2010</span>
+<p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
+<div class=entry-meta>Posted by Administrator</div></li>
+<li class=note><a href=editnote.html class=more></a> <span class=timestamp>Dec 28, 2010</span>
+<p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
+<div class=entry-meta>Posted by Administrator</div></li>
+</ul> -->
+</section>
+</div>
+<div class=preview-pane grid_3 omega>
+<div class=content>
+<h3>${worker.name}s contact information</h3>
+<ul class=profile-info>
+<li class=email><c:if test=${empty worker.privateMail}>:: none ::</c:if> ${worker.privateMail}<span>email</span></li>
+<li class=mobile><c:if test=${empty worker.mobile}>:: none ::</c:if>${worker.mobile}<span>mobile</span></li>
+<li class=phone><c:if test=${empty worker.phone}>:: none ::</c:if>${worker.phone}<span>work</span></li>
+</ul>
+<!-- <h3>Tasks About John</h3>
+None so far. <a href=#>Add a task now</a>  -->
+<h3>Additional info</h3>
+<ul class=profile-info>
+<li class=calendar-day><c:if test=${empty worker.birthday}>:: none ::</c:if>${worker.birthday}<span>birthday</span></li>
+<li class=calendar-day><c:if test=${empty worker.dateHire}>:: none ::</c:if>${worker.dateHire}<span>hire date</span></li>
+<li class=building><c:if test=${empty worker.regionName.regionName}>:: none ::</c:if>${worker.regionName.regionName}<span>living region</span></li>
+<li class=house><c:if test=${empty worker.street}>:: none ::</c:if>${worker.street}<span>home address</span></li>
+</ul>
+</div>
+<div class=preview>
+<!-- -->
+</div>
+</div>
+</section>
+<!-- Main Section End -->
+<!-- <page:show id=ps_com_diploma_ccms_domain_Worker object=${worker}
+path=/workers z=iQamgfMz7tfHSdGgWB8YCdDd83Q=>
+<field:display field=login
+id=s_com_diploma_ccms_domain_Worker_login object=${worker}
+z=4HjNYZAHZPDLTqADXwCdyd4GRAk= />
+<field:display field=pass id=s_com_diploma_ccms_domain_Worker_pass
+object=${worker} z=HYhzpM8Xx937WviE05t1DOTtIbU= />
+<field:display field=name id=s_com_diploma_ccms_domain_Worker_name
+object=${worker} z=egBKi4f8HsCgN5Ynj/jGjRUelAo= />
+<field:display field=surname
+id=s_com_diploma_ccms_domain_Worker_surname object=${worker}
+z=ES6rDyTeRfbtJ4oZ9zGg6RpkdI0= />
+<field:display field=phone
+id=s_com_diploma_ccms_domain_Worker_phone object=${worker}
+z=1VohSBGktVWKME/kgylZA99MluU= />
+<field:display field=privateMail
+id=s_com_diploma_ccms_domain_Worker_privateMail object=${worker}
+z=JZug5Vfq4gKYkQsNndLyunI+pLo= />
+<field:display field=street
+id=s_com_diploma_ccms_domain_Worker_street object=${worker}
+z=e/Rkpq+iZVtm51YsnThOISuQXRA= />
+<field:display date=true
+dateTimePattern=${worker_birthday_date_format} field=birthday
+id=s_com_diploma_ccms_domain_Worker_birthday object=${worker}
+z=EmRENzOD8cefRn6vszpdLPB3+04= />
+<field:display date=true
+dateTimePattern=${worker_datehire_date_format} field=dateHire
+id=s_com_diploma_ccms_domain_Worker_dateHire object=${worker}
+z=oQ0LtnMFcGhHLh6m2nvl4LtMrJU= />
+<field:display field=roleName
+id=s_com_diploma_ccms_domain_Worker_roleName object=${worker}
+z=wJnkS5HOd6iZ3AnuqTU07TI2wX8= />
+<field:display field=regionName
+id=s_com_diploma_ccms_domain_Worker_regionName object=${worker}
+z=obgn4zC59pMlQ8GaXlDJYjUcoGs= />
+<field:display field=teamName
+id=s_com_diploma_ccms_domain_Worker_teamName object=${worker}
+z=iRDO/HwFc7JQ+f+sLvRXQwEzBOw= />
+<field:display field=jobTypeName
+id=s_com_diploma_ccms_domain_Worker_jobTypeName object=${worker}
+z=a43X3qenfQB/KwX1hCUeDmDGIYM= />
+<field:display field=photo
+id=s_com_diploma_ccms_domain_Worker_photo object=${worker}
+z=lcI4umkwCdlmQFaIzB4gefboNPI= />
+</page:show>
+-->
+</div>

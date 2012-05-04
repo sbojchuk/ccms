@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tiles-definitions>
+<definition extends="default" name="workers/list">
+<put-attribute name="body" value="/WEB-INF/views/workers/list.jspx" />
+</definition>
+<definition extends="default" name="workers/show">
+<put-attribute name="body" value="/WEB-INF/views/workers/show.jspx" />
+</definition>
+<definition extends="default" name="workers/create">
+<put-attribute name="body" value="/WEB-INF/views/workers/create.jspx" />
+</definition>
+<definition extends="default" name="workers/update">
+<put-attribute name="body" value="/WEB-INF/views/workers/update.jspx" />
+</definition>
+<definition extends="default" name="workers/findWorkersByLoginEquals">
+<put-attribute name="body"
+value="/WEB-INF/views/workers/findWorkersByLoginEquals.jspx" />
+</definition>
+</tiles-definitions>
