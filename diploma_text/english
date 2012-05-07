@@ -159,7 +159,7 @@ Also supporting tables as a category of documents, room category and wiki catego
 The basis for the user is appearance - UI (user interface) user interface.
 User Interface - a set of tools for processing and displaying information, the most adapted to convenience, in graphical user interface implemented multi-mode, change color, size, visibility (transparency, translucency, invisibility) windows, their location, sorting elements of windows, flexible configure both the windows and their separate elements (files, folders, labels, fonts, etc.), availability of multi users options.
 
-End user is don't want to know what is doing inside the program - that's why developing a model of the future project, in our case - a mock of web interface.
+End user don't want to know what is doing inside the program - that's why developing a model of the future project, in our case - a mock of web interface.
 Mock-up of interface is built in the usual graphic editor. The main goal of this design is the maximum display all the graphics features of the future work site. Future site layout, including the front page shown in Figure ##.
 
 The figure ##, which shows the layout of the site can clearly see that the navigation menu is located above the site. This menu should always be available to the user, so it will always move, no matter whether user is: the bottom or top, this bar is always available and the follow the user's actions. There should be placed a quick navigation buttons, such as rapid creation of a task or notes.
