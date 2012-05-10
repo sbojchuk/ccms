@@ -1,0 +1,28 @@
+\select@language {ukrainian}
+\select@language {ukrainian}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Принцип роботи Pluto}}{21}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Архітектура MVC}}{34}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Відношення багато-до-багато}}{38}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Відношення один-до-багато}}{39}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Відношення один-до-одного}}{40}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Загальна схема структури бази даних}}{42}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Макет майбутнього сайту}}{43}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Архітектура Spring Framework}}{44}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Діаграма відношення запиту користувача до роботи сервера}}{47}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces UML діграма взаємодії робочих до їх команд}}{50}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Вибір регіону при створенні користувача}}{52}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Загальний інтерфейс програмного продукту}}{53}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Приклад створення завдання із навігаційної панелі}}{55}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Панель користувача}}{55}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Навігаційне меню порталу}}{56}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Форма авторизації користувача}}{59}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Помилка авторизації користувача}}{59}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Сторінка зі списком повідомлень}}{60}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Форма для відправлення повідомлень}}{61}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Завдання на тиждень}}{61}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Поточні завдання}}{62}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Список користувачів із можливістю сортування}}{63}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Створення нового користувача}}{64}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Профайл користувача}}{65}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Мережевий граф виконаних робіт}}{70}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Схема робочої кімнати - офісу}}{78}

@@ -276,3 +276,22 @@ Corporate wiki mainly designed for sharing useful information among users and ha
 
 [Corporate blog]
 Corporate blog has something in common with the wiki, but ability to add information to it can only who has administrative rights and is permission with specific user groups. The main goal of the blog - is likely to inform workers about portal and company news.
+
+
+
+[[Economic efficiency of software usage]]
+[Economic efficiency of software development and its implementation]
+In this project need to implement a corporate system for collaborative and simultaneous work of employees for some companies. 
+There will be implemented messaging system, control objectives and tasks, comfortable corporate calendar, documents collaborate of different types (text documents, presentations, etc.), the system of corporate wiki and blog.
+
+In this work is calculation of economic indicators and analysis of all development work of corporate systems.
+
+[Building a network graph]
+Network graph is the main planning document in the system network scheduling and management.
+
+For each work should be considered:
+-what work should be completed before the start;
+-what work can be started after the completion of this work;
+-what other work should be performed at the same time with this work.
+
+
