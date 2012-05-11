@@ -295,3 +295,83 @@ For each work should be considered:
 -what other work should be performed at the same time with this work.
 
 
+
+
+
+
+
+[[Economic efficiency of software development and its implementation]]
+
+
+There are many methods of determining the economic parameters of implementation and the use of mathematical and software of any diagnostic system. Considering the intensive development of computer technology, today such an analysis is an integral part.
+In this work the calculation of economic indicators and analysis of all software are done.
+
+[Construction of the network graph]
+
+Network graph is the main planning documents in the system network planning and management, featuring a dynamic information model, which portrayed the relationship and the results of all work necessary to achieve the ultimate goal of development, basicly the network graph - a visual display of the work plan.
+In the network graph detailed or enlarged is shown , in what order, when it is time for things to do to ensure completion of all work within the set, policy term.
+The order of building network graphs is defined by accepted technology and organization of work. Network graphs only reflect the existing or projected sequence and interrelationship of the work.
+For each work should be considered:
+- What work must be completed before the start of this work;
+- What work can begin after the completing of this work;
+- What other work must be performed simultaneously with the fulfillment of
+this work.
+Analyzing the network graph we can highlight its basic elements: events and work. Lets see the means of this terms detaily:
+- Event - a condition , moment of reaching  an intermediate or final objectives of 
+development.
+- Work -  stretched in time process needed for events to happen. Each work has a preliminary event and ends by defined event.
+
+
+
+
+
+
+[[Safety work]]
+
+Safety work - a system of legal, social, economic, organizational, technical, sanitary and medical preventive measures and means to preserve health and disability rights in the workplace .
+Safety work is designed to protect workers from exposure of harmful and dangerous factors and provide the most favorable conditions.
+The main goal of safety management is  - education, adoption and implementation of decisions of safety work  that would ensure safe and not harmful working conditions, health and performance of all employees during their employment 
+To fulfill the above purposes the following main tasks must be done:
+1) Ensure the recording and making available to all employees of administrative, legal, reference and educational information on health
+2) Provision of training on safety and professional selection of employees
+3) Ensure the appointment of those responsible for specific decisions on safety.
+4) Ensure the adoption and implementation of the established order of effective solutions, measures and means to support the safety.
+
+[Analysis of potential hazards and hazardous working conditions]
+
+Hazard - a factor whose influence on the Employee's under certain conditions leads to injury, acute poisoning or other sudden abrupt deterioration of health or death. Noxious factor - a factor whose influence, under certain conditions can lead to disease, reducing serviceability or negative impact on health descendants. Dangerous and harmful factors on the nature of actions (according to GOST 12.0.003-74 SSBT) divided to:
+ physical;
+ physiological;
+ chemical (toxicall, irritant affecting the reproductive function);
+ biological (macro and micro).
+Safe working conditions - the state of labor conditions under which impact on the Employee's dangerous and harmful production factors resolved, or the influence of harmful factors of production does not exceed the maximum permissible values.
+
+[Maintenance of normal working conditions]
+
+The task of  safety is to ensure normal working conditions and avoid the possibility of workers to harmful and dangerous factors. According to the basic laws and the Labour Code (st.153) responsibility for ensuring safety in the workplace is the employer.
+Working conditions - a set of factors of production environment that affect health and human performance at work .
+Items Food and wardrobe in the house are absent. WC are located on each floor - sanitary condition and their total area as normal.
+Microclimate of industrial premises – conditions of the internal environment of these areas that affect the heat exchange with the environment by working convection, thermal radiation and evaporation. These conditions are determined by a combination of temperature, relative humidity and air velocity, temperature, surrounding surfaces of man and the intensity of heat (infrared) radiation .
+
+[Ensuring safety when working with computers]
+
+The organization of workplaces held by HOST12.2.032-78 "workplace for work performed sitting. General ergonomic requirements. "
+To work independently on computers individuals are allowed who passed the medical examination, training for the profession, introductory briefing on health and primary instruction for safety in the workplace. In the future, they are repeating briefings on health in the workplace every six months, periodic medical examinations every two years.
+While working on a computer such dangerous and harmful factors can act as:
+physical;
+physiological.
+The basic equipment of a workplace computer user is a monitor, system unit and keyboard.
+Workplaces are located at a distance of 2m from the wall of windows on other walls at a distance of 1.5m, each at 3 m Relative windows workstation appropriate place so that natural light fell on his side, preferably left.
+Workplaces should be places  so you could to avoid contact with eyes by direct light. Sources of light are located on either side of the screen parallel to the direction of gaze. To avoid light glare screen keyboard in the direction of eye guide, from general lighting lamps or sunlight, used mesh, special filters, screens, protective visors, on the windows - blinds.
+Electrical installations, which include virtually all computer equipment, represent to humans a great potential danger, because in the process of operation or maintenance person can touch the parts that are under stress. The specific electrical danger: current-carrying conductors, enclosures and racks of computers, other equipment, which was energized as a result of damage (breakdown) isolation, give no signals that warn people of danger. Degree of per capita electric current depends on:
+- Type and magnitude of voltage and current;
+- The frequency of electric current;
+- The path of current flow through the human body;
+- Duration of the human body.
+
+[Fire safety and safety in emergency situations]
+
+Fire is called uncontrolled fire burning out of the special cell, which causes material damage . Fire can be caused by reasons like non-electric and electric nature, it may be: short circuit, overload, sparking a violation of isolation that leads to the heating conductors to a temperature of inflammation isolation, poor contact at the junction of wires and their high heat due to large transient electrical resistance in the flow, arcing in electrical devices and machines, as well as sparking a result of electrical discharges; badness in windings of electric machines in the absence of proper protection. Reasons for non-electric character: negligent and careless use of fire - burning, leaving unattended heating devices. Measures used for fire protection:
+- Training employees to the rules of fire safety, fire protection organization, conducting interviews, lectures and distribution of necessary instructions;
+- Correct operation of heating, ventilation and air conditioning, electrical equipment;
+- Ban on smoking in undesignated places restrictions on the use of fire.
