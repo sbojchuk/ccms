@@ -16,4 +16,5 @@ mvn tomcat:run //start tomcat
 
 [[DIPLOMA TEXT]]
 Latex document use Xelatex for compiling, there is better working with fonts
-Used also ESKDX as framework:) so great and useful. But some rewrite rules for our specs
+Used also ESKDX http://eskdx.org.ua/ as framework:) so great and useful. But some rewrite rules for our specs
+Need next libraries: texlive-xetex, texlive-latex-recommended, texlive-lang-cyrillic, texlive-latex-extra, ttf-mscorefonts-installer
