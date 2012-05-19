@@ -1,0 +1,9 @@
+\begin{figure*}
+
+\centering
+\includegraphics[width=1.00\textwidth]{mvc.png}
+\vspace{6 pt}
+\captionof{figure}{Архітектура MVC}\label{pic:mvc}
+\end{figure*}
+\efloatseparator
+ 

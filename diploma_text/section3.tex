@@ -1,9 +1,8 @@
 \section{ПРОГРАМНА РЕАЛІЗАЦІЯ СИСТЕМИ ДЛЯ УПРАВЛІННЯ КОРИСТУВАЧАМИ, ДОКУМЕНТАМИ, ЗАВДАННЯМИ І МОЖЛИВОСТІ СПІЛЬНОЇ РОБОТИ}
 \subsection{Реалізація роботи бази даних}
 \par Загальна структура бази даних зображено на рисунку \ref{pic:db_shema}. Весь код для створення бази даних реалізовано мовою SQL, за допомогою запитів до БД.
-\par Зовнішні посилання створено за допомогою команди Reference. Для прикладу код для створення таблиці користувачів (worker), котра має чотири зовнішні ключі які посилаються на таблиці команди (team), роль користувача (role\_name), тип посади (job\_type\_name) та регіон (region\_name).
+\par Зовнішні посилання створено за допомогою команди <<reference>>. Для прикладу код для створення таблиці користувачів (worker), котра має чотири зовнішні ключі які посилаються на таблиці команди (team), роль користувача (role\_name), тип посади (job\_type\_name) та регіон (region\_name) користувачів. Відповідно таким чином і реалізовано всі решта таблиць:
 
-\par Відповідно таким чином і реалізовано всі решта таблиць. Код для створення таблиці таблиці користувачів:
 \begin{lstlisting}[language=SQL]
 DROP TABLE IF EXISTS `worker`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -46,6 +45,7 @@ CREATE TABLE `worker` (
 \begin{figure}[!ht]
 \centering
     \includegraphics[width=0.5\textwidth]{page_drop_down.png}
+    \vspace{18pt}
     \captionof{figure}{Вибір регіону при створенні користувача}\label{pic:page_drop_down}
 \end{figure}
 
@@ -56,6 +56,7 @@ CREATE TABLE `worker` (
 \begin{figure}[!ht]
 \centering
 		\includegraphics[width=1.00\textwidth]{page_main.png}
+    \vspace{18pt}
 		\captionof{figure}{Загальний інтерфейс програмного продукту}\label{pic:page_main}
 \end{figure}
 \par Весь інтерфейс сайту поділяється на три основні компоненти: головний блок, навігаційна панель, головне меню. Для зручності розробки цих компонентів використано Apache Tiles, що дає змогу поділяти код на логічні одиниці.
@@ -103,16 +104,21 @@ CREATE TABLE `worker` (
 \subsubsection{Навігаційна панель}
 \par На навігаційній панелі розташовані елементи швидкого доступу до завдань та задач.
 З легкістю можна додати будь-яке завдання, при чому вибрати заголовок завдання, детальний опис та кінцевий час виконання (рисунок \ref{pic:page_navigation_new_task});
+
+\par Для зручності навігаційна панель рухається разом із прокруткою сторінки, тобто якщо навіть користувач перейде в низ сторінки, то йому панель буде завжди доступна -- це зроблено для простоти і швидкості доступу до створення нової нотатки та завдання.
+\par Справа на навігаційній панелі розташовано меню користувача. Тут знаходиться кнопка переходу на профіль робочого та кнопка виходу із сайту (рисунок \ref{pic:page_navigation_profile}). Після виходу всі дані, які збережені в сесії будуть видалені.
+
 \begin{figure}[!ht]
 \centering
     \includegraphics[width=0.3\textwidth]{page_navigation_new_task.png}
+    \vspace{18pt}
     \captionof{figure}{Приклад створення завдання із навігаційної панелі}\label{pic:page_navigation_new_task}
 \end{figure}
-\par Для зручності навігаційна панель рухається разом із прокруткою сторінки, тобто якщо навіть користувач перейде в низ сторінки, то йому панель буде завжди доступна -- це зроблено для простоти і швидкості доступу до створення нової нотатки та завдання.
-\par Справа на навігаційній панелі розташовано меню користувача. Тут знаходяться кнопки переходу на профіль робочого та кнопка виходу із сайту (рисунок \ref{pic:page_navigation_profile}). Після виходу всі дані, які збережені в сесії будуть видалені.
+
 \begin{figure}[!ht]
 \centering
     \includegraphics[width=0.3\textwidth]{page_navigation_profile.png}
+    \vspace{18pt}
     \captionof{figure}{Панель користувача}\label{pic:page_navigation_profile}
 \end{figure}
 
@@ -146,9 +152,10 @@ uiModel.addAttribute("menu", "NOTE");
 \begin{figure}[!ht]
 \centering
     \includegraphics[width=0.30\textwidth]{page_menu.png}
+    \vspace{14pt}
     \captionof{figure}{Навігаційне меню порталу}\label{pic:page_menu}
 \end{figure}
-\par Відповідно до переходу на певний пункт, відбувається запит контролеру MVC, і вибірка даних із бази даних через контролер з подальшою передачею на вигляд. Для прикладу запит для запису в БД та перевірка на валідність даних:
+\par Відповідно до переходу на певний пункт, відбувається запит контролеру MVC, і вибірка даних із бази даних через контролер з подальшою передачею на вигляд. Для прикладу запит для запису в базу даних та перевірка на валідність даних:
 \begin{lstlisting}
 @RequestMapping(method = RequestMethod.POST, produces = "text/html")
 public String create(@Valid Note note, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
@@ -205,7 +212,7 @@ public void setTitle(String title) {
     this.title = title;
 }
 \end{lstlisting}
-\par В вище наведеному коді кожне поле має свій метод на getter та setter, що дає змогу в вибірки даних, та статичний метод <<findNotesByAuthorEquals>> для пошуку повідомлень даного автора, що дає змогу в любому місці здійснити операції щодо пошуку цих повідомлень.
+\par В вище наведеному коді кожне поле має свій метод на getter та setter, що дає змогу вибірки даних, та статичний метод <<findNotesByAuthorEquals>> для пошуку повідомлень даного автора, що дає змогу в любому місці здійснити операції щодо пошуку цих повідомлень.
 
 \subsection{Категорії порталу}
 \subsubsection{Авторизація}
@@ -214,12 +221,14 @@ public void setTitle(String title) {
 \begin{figure}[!ht]
 \centering
     \includegraphics[width=0.50\textwidth]{page_login.png}
+    \vspace{18pt}
     \captionof{figure}{Форма авторизації користувача}\label{pic:page_login}
 \end{figure}
 
 \begin{figure}[!ht]
 \centering
     \includegraphics[width=0.50\textwidth]{page_login_error.png}
+    \vspace{18pt}
     \captionof{figure}{Помилка авторизації користувача}\label{pic:page_login_error}
 \end{figure}
 
@@ -230,6 +239,7 @@ public void setTitle(String title) {
   \begin{figure}[!ht]
   \centering
       \includegraphics[width=1\textwidth]{page_mail.png}
+      \vspace{18pt}
       \captionof{figure}{Сторінка зі списком повідомлень}\label{pic:page_mail}
   \end{figure}
 \par Над кожним повідомленням показано тему повідомлення. Головний текст повідомлення обрізаний, проте коли клікнути на повідомлення, збоку висунеться панель із повним описом повідомлення. Також під повідомленням показано час відправлення повідомлення та відправник повідомлення. При кліку на відправника, відбудеться перехід на його персональну сторінку. Кожне не прочитане повідомлення виділяється сирім кольором, для того щоб легше було його знайти, і при детальному перегляді його, колір забереться, і кількість повідомлень, що показуються біля меню -- буде зменшено.
@@ -237,21 +247,23 @@ public void setTitle(String title) {
   \begin{figure}[!ht]
   \centering
       \includegraphics[width=0.8\textwidth]{page_send_message.png}
+      \vspace{18pt}
       \captionof{figure}{Форма для відправлення повідомлень}\label{pic:page_send_message}
   \end{figure}
-\par Зразу також доступний wysiwyg редактор і live перегляд повідомлення яке друкується. Доставка повідомлення відбувається моментально, адже використовується локальний сервер бази даних.
+\par Зразу також доступний WYSIWYG редактор і онлайн перегляд повідомлення яке друкується. Доставка повідомлення відбувається моментально, адже використовується локальний сервер бази даних.
 
 \subsubsection{Календар}
 Персональний календар дає змогу показати всі занесені до нього нотатки та записи. Перегляд даних можливий у трьох проміжних режимах: на місяць, на тиждень (рисунок \ref{pic:page_calendar}) та на день.
   \begin{figure}[!ht]
   \centering
       \includegraphics[width=1\textwidth]{page_calendar.png}
+      \vspace{18pt}
       \captionof{figure}{Завдання на тиждень}\label{pic:page_calendar}
   \end{figure}
 \par Завдання можуть бути додані як на певний проміжний період, так і на цілий день. Для маніпуляції записів в календарі використана технологія drag \& drop від jQuery.
 
 \subsubsection{Завдання і задачі}
-\par Категорія задач створена для збереження своїх задач (\ref{pic:page_navigation_new_task}) і можливістю їх перегляду в майбутньому. Це дає змогу всі свої важливі завдання тримати в одному місці (\ref{pic:page_task}).
+\par Категорія задач створена для збереження своїх задач (рисунок \ref{pic:page_navigation_new_task}) і можливістю їх перегляду в майбутньому. Це дає змогу всі свої важливі завдання тримати в одному місці (рисунок \ref{pic:page_task}).
   \begin{figure}[!ht]
   \centering
       \includegraphics[width=0.7\textwidth]{page_task.png}
@@ -265,31 +277,30 @@ public void setTitle(String title) {
   \begin{figure}[!ht]
   \centering
       \includegraphics[width=1\textwidth]{page_workers.png}
+      \par \
       \captionof{figure}{Список користувачів із можливістю сортування}\label{pic:page_workers}
   \end{figure}
 
   \begin{figure}[!ht]
   \centering
       \includegraphics[width=0.7\textwidth]{page_create_worker.png}
+      \par \
       \captionof{figure}{Створення нового користувача}\label{pic:page_create_worker}
   \end{figure}
 
 \par Після переходу на сторінку користувача, у його профайлі буде відображена вся детальна інформація (рисунок \ref{pic:page_worker})
-  \begin{figure}[!ht]
-  \centering
-      \includegraphics[width=1\textwidth]{page_worker.png}
-      \captionof{figure}{Профайл користувача}\label{pic:page_worker}
-  \end{figure}
+  
 \par Якщо при введенні не валідних даних, або ж залишити незаповненим обов'язкове поле -- то буде повідомлена відповідна помилка, і дані не потраплять на перевірку на сервер. Якщо ж зловмиснику вдасться все ж таки обійти перевірку форми, то сам сервер не пустить додати не валідні дані до бази даних, оскільки всі дані перевіряються другий раз за допомогою binding result об'єкта та анотації @Valid:
 \begin{lstlisting}
 public String update(@Valid Worker worker, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+
 if (bindingResult.hasErrors()) {
     populateEditForm(uiModel, worker);
     uiModel.addAttribute("menu", "WORKER");
     return "workers/update";
 }
 \end{lstlisting}
-\par Якщо після проходження валідації є допущені помилка то дані назад <<повертаються>> на форму і відображається помилка. В іншому випадку, дані передадуться на модель та відбудеться запис у базу даних
+\par Якщо після проходження валідації є допущені помилки то дані назад <<повертаються>> на форму і відображається помилка. В іншому випадку, дані передадуться на модель та відбудеться запис у базу даних
 \begin{lstlisting}
 uiModel.asMap().clear();
 worker.merge();
@@ -299,6 +310,13 @@ worker.merge();
 \subsubsection{Документи}
 Дана категорія призначена для зберігання документів для їх спільного використання, для прикладу це можуть бути презентації, облікові документи чи просто інші нотатки. Для додавання доступні три категорії: презентації, текстові документи та таблиці. При завантаженні нового документа на портал, слід вказати категорію в котру повинен попасти документ, та вказати чи документ призначений для загально використання чи тільки для персонального.
 \par Всі загальні документи доступні для завантаження та можливістю подальшого перегляду.
+
+\begin{figure}[!ht]
+  \centering
+      \includegraphics[width=1\textwidth]{page_worker.png}
+      \par \
+      \captionof{figure}{Профайл користувача}\label{pic:page_worker}
+  \end{figure}
 
 \subsubsection{Корпоративна wiki}
 \par Корпоративна wiki в основному призначена для розповсюдження цікавої інформації між користувачами та являє собою єдине центральне сховище з можливість будь-якої маніпуляції документами. Кожна стаття має свою певну категорію -- що спрощує подальшу навігацію та пошук.
