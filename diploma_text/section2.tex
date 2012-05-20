@@ -130,7 +130,6 @@ CREATE TABLE users(id INTEGER PRIMARY KEY AUTO_INCREMENT, name CHAR(20), surname
 
 	\begin{center}
 		\includegraphics[width=1.00\textwidth]{db_schema.png}
-		\vspace{1pt}
 		\captionof{figure}{Загальна схема структури бази даних}\label{pic:db_shema}
 	\end{center}
 
@@ -233,7 +232,6 @@ CREATE TABLE users(id INTEGER PRIMARY KEY AUTO_INCREMENT, name CHAR(20), surname
 <http auto-config="true" use-expressions="true">
 <form-login login-processing-url="/resources/j_spring_security_check" login-page="/login" authentication-failure-url="/login?login_error=t" />
 <logout logout-url="/resources/j_spring_security_logout" />
-<!-- Configure these elements to secure URIs in your application -->
 <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 <intercept-url pattern="/login/**" access="permitAll" />
 <intercept-url pattern="/resources/**" access="permitAll" />
@@ -247,11 +245,12 @@ CREATE TABLE users(id INTEGER PRIMARY KEY AUTO_INCREMENT, name CHAR(20), surname
 \par Взаємозв'язок класу <<Команд>> і загальних інтерфейсів зображено на рисунку \ref{pic:uml}, решта класів працює за таким принципом. Кожний клас домену посилається на контролер управління та взаємозалежить від інших класів. 
 Інтерфейси забезпечують уніфікації і взаємодію класів.
 \begin{center}
-		\centering
 				\includegraphics[width=1.00\textwidth]{uml.png}
-				\vspace{18pt}
+				\vspace{8pt}
 				\captionof{figure}{UML діграма взаємодії робочих до їх команд}\label{pic:uml}
 		\end{center}
+
+
 
 
 
