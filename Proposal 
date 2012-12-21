@@ -1,0 +1,29 @@
+Hello sbojchuk!
+
+I don't know much Spring and don't know why do you preffer it to EJB. I am learning EJB.
+I think it is needed to add to Readme.txt lines to create new user in mysql and grant him access because you use user
+'root' with password 'sbojchuk' in your app. This needs the following in mysql:
+1. open command line ;
+2. using option cd navigate to bin folder where you have mysql shell, e.g.:
+> cd /d d:\mysql-5.5.27-win32\bin
+This moves you to location d:\mysql-5.5.27-win32\bin
+
+Next type :
+mysql -u root -p
+Enter password: (click Enter in case of no password)
+mysql> CREATE DATABASE ccms CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+Query OK, 1 rows affected
+mysql> create user 'root'@'localhost' identified by 'sbojchuk';
+Query OK, 0 rows affected
+mysql> grant all privileges on *.* to 'root'@'localhost';
+Query OK, 0 rows affected
+
+Next using maven build and deploy project on tomcat
+mvn eclipse:eclipse //create eclipse project
+mvn tomcat:run //start tomcat
+
+I think it will reconcile many beginners.
+
+Don't you have some sql file to fill the database with sample data so that I don't have to advise a lot before trying it out!
+
+Thank you very much!
